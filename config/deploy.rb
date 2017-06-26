@@ -9,8 +9,8 @@ set :repo_url, "git@github.com:Nikoniym/studio-k.git"
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "deploy"
 set :deploy_user, 'nik'
-set :linked_file, %w{config/database.yml}
-set :inked_dir, %w{bin log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle}
+# set :linked_file, %w{config/database.yml .env}
+# set :inked_dir, %w{bin log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle}
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
@@ -22,10 +22,10 @@ set :inked_dir, %w{bin log tmp/pids tmp/cache tmp/sockets public/system vendor/b
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_files, "config/database.yml", ".env"
 
 # Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs, "bin", "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

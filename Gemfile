@@ -52,48 +52,31 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem 'slim', '~> 3.0', '>= 3.0.7'
-
 gem 'paperclip'
-
 gem 'papercrop', '~> 0.3.0'
-
 gem 'devise'
-
 gem 'activeadmin', '~> 1.0.0.pre5'
-
 gem 'susy'
-
 gem 'compass-rails', '~> 3.0', '>= 3.0.2'
-
 gem 'light_gallery_rails'
-
 gem 'pg'
-
 gem 'dropzonejs-rails'
-
 gem 'cancancan'
-
 gem 'rolify'
-
 gem 'filterrific'
-
 gem 'bootstrap', '~> 4.0.0.alpha6'
-
 gem 'jquery-ui-rails'
-
 gem 'will_paginate'
-
 gem 'will_paginate-bootstrap4'
-
 gem 'adroit-age'
-
 gem 'remotipart' #ajax download image
-
 gem 'seed_dump'
-
 gem 'whenever'
+gem 'dotenv-rails'
+
+# gem 'dotenv-rails-deployment', requier: 'dotenv/deployment'
+
 
 group :development do
   gem 'capistrano', require: false
