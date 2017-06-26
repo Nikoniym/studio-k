@@ -1,0 +1,10 @@
+h1 My Images
+= link_to 'Вернться к альбомам', admin_albums_path
+= form_for( [@album, Image.new], html: { multipart: true, class: "dropzone"}, url: {action: "create"} ) do |f|
+  .fallback
+    = f.file_field :avatar
+    br
+    = f.submit "Upload my Avatar"
+.index
+  = render "index"
+

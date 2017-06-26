@@ -1,0 +1,12 @@
+- if @history.present?
+  table
+    - @history.each_with_index  do |table, index|
+      tr data-id="#{table.id}"
+        td = index + 1
+        td = table.day_week
+        td =  l table.date, format: :short
+        td = table.time_spending[0..4]
+        td = table.training_name
+        td = table.teacher
+  .chardin_box
+    = will_paginate @history, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

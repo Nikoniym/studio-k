@@ -1,0 +1,8 @@
+- @slides.each_with_index do |slide, index|
+  .slide data-content="content-#{index}"
+    .img-wrap
+      img.data-img src=("#{slide.image.url(:medium)}") data-sml=("#{slide.image.url(:small)}") data-med=("#{slide.image.url(:medium)}") data-lrg=("#{slide.image.url(:large)}") alt=('Слайд')
+    h2 =slide.name
+
+    button.content-switch Read more
+

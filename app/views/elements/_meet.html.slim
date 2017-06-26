@@ -1,0 +1,16 @@
+- if @meets.present?
+  .meet_wrapper
+    #minimal.meet_inner
+      .meet_container
+        h2 Мероприятия и встречи
+        - @meets.each_with_index  do |meet, index|
+          .meet_item class=('second' if index == 1)
+            .meet_img
+              = image_tag(meet.image.url(:medium))
+            .block_text
+              span.meet_date = l meet.date, format: :short
+              p = meet.description
+              span.start = meet.time_start
+    .meet_icon
+      span.meet_text встречи
+      span.meet_emblem &#xf1ae

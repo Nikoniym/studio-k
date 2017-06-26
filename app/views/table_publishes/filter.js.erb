@@ -1,0 +1,6 @@
+$(".timetable.slide_inner .content_wrapper").animate({opacity: "0"}, 500);
+setTimeout(function () {
+    $(".timetable.slide_inner .content_wrapper").html("<%= escape_javascript(render('elements/table')) %>")
+    $(".timetable.slide_inner .content_wrapper table").rowspanizer({ vertical_align: 'middle'});
+    $(".timetable.slide_inner .content_wrapper").animate({opacity: "1"}, 500);
+},500);

@@ -1,0 +1,14 @@
+/- if @table_current.present?
+h2 Запись
+table.write_table
+  -  @table_current.each do |table|
+    - if @day_const != table.day_week
+      - @day_const = table.day_week
+      tr.date_table
+        td.not = table.day_week
+        td.not = l table.date, format: :short
+    tr.info_table data-id="#{table.id}"
+      td = table.time_spending[0..4]
+      td = table.training_name
+      td = table.teacher
+      td = link_to 'удалить', remove_lesson_active_table_path(table), remote: true

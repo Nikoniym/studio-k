@@ -1,0 +1,21 @@
+
+$('.cash_count_list').html('<%= escape_javascript(render 'persons/cash_count') %>');
+$(".time_teacher tr[data-id='<%= @lesson.id %>']").replaceWith("<%= escape_javascript(render 'tr_table', locale: @color) %>");
+
+if ($(".entry_lesson tr[data-id='<%=@lesson.id %>']").prev().hasClass("date_table") && !$(".entry_lesson tr[data-id='<%=@lesson.id %>']").next().hasClass("info_table")) {
+    $(".entry_lesson tr[data-id='<%=@lesson.id %>']").prev().fadeOut(150);
+    setTimeout(function () {
+        $(".entry_lesson tr[data-id='<%=@lesson.id %>']").prev().remove()
+    }, 150);
+}
+$(".entry_lesson tr[data-id='<%=@lesson.id %>']").fadeOut(150);
+setTimeout(function () {
+    $(".entry_lesson tr[data-id='<%=@lesson.id %>']").remove()
+}, 150);
+
+tdHeight();
+
+<%  if @table_current.blank?%>
+  $(".entry_lesson h2").fadeOut();
+  $(".entry_lesson").removeClass('divider')
+<%	end %>

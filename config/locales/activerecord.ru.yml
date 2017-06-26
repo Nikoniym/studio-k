@@ -1,0 +1,13 @@
+ru:
+  activerecord:
+    models:
+      user:
+        one: 'профиль'
+        many: 'профили'
+        few:  'профилей'
+        other: 'профили'
+      slide_image: 'Слайды'
+      teacher: 'Преподаватели'
+      timetable: 'Расписание'
+      time_spending: 'Время тренировки'
+      training_name: 'Виды теренировок'

@@ -1,0 +1,8 @@
+= form_tag table_publishes_filter_path, method: "get", id: "filter", class: "filter_box", remote: true do
+  = select "publication", "category", options_for_select(TablePublish.pluck(:training_name).uniq.sort.map{|t| t}), {prompt: 'Все виды тренировок'},   onchange: "$('#filter').submit();"
+.content_wrapper
+  = render 'elements/table'
+
+
+
+

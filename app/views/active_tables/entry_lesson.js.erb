@@ -1,0 +1,22 @@
+<% if @answer %>
+  $(".entry_lesson").html("<%= escape_javascript(render('entry_lesson')) %>");
+  $('.cash_count_list').html('<%= escape_javascript(render 'persons/cash_count') %>');
+  $(".time_teacher tr[data-id='<%= @lesson.id %>']").replaceWith("<%= escape_javascript(render 'tr_table', locale: @color) %>");
+
+  $('#notice_inner').removeClass().addClass('notice_blue');
+  $('#notice_wrapper').fadeIn(200);
+  $('#notice_inner').text('<%= flash[:message]%>');
+  setTimeout(function () {  $('#notice_wrapper').fadeOut()},1500);
+
+  if (!$('.entry_lesson').hasClass("divider")) {
+      $(".entry_lesson").addClass('divider')
+  }
+
+  tdHeight();
+<% else %>
+  $('#notice_inner').removeClass().addClass('notice_red');
+  $('#notice_wrapper').fadeIn(200);
+  $('#notice_inner').text('<%= flash[:message]%>');
+  setTimeout(function () {  $('#notice_wrapper').fadeOut()},1500);
+<% end %>
+

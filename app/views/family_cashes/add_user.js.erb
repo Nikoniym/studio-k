@@ -1,0 +1,4 @@
+<% if @answer %>
+  $(".active_user tbody").append("<%= escape_javascript(render('add_user')) %>");
+
+<% end %>

@@ -1,0 +1,237 @@
+                           Prefix Verb       URI Pattern                                                  Controller#Action
+          table_publishes_publish GET        /table_publishes/publish(.:format)                           table_publishes#publish
+           table_publishes_filter GET        /table_publishes/filter(.:format)                            table_publishes#filter
+             active_tables_filter GET        /active_tables/filter(.:format)                              active_tables#filter
+                        user_root GET        /persons/profile(.:format)                                   persons#profile
+                persons_edit_user GET        /persons/edit_user(.:format)                                 persons#edit_user
+              persons_update_user PUT        /persons/update_user(.:format)                               persons#update_user
+              persons_edit_avatar GET        /persons/edit_avatar(.:format)                               persons#edit_avatar
+            persons_update_avatar PATCH      /persons/update_avatar(.:format)                             persons#update_avatar
+                   persons_avatar GET        /persons/avatar(.:format)                                    persons#avatar
+                    history_index GET        /history/index(.:format)                                     history#index
+                     album_images GET        /albums/:album_id/images(.:format)                           images#index
+                                  POST       /albums/:album_id/images(.:format)                           images#create
+                      album_image DELETE     /albums/:album_id/images/:id(.:format)                       images#destroy
+               load_gallery_album GET        /albums/:id/load_gallery(.:format)                           albums#load_gallery
+                           albums GET        /albums(.:format)                                            albums#index
+                                  POST       /albums(.:format)                                            albums#create
+                        new_album GET        /albums/new(.:format)                                        albums#new
+                       edit_album GET        /albums/:id/edit(.:format)                                   albums#edit
+                            album GET        /albums/:id(.:format)                                        albums#show
+                                  PATCH      /albums/:id(.:format)                                        albums#update
+                                  PUT        /albums/:id(.:format)                                        albums#update
+                                  DELETE     /albums/:id(.:format)                                        albums#destroy
+         load_table_active_tables GET        /active_tables/load_table(.:format)                          active_tables#load_table
+        entry_lesson_active_table GET        /active_tables/:id/entry_lesson(.:format)                    active_tables#entry_lesson
+       remove_lesson_active_table GET        /active_tables/:id/remove_lesson(.:format)                   active_tables#remove_lesson
+                    active_tables GET        /active_tables(.:format)                                     active_tables#index
+                                  POST       /active_tables(.:format)                                     active_tables#create
+                 new_active_table GET        /active_tables/new(.:format)                                 active_tables#new
+                edit_active_table GET        /active_tables/:id/edit(.:format)                            active_tables#edit
+                     active_table GET        /active_tables/:id(.:format)                                 active_tables#show
+                                  PATCH      /active_tables/:id(.:format)                                 active_tables#update
+                                  PUT        /active_tables/:id(.:format)                                 active_tables#update
+                                  DELETE     /active_tables/:id(.:format)                                 active_tables#destroy
+           new_admin_user_session GET        /admin/login(.:format)                                       active_admin/devise/sessions#new
+               admin_user_session POST       /admin/login(.:format)                                       active_admin/devise/sessions#create
+       destroy_admin_user_session DELETE|GET /admin/logout(.:format)                                      active_admin/devise/sessions#destroy
+          new_admin_user_password GET        /admin/password/new(.:format)                                active_admin/devise/passwords#new
+         edit_admin_user_password GET        /admin/password/edit(.:format)                               active_admin/devise/passwords#edit
+              admin_user_password PATCH      /admin/password(.:format)                                    active_admin/devise/passwords#update
+                                  PUT        /admin/password(.:format)                                    active_admin/devise/passwords#update
+                                  POST       /admin/password(.:format)                                    active_admin/devise/passwords#create
+                       admin_root GET        /admin(.:format)                                             admin/dashboard#index
+         batch_action_admin_meets POST       /admin/meets/batch_action(.:format)                          admin/meets#batch_action
+                      admin_meets GET        /admin/meets(.:format)                                       admin/meets#index
+                                  POST       /admin/meets(.:format)                                       admin/meets#create
+                   new_admin_meet GET        /admin/meets/new(.:format)                                   admin/meets#new
+                  edit_admin_meet GET        /admin/meets/:id/edit(.:format)                              admin/meets#edit
+                       admin_meet PATCH      /admin/meets/:id(.:format)                                   admin/meets#update
+                                  PUT        /admin/meets/:id(.:format)                                   admin/meets#update
+                                  DELETE     /admin/meets/:id(.:format)                                   admin/meets#destroy
+ batch_action_admin_active_tables POST       /admin/active_tables/batch_action(.:format)                  admin/active_tables#batch_action
+              admin_active_tables GET        /admin/active_tables(.:format)                               admin/active_tables#index
+                                  POST       /admin/active_tables(.:format)                               admin/active_tables#create
+           new_admin_active_table GET        /admin/active_tables/new(.:format)                           admin/active_tables#new
+          edit_admin_active_table GET        /admin/active_tables/:id/edit(.:format)                      admin/active_tables#edit
+               admin_active_table GET        /admin/active_tables/:id(.:format)                           admin/active_tables#show
+                                  PATCH      /admin/active_tables/:id(.:format)                           admin/active_tables#update
+                                  PUT        /admin/active_tables/:id(.:format)                           admin/active_tables#update
+                                  DELETE     /admin/active_tables/:id(.:format)                           admin/active_tables#destroy
+      batch_action_admin_teachers POST       /admin/teachers/batch_action(.:format)                       admin/teachers#batch_action
+                   admin_teachers GET        /admin/teachers(.:format)                                    admin/teachers#index
+                                  POST       /admin/teachers(.:format)                                    admin/teachers#create
+                new_admin_teacher GET        /admin/teachers/new(.:format)                                admin/teachers#new
+               edit_admin_teacher GET        /admin/teachers/:id/edit(.:format)                           admin/teachers#edit
+                    admin_teacher PATCH      /admin/teachers/:id(.:format)                                admin/teachers#update
+                                  PUT        /admin/teachers/:id(.:format)                                admin/teachers#update
+                                  DELETE     /admin/teachers/:id(.:format)                                admin/teachers#destroy
+      batch_action_admin_contents POST       /admin/contents/batch_action(.:format)                       admin/contents#batch_action
+                   admin_contents GET        /admin/contents(.:format)                                    admin/contents#index
+                                  POST       /admin/contents(.:format)                                    admin/contents#create
+                new_admin_content GET        /admin/contents/new(.:format)                                admin/contents#new
+               edit_admin_content GET        /admin/contents/:id/edit(.:format)                           admin/contents#edit
+                    admin_content PATCH      /admin/contents/:id(.:format)                                admin/contents#update
+                                  PUT        /admin/contents/:id(.:format)                                admin/contents#update
+                                  DELETE     /admin/contents/:id(.:format)                                admin/contents#destroy
+  batch_action_admin_select_boxes POST       /admin/select_boxes/batch_action(.:format)                   admin/select_boxes#batch_action
+               admin_select_boxes GET        /admin/select_boxes(.:format)                                admin/select_boxes#index
+                                  POST       /admin/select_boxes(.:format)                                admin/select_boxes#create
+             new_admin_select_box GET        /admin/select_boxes/new(.:format)                            admin/select_boxes#new
+            edit_admin_select_box GET        /admin/select_boxes/:id/edit(.:format)                       admin/select_boxes#edit
+                 admin_select_box PATCH      /admin/select_boxes/:id(.:format)                            admin/select_boxes#update
+                                  PUT        /admin/select_boxes/:id(.:format)                            admin/select_boxes#update
+                                  DELETE     /admin/select_boxes/:id(.:format)                            admin/select_boxes#destroy
+ batch_action_admin_select_cashes POST       /admin/select_cashes/batch_action(.:format)                  admin/select_cashes#batch_action
+              admin_select_cashes GET        /admin/select_cashes(.:format)                               admin/select_cashes#index
+                                  POST       /admin/select_cashes(.:format)                               admin/select_cashes#create
+            new_admin_select_cash GET        /admin/select_cashes/new(.:format)                           admin/select_cashes#new
+           edit_admin_select_cash GET        /admin/select_cashes/:id/edit(.:format)                      admin/select_cashes#edit
+                admin_select_cash PATCH      /admin/select_cashes/:id(.:format)                           admin/select_cashes#update
+                                  PUT        /admin/select_cashes/:id(.:format)                           admin/select_cashes#update
+                                  DELETE     /admin/select_cashes/:id(.:format)                           admin/select_cashes#destroy
+         batch_action_admin_users POST       /admin/users/batch_action(.:format)                          admin/users#batch_action
+                      admin_users GET        /admin/users(.:format)                                       admin/users#index
+                                  POST       /admin/users(.:format)                                       admin/users#create
+                   new_admin_user GET        /admin/users/new(.:format)                                   admin/users#new
+                  edit_admin_user GET        /admin/users/:id/edit(.:format)                              admin/users#edit
+                       admin_user GET        /admin/users/:id(.:format)                                   admin/users#show
+                                  PATCH      /admin/users/:id(.:format)                                   admin/users#update
+                                  PUT        /admin/users/:id(.:format)                                   admin/users#update
+                                  DELETE     /admin/users/:id(.:format)                                   admin/users#destroy
+        batch_action_admin_albums POST       /admin/albums/batch_action(.:format)                         admin/albums#batch_action
+                     admin_albums GET        /admin/albums(.:format)                                      admin/albums#index
+                                  POST       /admin/albums(.:format)                                      admin/albums#create
+                  new_admin_album GET        /admin/albums/new(.:format)                                  admin/albums#new
+                 edit_admin_album GET        /admin/albums/:id/edit(.:format)                             admin/albums#edit
+                      admin_album PATCH      /admin/albums/:id(.:format)                                  admin/albums#update
+                                  PUT        /admin/albums/:id(.:format)                                  admin/albums#update
+                                  DELETE     /admin/albums/:id(.:format)                                  admin/albums#destroy
+   batch_action_admin_admin_users POST       /admin/admin_users/batch_action(.:format)                    admin/admin_users#batch_action
+                admin_admin_users GET        /admin/admin_users(.:format)                                 admin/admin_users#index
+                                  POST       /admin/admin_users(.:format)                                 admin/admin_users#create
+             new_admin_admin_user GET        /admin/admin_users/new(.:format)                             admin/admin_users#new
+            edit_admin_admin_user GET        /admin/admin_users/:id/edit(.:format)                        admin/admin_users#edit
+                 admin_admin_user GET        /admin/admin_users/:id(.:format)                             admin/admin_users#show
+                                  PATCH      /admin/admin_users/:id(.:format)                             admin/admin_users#update
+                                  PUT        /admin/admin_users/:id(.:format)                             admin/admin_users#update
+                                  DELETE     /admin/admin_users/:id(.:format)                             admin/admin_users#destroy
+        batch_action_admin_cashes POST       /admin/cashes/batch_action(.:format)                         admin/cashes#batch_action
+                     admin_cashes GET        /admin/cashes(.:format)                                      admin/cashes#index
+                                  POST       /admin/cashes(.:format)                                      admin/cashes#create
+                   new_admin_cash GET        /admin/cashes/new(.:format)                                  admin/cashes#new
+                  edit_admin_cash GET        /admin/cashes/:id/edit(.:format)                             admin/cashes#edit
+                       admin_cash GET        /admin/cashes/:id(.:format)                                  admin/cashes#show
+                                  PATCH      /admin/cashes/:id(.:format)                                  admin/cashes#update
+                                  PUT        /admin/cashes/:id(.:format)                                  admin/cashes#update
+                                  DELETE     /admin/cashes/:id(.:format)                                  admin/cashes#destroy
+batch_action_admin_time_spendings POST       /admin/time_spendings/batch_action(.:format)                 admin/time_spendings#batch_action
+             admin_time_spendings GET        /admin/time_spendings(.:format)                              admin/time_spendings#index
+                                  POST       /admin/time_spendings(.:format)                              admin/time_spendings#create
+          new_admin_time_spending GET        /admin/time_spendings/new(.:format)                          admin/time_spendings#new
+         edit_admin_time_spending GET        /admin/time_spendings/:id/edit(.:format)                     admin/time_spendings#edit
+              admin_time_spending PATCH      /admin/time_spendings/:id(.:format)                          admin/time_spendings#update
+                                  PUT        /admin/time_spendings/:id(.:format)                          admin/time_spendings#update
+                                  DELETE     /admin/time_spendings/:id(.:format)                          admin/time_spendings#destroy
+     batch_action_admin_day_weeks POST       /admin/day_weeks/batch_action(.:format)                      admin/day_weeks#batch_action
+                  admin_day_weeks GET        /admin/day_weeks(.:format)                                   admin/day_weeks#index
+                                  POST       /admin/day_weeks(.:format)                                   admin/day_weeks#create
+               new_admin_day_week GET        /admin/day_weeks/new(.:format)                               admin/day_weeks#new
+              edit_admin_day_week GET        /admin/day_weeks/:id/edit(.:format)                          admin/day_weeks#edit
+                   admin_day_week GET        /admin/day_weeks/:id(.:format)                               admin/day_weeks#show
+                                  PATCH      /admin/day_weeks/:id(.:format)                               admin/day_weeks#update
+                                  PUT        /admin/day_weeks/:id(.:format)                               admin/day_weeks#update
+                                  DELETE     /admin/day_weeks/:id(.:format)                               admin/day_weeks#destroy
+    batch_action_admin_cash_sorts POST       /admin/cash_sorts/batch_action(.:format)                     admin/cash_sorts#batch_action
+                 admin_cash_sorts GET        /admin/cash_sorts(.:format)                                  admin/cash_sorts#index
+                                  POST       /admin/cash_sorts(.:format)                                  admin/cash_sorts#create
+              new_admin_cash_sort GET        /admin/cash_sorts/new(.:format)                              admin/cash_sorts#new
+             edit_admin_cash_sort GET        /admin/cash_sorts/:id/edit(.:format)                         admin/cash_sorts#edit
+                  admin_cash_sort GET        /admin/cash_sorts/:id(.:format)                              admin/cash_sorts#show
+                                  PATCH      /admin/cash_sorts/:id(.:format)                              admin/cash_sorts#update
+                                  PUT        /admin/cash_sorts/:id(.:format)                              admin/cash_sorts#update
+                                  DELETE     /admin/cash_sorts/:id(.:format)                              admin/cash_sorts#destroy
+  batch_action_admin_slide_images POST       /admin/slide_images/batch_action(.:format)                   admin/slide_images#batch_action
+               admin_slide_images GET        /admin/slide_images(.:format)                                admin/slide_images#index
+                                  POST       /admin/slide_images(.:format)                                admin/slide_images#create
+            new_admin_slide_image GET        /admin/slide_images/new(.:format)                            admin/slide_images#new
+           edit_admin_slide_image GET        /admin/slide_images/:id/edit(.:format)                       admin/slide_images#edit
+                admin_slide_image PATCH      /admin/slide_images/:id(.:format)                            admin/slide_images#update
+                                  PUT        /admin/slide_images/:id(.:format)                            admin/slide_images#update
+                                  DELETE     /admin/slide_images/:id(.:format)                            admin/slide_images#destroy
+batch_action_admin_training_names POST       /admin/training_names/batch_action(.:format)                 admin/training_names#batch_action
+             admin_training_names GET        /admin/training_names(.:format)                              admin/training_names#index
+                                  POST       /admin/training_names(.:format)                              admin/training_names#create
+          new_admin_training_name GET        /admin/training_names/new(.:format)                          admin/training_names#new
+         edit_admin_training_name GET        /admin/training_names/:id/edit(.:format)                     admin/training_names#edit
+              admin_training_name PATCH      /admin/training_names/:id(.:format)                          admin/training_names#update
+                                  PUT        /admin/training_names/:id(.:format)                          admin/training_names#update
+                                  DELETE     /admin/training_names/:id(.:format)                          admin/training_names#destroy
+                  admin_dashboard GET        /admin/dashboard(.:format)                                   admin/dashboard#index
+    batch_action_admin_timetables POST       /admin/timetables/batch_action(.:format)                     admin/timetables#batch_action
+                 admin_timetables GET        /admin/timetables(.:format)                                  admin/timetables#index
+                                  POST       /admin/timetables(.:format)                                  admin/timetables#create
+              new_admin_timetable GET        /admin/timetables/new(.:format)                              admin/timetables#new
+             edit_admin_timetable GET        /admin/timetables/:id/edit(.:format)                         admin/timetables#edit
+                  admin_timetable PATCH      /admin/timetables/:id(.:format)                              admin/timetables#update
+                                  PUT        /admin/timetables/:id(.:format)                              admin/timetables#update
+                                  DELETE     /admin/timetables/:id(.:format)                              admin/timetables#destroy
+                   admin_comments GET        /admin/comments(.:format)                                    admin/comments#index
+                                  POST       /admin/comments(.:format)                                    admin/comments#create
+                    admin_comment GET        /admin/comments/:id(.:format)                                admin/comments#show
+                                  DELETE     /admin/comments/:id(.:format)                                admin/comments#destroy
+           destroy_lesson_teacher GET        /teachers/:id/destroy_lesson(.:format)                       teachers#destroy_lesson
+            active_lesson_teacher GET        /teachers/:id/active_lesson(.:format)                        teachers#active_lesson
+      add_no_registration_teacher GET        /teachers/:id/add_no_registration(.:format)                  teachers#add_no_registration
+   remove_no_registration_teacher GET        /teachers/:id/remove_no_registration(.:format)               teachers#remove_no_registration
+                     paid_teacher GET        /teachers/:id/paid(.:format)                                 teachers#paid
+              delete_paid_teacher GET        /teachers/:id/delete_paid(.:format)                          teachers#delete_paid
+          add_user_teacher_lesson GET        /teachers/:teacher_id/lessons/:id/add_user(.:format)         lessons#add_user
+       remove_user_teacher_lesson GET        /teachers/:teacher_id/lessons/:id/remove_user(.:format)      lessons#remove_user
+                         teachers GET        /teachers(.:format)                                          teachers#index
+                                  POST       /teachers(.:format)                                          teachers#create
+                      new_teacher GET        /teachers/new(.:format)                                      teachers#new
+                     edit_teacher GET        /teachers/:id/edit(.:format)                                 teachers#edit
+                          teacher GET        /teachers/:id(.:format)                                      teachers#show
+                                  PATCH      /teachers/:id(.:format)                                      teachers#update
+                                  PUT        /teachers/:id(.:format)                                      teachers#update
+                                  DELETE     /teachers/:id(.:format)                                      teachers#destroy
+                 new_user_session GET        /users/sign_in(.:format)                                     devise/sessions#new
+                     user_session POST       /users/sign_in(.:format)                                     devise/sessions#create
+             destroy_user_session DELETE     /users/sign_out(.:format)                                    devise/sessions#destroy
+                new_user_password GET        /users/password/new(.:format)                                devise/passwords#new
+               edit_user_password GET        /users/password/edit(.:format)                               devise/passwords#edit
+                    user_password PATCH      /users/password(.:format)                                    devise/passwords#update
+                                  PUT        /users/password(.:format)                                    devise/passwords#update
+                                  POST       /users/password(.:format)                                    devise/passwords#create
+         cancel_user_registration GET        /users/cancel(.:format)                                      registrations#cancel
+            new_user_registration GET        /users/sign_up(.:format)                                     registrations#new
+           edit_user_registration GET        /users/edit(.:format)                                        registrations#edit
+                user_registration PATCH      /users(.:format)                                             registrations#update
+                                  PUT        /users(.:format)                                             registrations#update
+                                  DELETE     /users(.:format)                                             registrations#destroy
+                                  POST       /users(.:format)                                             registrations#create
+             confirm_subscription GET        /subscriptions/:id/confirm(.:format)                         subscriptions#confirm
+       select_tariff_subscription GET        /subscriptions/:id/select_tariff(.:format)                   subscriptions#select_tariff
+                paid_subscription GET        /subscriptions/:id/paid(.:format)                            subscriptions#paid
+             no_paid_subscription GET        /subscriptions/:id/no_paid(.:format)                         subscriptions#no_paid
+                    subscriptions GET        /subscriptions(.:format)                                     subscriptions#index
+                                  POST       /subscriptions(.:format)                                     subscriptions#create
+                 new_subscription GET        /subscriptions/new(.:format)                                 subscriptions#new
+                edit_subscription GET        /subscriptions/:id/edit(.:format)                            subscriptions#edit
+                     subscription GET        /subscriptions/:id(.:format)                                 subscriptions#show
+                                  PATCH      /subscriptions/:id(.:format)                                 subscriptions#update
+                                  PUT        /subscriptions/:id(.:format)                                 subscriptions#update
+                                  DELETE     /subscriptions/:id(.:format)                                 subscriptions#destroy
+                       home_index GET        /home/index(.:format)                                        home#index
+                             root GET        /                                                            home#index
+      add_user_family_family_cash GET        /families/:family_id/family_cashes/:id/add_user(.:format)    family_cashes#add_user
+   remove_user_family_family_cash GET        /families/:family_id/family_cashes/:id/remove_user(.:format) family_cashes#remove_user
+                         families GET        /families(.:format)                                          families#index
+                                  POST       /families(.:format)                                          families#create
+                       new_family GET        /families/new(.:format)                                      families#new
+                      edit_family GET        /families/:id/edit(.:format)                                 families#edit
+                           family GET        /families/:id(.:format)                                      families#show
+                                  PATCH      /families/:id(.:format)                                      families#update
+                                  PUT        /families/:id(.:format)                                      families#update
+                                  DELETE     /families/:id(.:format)                                      families#destroy

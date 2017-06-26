@@ -1,0 +1,3 @@
+class RemoteUser < User
+
+end

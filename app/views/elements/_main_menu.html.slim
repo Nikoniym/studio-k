@@ -1,0 +1,43 @@
+#mobile_menu.mobile_navigation
+  span.icon_symbol &#xe80b
+#mobile_close.mobile_navigation
+  span.icon_symbol &#xe80d
+#info_content_wrapper
+  .content_inner
+    .timetable.slide_inner.scroll
+      = render 'elements/menu_item/timetable'
+    .share_price.slide_inner
+      = render 'elements/menu_item/price'
+    .contacts.slide_inner.scroll
+      = render 'elements/menu_item/contact'
+    .gallery.slide_inner.scroll
+      = render 'elements/menu_item/gallery'
+#info_menu_wrapper
+  .info_menu
+    .navigations
+      .close_menu.icon_menu
+        span.icon_symbol &#xe80d
+        span.icon_text Закрыть
+      /.telephone.icon_menu
+      /  = link_to user_root_path do
+      /    span.icon_symbol &#xf061
+      /    span.icon_text Личный кабинет
+        /a href="tel:+79166351695"
+        /  span.icon_symbol &#xe809
+        /  span.icon_text +7(916) 635-16-95
+      .time_table.icon_menu.open_content
+        span.icon_symbol &#xe80c
+        span.icon_text Расписание
+      .share_price.icon_menu.open_content
+        span.icon_symbol &#xf158
+        span.icon_text Цены и акции
+      .contact.icon_menu.open_content
+        span.icon_symbol &#xe802
+        span.icon_text Контакты
+      .photo_galary.icon_menu.open_content.freeze
+        span.icon_symbol &#xe801
+        span.icon_text Фотогаллерея
+      .telephone.icon_menu
+        = link_to user_root_path do
+          span.icon_symbol &#xf2c3
+          span.icon_text Личный кабинет

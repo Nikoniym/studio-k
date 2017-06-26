@@ -1,0 +1,14 @@
+<% if @width.present? %>
+  $('.avatar_wrapper').html($('<%= escape_javascript(render("crop_form"))%>'));
+  init_papercrop();
+
+<% else %>
+  var width;
+  width = $(".avatar_wrapper").width();
+  jQuery.ajax({
+      data: 'width=' + width,
+      dataType: 'script',
+      type: 'patch',
+      url: "/persons/update_avatar"
+  });
+<% end %>

@@ -1,0 +1,27 @@
+h1 Профиль
+.avatar_wrapper.teacher_avatar
+  .img_box.img_teacher
+    = image_tag @user.avatar.url(:thumb), class: 'avatar'
+.info_wrapper
+  p #{@user.first_name} #{@user.last_name}
+
+  = link_to (@user.avatar.exists? ? 'Изменить фото' : 'Добавить фото' ), persons_edit_avatar_path, remote: true
+  br
+  = link_to 'Редактировть профиль', persons_edit_user_path
+  br
+  = link_to 'Выйти', destroy_user_session_path, :method => :delete
+h2.clear_both Расписание
+table.time_teacher
+  - @time_table.each do |table|
+    - if @day_const != table.day_week
+      - @day_const = table.day_week
+      tr.date_table
+        td = table.day_week
+        td = l table.date, format: :short
+    tr data-id="#{table.id}"
+      td = table.active
+      td = table.time_spending[0..4]
+      td = table.training_name
+      td = table.place_current
+      td = table.teacher
+      td = link_to 'Перейти', edit_teacher_path(table)

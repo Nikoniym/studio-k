@@ -1,0 +1,26 @@
+$(".gallery_inner").animate({opacity: "0"}, 500);
+setTimeout(function(){
+    $(".pre-loader").css('display','block');
+    $(".albums").css('display','none');
+}, 500);
+setTimeout(function() {
+    $(".gallery_album").html("<%= escape_javascript(render('gallery')) %>");
+    $('.gallery_inner img').each(function(index, value){
+        $(value).on('load', function(event){
+            $(event.target).removeClass('load');
+            if (!$('.gallery_inner img').hasClass("load")){
+                $(".pre-loader").css('display','none');
+                $(".gallery #mCSB_4_scrollbar_vertical").animate({opacity: "1"}, 500);
+                $(".gallery_inner").animate({opacity: "1"}, 500);
+                $(".gallery_inner .return").css('display','block');
+                $('.icon_menu.photo_galary').removeClass('freeze');
+                galleryAlign();
+                boxhover();
+                $("#lightgallery").lightGallery({thumbnail: false});
+            }
+        });
+    });
+
+}, 500);
+
+

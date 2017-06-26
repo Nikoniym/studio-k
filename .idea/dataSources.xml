@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="krylia@localhost" uuid="26111746-9931-4046-a84e-b845c6d0489c">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/krylia</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails krylia: production" uuid="d8f34ae5-d3f0-49cb-b582-484a23da885e">
+      <driver-ref>89ddba53-7ab0-46b3-9f26-d0c3b5422796</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:krylia</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1212/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1212/postgresql-9.4-1212.jdbc42.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1201/postgresql-9.4-1201.jdbc4.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1201/postgresql-driver-license.txt</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails krylia: test" uuid="ccd1e5d9-85bb-42f1-a057-bfa60e1c4b27">
+      <driver-ref>89ddba53-7ab0-46b3-9f26-d0c3b5422796</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:krylia</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1212/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1212/postgresql-9.4-1212.jdbc42.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1201/postgresql-9.4-1201.jdbc4.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1201/postgresql-driver-license.txt</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails krylia: development" uuid="91c71b25-19e2-403f-ad19-629b9f25e4b7">
+      <driver-ref>89ddba53-7ab0-46b3-9f26-d0c3b5422796</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:krylia</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1212/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1212/postgresql-9.4-1212.jdbc42.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1201/postgresql-9.4-1201.jdbc4.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/PostgreSQL/9.4-1201/postgresql-driver-license.txt</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>

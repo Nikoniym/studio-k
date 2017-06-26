@@ -1,0 +1,29 @@
+.container
+  header#header.codrops-header.overlay_face
+    .logo_studio
+      = image_tag 'logo1.png'
+      h1 Студия Крылья
+    button.slider-switch Switch view
+  #overlay.overlay
+    .info
+      h2 Навигация по сайту
+      span.info-drag Пролистывание слайдов
+      span.info-keys При помощи клавищ
+      span.info-switch Клавиша просмотра
+      .pre-loader.face
+        .box1
+        .box2
+        .box3
+        .box4
+        .box5
+  = render 'elements/main_menu'
+  = render 'elements/meet'
+  #slideshow.dragslider
+    section.img-dragger.img-dragger-large.dragdealer
+      .handle
+        = render 'elements/slide'
+
+    section#scroll.pages
+      = render 'elements/content'
+
+

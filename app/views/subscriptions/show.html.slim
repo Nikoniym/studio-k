@@ -1,0 +1,4 @@
+span Заказ оформил #{@subscription.user.first_name} #{@subscription.user.last_name}
+span Абонимент действует: с #{l @subscription.date_start, format: :long} до #{l @subscription.date_finish, format: :long} включительно
+span Количество занятий: #{@subscription.count > 1000 ? 'безлимитно' : @subscription.count}
+span Стоимость #{@subscription.price} руб.

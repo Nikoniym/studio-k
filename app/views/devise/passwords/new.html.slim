@@ -1,0 +1,13 @@
+.link_wrapper
+  .register_wrapper.clearfix
+    h2 Забыли свой пароль?
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
+      .field
+        = f.label :email
+        = f.email_field :email, autofocus: true
+        em Для получения пароля введите email
+      .actions
+        = f.submit "Отправить"
+
+  = link_to "Вход", new_session_path(resource_name), class: 'forgotten'

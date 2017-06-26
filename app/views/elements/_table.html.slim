@@ -1,0 +1,10 @@
+- @time_table.each do |key,value|
+  .day_wrapper class="#{key[:head_class]}"
+    span.title_table = key[:day_week]
+    table.time_teacher
+      - value.each do |table|
+        tr class="#{table[:name_class]}"
+          td = table[:time_spending]
+          td = table[:training_name]
+          td = table[:teacher]
+

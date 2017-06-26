@@ -1,0 +1,4 @@
+$(".price").html("<%= escape_javascript(render('price')) %>");
+$( "#datepicker" ).datepicker();
+$('.select-tariff a').removeClass('active');
+$(".select-tariff a:nth-child(<%= @sort_id %>)").addClass('active');

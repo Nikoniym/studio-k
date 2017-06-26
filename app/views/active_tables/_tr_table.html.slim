@@ -1,0 +1,9 @@
+tr data-id="#{@lesson.id}" class=('green' if @answer)
+  td = @lesson.time_spending
+  td = @lesson.training_name
+  td = @lesson.place_current
+  td = @lesson.teacher
+  - if @answer || @lesson.place_current == 0
+    td
+  - else
+    td = link_to 'запись', entry_lesson_active_table_path(@lesson), remote: true

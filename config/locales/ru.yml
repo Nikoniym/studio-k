@@ -1,0 +1,82 @@
+ru:
+  time:
+    formats:
+      standart: "%m.%d.%Y %H:%M"
+      long: "%m.%d.%Y %H:%M"
+    day_names:
+      - воскресенье
+      - понедельник
+      - вторник
+      - среда
+      - четверг
+      - пятница
+      - суббота
+    abbr_day_names:
+      - Вс
+      - Пн
+      - Вт
+      - Ср
+      - Чт
+      - Пт
+      - Сб
+  date:
+    formats:
+      long: "%d %B %Y"
+      short: "%d %B"
+      standard: "%d-%m-%Y"
+      day_names:
+        - воскресенье
+        - понедельник
+        - вторник
+        - среда
+        - четверг
+        - пятница
+        - суббота
+      abbr_day_names:
+        - Вс
+        - Пн
+        - Вт
+        - Ср
+        - Чт
+        - Пт
+        - Сб
+
+    day_names: [Воскресенье, Понедельник, Вторник, Среда, Четверг, Пятница, Суббота]
+    abbr_day_names: [Вос, Пон, Вт, Ср, Чет, Пят, Суб]
+
+    month_names: [~, января, февраля, марта, апреля, мая, июня, июля, августа, сентября, октября, ноября, декабря]
+    abbr_month_names: [~, Янв, Фев, Мар, Апр, Маи, Июн, Июл, Авг, Сен, Окт, Ноя, Дек]
+  devise:
+    registrations:
+      form:
+        password: 'Пароль'
+  common:
+    back: 'Назад'
+
+  activerecord:
+    attributes:
+      user:
+        current_password: 'Текущий пароль'
+        password_confirmation: 'Подтверждение пароля:'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        password: 'Пароль'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'не может быть пустым'
+              taken: 'уже зарегистрирован'
+            password:
+              blank: 'не может быть пустым'
+              too_short: 'минимум 6 симвлов'
+            current_password:
+              blank: 'не может быть пустым'
+              invalid: 'введен неверно'
+            password_confirmation:
+              confirmation: 'пароли не совпадают'
+            first_name:
+              blank: 'не может быть пустым'
+            last_name:
+              blank: 'не может быть пустой'

@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(:partial => 'history/history_list' )
+) %>
+$(".history_list").html("<%= js %>");

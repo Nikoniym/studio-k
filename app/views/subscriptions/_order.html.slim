@@ -1,0 +1,20 @@
+.history_subscription
+  h2 Заказ
+  - @orders.each do |subscription|
+    .order_item data-id="#{subscription.id}"
+      - if subscription.confirm
+        .warning
+          span Данный абонемет будет ативирован c #{l subscription.cash.date_finish, format: :long}.
+          br
+          span Либо когда у текущего абонемента закончаться занятия.
+          br
+          span Дата начала действия абонемента будет установленна в момент активации.
+      div Заказ оформил: #{subscription.user.first_name} #{subscription.user.last_name}
+      - unless subscription.confirm
+        .validity Абонимент действует: с #{l subscription.date_start, format: :long} до #{l subscription.date_finish, format: :long} включительно
+      .created_at Заказ сделан: #{l subscription.created_at, format: :standart}
+      .status Статус: #{ subscription.paid ? 'оплачен' : 'не оплачен' }
+      .sub_info
+        span Количество занятий: #{subscription.count > 1000 ? 'безлимитно' : subscription.count}
+        span Стоимость: #{subscription.price} руб.
+        = link_to 'Отменить', subscription,  method: :delete unless subscription.paid

@@ -1,0 +1,32 @@
+.link_wrapper.edit
+  .register_wrapper.clearfix
+
+    h2 Регистрация
+
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+
+      .field.clearfix
+        = f.label 'Имя'
+        = f.text_field :first_name, autofocus: true
+
+      .field.clearfix
+        = f.label 'Фамилия'
+        = f.text_field :last_name
+
+      .field.clearfix
+        = f.label :email
+        = f.email_field :email
+
+      .field.clearfix
+        = f.label 'Пароль'
+        = f.password_field :password
+
+      .field.clearfix
+        = f.label 'Потверждение пароля'
+        = f.password_field :password_confirmation
+
+      .actions
+        = f.submit 'Зарегестрироваться'
+
+  = link_to "Вход", new_session_path(resource_name), class: 'forgotten'

@@ -1,0 +1,5 @@
+.message
+  .answer Ваш возраст не подходит для данного тарифа.
+  ul
+    - @select_cash.each do |price|
+      li #{price.name} - #{price.price} руб.

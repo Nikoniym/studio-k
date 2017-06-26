@@ -1,0 +1,2 @@
+class SelectBox < ApplicationRecord
+end

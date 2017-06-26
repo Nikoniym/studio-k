@@ -1,0 +1,58 @@
+$fond: #283138;
+//$fond: #0ABAB5;
+$fond_transparent: rgba(60, 137, 213, 0.95);
+$fond_img: rgba(0, 0, 0, 0.3);
+//$fond_transparent: rgba(10, 186, 181, 0.95);
+$header_title: #F17778;
+$title_color: #ff9293;
+$content_color: #34495e;
+$hover_title: #ff9293;
+$fond_content: #FFF1DE;
+$button_content: rgba(51, 51, 51, 0.3);
+$text_color: #333;
+$title_content: #95a5a6;
+$link_content: #3c89d5;
+$link_content_hover: #545b61;
+$white: white;
+$body: #00579c;
+$grey_dark: #595F6E;
+$red: #d70f0f;
+$error: #d26767;
+$white_grey: #f9fbfd;
+
+
+@mixin my_animation($time) {
+  -webkit-transition: all $time ease-in-out;
+  -moz-transition: all $time ease-in-out;
+  transition: all $time ease-in-out;
+}
+@mixin animation_opacity($time) {
+  -webkit-transition: opacity $time ease-in-out;
+  -moz-transition: opacity $time ease-in-out;
+  transition: opacity $time ease-in-out;
+}
+@mixin animation_height {
+  -webkit-transition: height $time ease-in-out;
+  -moz-transition: height $time ease-in-out;
+  transition: height $time ease-in-out;
+}
+
+@mixin animation_page_show {
+  -webkit-transition: height $time ease-in-out;
+  -moz-transition: height $time ease-in-out;
+  transition: height $time ease-in-out;
+}
+@mixin animation_page_delay {
+  -webkit-transition: height $time ease-in-out;
+  -moz-transition: height $time ease-in-out;
+  transition: height $time ease-in-out;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Alice|Comfortaa:300,400,700|Lora:400,700|Open+Sans:300,400,700&subset=cyrillic');
+
+//
+//font-family: 'Comfortaa', cursive;
+//font-family: 'Alice', serif;
+//font-family: 'Open Sans', sans-serif;
+//font-family: 'Lora', serif;

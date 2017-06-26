@@ -1,0 +1,3 @@
+class EditUser < User
+
+end

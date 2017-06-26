@@ -1,0 +1,15 @@
+- if  @cash_current_count == 0 || @cash_current_count.blank?
+  | На вашем счету нет занятий
+  .symbol &#xf219
+  = link_to 'Пополнить счёт', subscriptions_path
+- else
+  .cash_count
+    span.cash_title Количество занятий:
+    - if @cash_current_count > 1000
+      span.symbol.margin &#xe82a
+    - else
+         = @cash_current_count
+  - if @cash_current_count < 0
+    = link_to 'Пополнить счёт', subscriptions_path
+  - if @cash_current_count > 0
+    .cash_from до #{l @cash_current.date_finish, format: :long}

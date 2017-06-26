@@ -1,0 +1,12 @@
+tr data-id="#{@subscription.id}"
+  td = @subscription.id
+  td = @subscription.date_start
+  td = @subscription.select_cash.name
+  td = @subscription.select_cash.cash_sort.name
+  td = @subscription.price
+  td = @subscription.active
+  td = @subscription.paid
+  - if @subscription.paid
+    td = link_to 'Отменить', delete_paid_teacher_path(@subscription), remote: true
+  - else
+    td = link_to 'Олпатить', paid_teacher_path(@subscription), remote: true

@@ -1,0 +1,15 @@
+= form_for @table do |f|
+  - if @table.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@table.errors.count, "error")
+        |  prohibited this article from being saved:
+      ul
+        - @table.errors.full_messages.each do |msg|
+          li
+            = msg
+  p
+    = f.date_field :date
+
+  p
+    = f.submit

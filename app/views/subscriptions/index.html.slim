@@ -1,0 +1,23 @@
+.subscription_wrapper
+  .order
+    - if @orders.present?
+      = render 'order'
+  h2 Выберете абонемент
+  .select-tariff
+    - @cash_sort.each_with_index do |cash, index|
+      = link_to cash.name, select_tariff_subscription_path(cash), remote: true, class: ('active' if index == 0)
+  .price class=('no_border' if @subscriptions.blank? )
+    = render 'price'
+  - if  @subscriptions.present?
+    .history_subscription.no_border
+      h2 История
+      - @subscriptions.each do |subscription|
+        /td Заказ оформил #{subscription.user.first_name} #{subscription.user.last_name}
+        .validity Абонимент действует: с #{l subscription.date_start, format: :long} до #{l subscription.date_finish, format: :long} включительно.
+        .created_at Заказ сделан: #{l subscription.created_at, format: :long}
+        .status Статус: #{ subscription.paid ? 'оплачено' : 'не оплачено' }
+        .sub_info
+          span Количество занятий: #{subscription.count > 1000 ? 'безлимитно' : subscription.count}
+          span Стоимость #{subscription.price} руб.
+    .chardin_box
+      = will_paginate @history, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(:partial => 'teachers/user_list' )
+) %>
+$(".new_users_list").html("<%= js %>");

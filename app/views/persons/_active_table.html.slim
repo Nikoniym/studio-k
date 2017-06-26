@@ -1,0 +1,17 @@
+- @day_const = ''
+table
+  - @time_table.each do |table|
+    - if @day_const != table.day_week
+      - @day_const = table.day_week
+      tr.date_table
+        td.not = table.day_week
+        td.not = l table.date, format: :short
+    tr data-id="#{table.id}" class=('green' if table.users.find_by(id: @user.id).present?)
+      td = table.time_spending
+      td = table.training_name
+      td = table.place_current
+      td = table.teacher
+      - if table.users.find_by(id: @user.id).present?
+        td
+      - else
+        td = link_to 'запись', entry_lesson_active_table_path(table), remote: true

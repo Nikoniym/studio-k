@@ -1,0 +1,10 @@
+span.return &#xe813
+#lightgallery
+  - @images.each do |gallery|
+    .box data-src="#{gallery.avatar.url}"
+      .image-wrap
+        .image
+          = image_tag gallery.avatar.url(:medium), class: 'load'
+      .border
+      .text
+        span &#xe81c;

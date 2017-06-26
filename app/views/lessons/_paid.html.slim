@@ -1,0 +1,20 @@
+- if @subscriptions.present?
+  h2 Оплата:
+  table.subscription
+    - @subscriptions.each do |sub|
+      - if @name_const != sub.user.first_name && @last_name_const != sub.user.last_name
+        - @name_const = sub.user.first_name
+        - @last_name_const = sub.user.last_name
+        tr.date_table
+          td #{sub.user.last_name} #{sub.user.first_name}
+      tr data-id="#{sub.id}"
+        td = l sub.date_start, format: :standard
+        td = sub.select_cash.name
+        td = sub.select_cash.cash_sort.name
+        td = sub.price
+        td = sub.active
+        td = sub.paid
+        - if sub.paid
+          td = link_to 'Отменить', delete_paid_teacher_path(sub), remote: true
+        - else
+          td = link_to 'Олпатить', paid_teacher_path(sub), remote: true

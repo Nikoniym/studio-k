@@ -1,0 +1,44 @@
+.price_container.clearfix
+  h4 Все абонементы действуют 30 дней. Оплата абонемента производиться наличными на занятии.
+  .wrapper_form
+    - if @sort_id == '2' && @user.cashes.find_by(cash_sort: '2').blank?
+      .message
+        |Обратитесь к админисратору для активации тарифа.
+        br
+        |К тарифу можно подключить до 3 членов семьи.
+
+
+        ul
+          - @select_cash.each do |price|
+            li #{price.name} - #{price.price} руб.
+    - else
+      - if @sort_id == '2' && @user.cashes.find_by(cash_sort: '2').present?
+        .family
+          | Члены семь:
+          br
+           = @user.cashes.find_by(cash_sort: '2').users.select(:last_name, :first_name).map {|c| "#{c.last_name} #{c.first_name}" }.join(', ')
+          br
+      - if  @sort_id == '3' && (@birth_date.nil? ? false : @birth_date >= 18)
+        = render 'subscriptions/message'
+      - else
+        = form_for @subscription, remote: true do |f|
+          = render 'common/errors', resource: @subscription
+          .answer
+          - if @user.birth_date.blank? && @sort_id == '3'
+            .user_age
+              = fields_for :user do |ff|
+                = ff.label :birth_date, 'Укажите дату рождения:'
+                = ff.date_field :birth_date
+          ul
+            - @select_cash.each_with_index do |price, index|
+              li
+                = f.radio_button :select_cash_id, price.id, :checked => index == 0 ? true : false
+                = f.label "select_cash_id_#{price.id}",  " #{price.name} - #{price.price} руб. "
+                .check
+
+          .datepicker_field
+            = f.label :date_start, 'Дата начала:'
+            = f.text_field :date_start, id: 'datepicker'
+
+
+          = f.submit 'Сделать заказ'

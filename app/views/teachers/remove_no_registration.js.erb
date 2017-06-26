@@ -1,0 +1,5 @@
+<% if @answer %>
+  $('.table_name .place_current').text('<%= @table.place_current %>');
+  $('.users_list .place_current').text( "Количество свободных мест: <%= @table.place_current %>");
+  $('.no_registration').text('<%= @table.no_registration %>');
+<% end %>

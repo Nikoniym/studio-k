@@ -1,0 +1,30 @@
+.data_user_list.clearfix
+  .avatar_wrapper.clearfix.item
+    = render 'persons/avatar'
+  .info_user.item
+    .user_name #{@user.first_name} #{@user.last_name}
+    - if @user.cash_sort.present?
+      div Тариф: #{@user.cash_sort.name}
+    /div =@user.phone
+    /.specialty =@user.specialty
+
+
+  .cash_count_list.item
+    = render 'persons/cash_count'
+  .links_avatar.link.item
+    = link_to (@user.avatar.exists? ? 'Изменить фото' : 'Добавить фото' ), persons_edit_avatar_path, remote: true
+  .link.item
+    = link_to 'Редактировть профиль', persons_edit_user_path
+  .link_exit.link.item
+    = link_to 'Выйти', destroy_user_session_path, :method => :delete
+.entry_lesson class=('divider' if @table_current.present?)
+  - if @table_current.present?
+    = render 'active_tables/entry_lesson'
+h2.head_table Расписание
+= form_tag active_tables_filter_path, method: "get", id: "filter", class: "filter_box", remote: true do
+  = label_tag 'Вид тренировки:'
+  = select "publication", "category", options_for_select(@time_table.pluck(:training_name).uniq.map{|t| t}), {prompt: 'Любой'},   onchange: "$('#filter').submit();"
+.time_teacher
+  = render 'active_table'
+#notice_wrapper
+  #notice_inner

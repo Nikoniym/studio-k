@@ -1,0 +1,10 @@
+h2 Семейный тариф
+= link_to 'Новый', edit_family_path('new'), class: 'family_link'
+- if @cashes.present?
+  table.cache_family
+    - @cashes.each do |cash|
+      tr
+        td = link_to 'Удаить', family_path(cash), method: :delete, data: { confirm: 'Вы уверены?' }
+        td = cash.users.select(:last_name, :first_name).map {|c| "#{c.last_name} #{c.first_name}" }.join(', ')
+        td = link_to 'Изменить', edit_family_path(cash)
+
