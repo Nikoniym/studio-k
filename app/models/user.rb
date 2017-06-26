@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   has_many :subscriptions
 
-  has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "200x200#" }, :default_url => "missing_:style.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300#", :thumb => "200x200#", :minimal => "100x100#" }, :default_url => "missing_:style.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   crop_attached_file :avatar
 

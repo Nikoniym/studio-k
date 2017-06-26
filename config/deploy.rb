@@ -9,6 +9,8 @@ set :git_enable_submodules, 1
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/nik/deploy"
 set :deploy_user, 'nik'
+set :console_env, :production
+set :console_user, 'nik'
 # set :linked_file, %w{config/database.yml .env}
 # set :inked_dir, %w{bin log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle}
 # Default value for :format is :airbrussh.
@@ -44,4 +46,19 @@ namespace :deploy do
   end
 
   after :publishing, :restart
+end
+
+namespace :rails do
+  desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
+  task :console do
+    server = roles(:app)[ARGV[2].to_i]
+
+    puts "Opening a console on: #{server.hostname}...."
+
+    cmd = "ssh #{server.user}@#{server.hostname} -t 'cd #{fetch(:deploy_to)}/current && RAILS_ENV=#{fetch(:rails_env)} bundle exec rails console'"
+
+    puts cmd
+
+    exec cmd
+  end
 end

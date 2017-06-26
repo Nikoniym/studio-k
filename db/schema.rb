@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607125431) do
+ActiveRecord::Schema.define(version: 20170626224532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170607125431) do
     t.datetime "updated_at",      null: false
     t.time     "time_start"
     t.integer  "no_registration"
+    t.integer  "teacher_id"
   end
 
   create_table "active_tables_users", id: false, force: :cascade do |t|
@@ -219,6 +220,7 @@ ActiveRecord::Schema.define(version: 20170607125431) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.time     "time_start"
+    t.integer  "teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -280,6 +282,8 @@ ActiveRecord::Schema.define(version: 20170607125431) do
     t.datetime "avatar_updated_at"
     t.integer  "cash_sort_id"
     t.date     "birth_date"
+    t.string   "social_link"
+    t.string   "message"
     t.index ["cash_sort_id"], name: "index_users_on_cash_sort_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
