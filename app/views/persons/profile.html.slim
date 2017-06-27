@@ -17,6 +17,12 @@
     = link_to 'Редактировть профиль', persons_edit_user_path
   .link_exit.link.item
     = link_to 'Выйти', destroy_user_session_path, :method => :delete
+- if @user.message.present?
+  .message_wrapper.notice_red
+    h3 = @user.head_message
+    span = @user.message
+    = link_to 'закрыть', persons_remove_message_path, remote: true
+
 .entry_lesson class=('divider' if @table_current.present?)
   - if @table_current.present?
     = render 'active_tables/entry_lesson'

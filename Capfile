@@ -7,8 +7,8 @@ require "capistrano/rvm"
 require "capistrano/bundler"
 require "capistrano/rails"
 require 'capistrano/rails/collection'
-# require 'capistrano/rails/console'
-
+require 'capistrano/rails/console'
+require 'capistrano/logtail'
 
 # Load the SCM plugin appropriate to your project:
 #

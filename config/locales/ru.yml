@@ -61,6 +61,7 @@ ru:
         first_name: 'Имя'
         last_name: 'Фамилия'
         password: 'Пароль'
+        phone: 'Номер'
     errors:
       models:
         user:
@@ -80,3 +81,8 @@ ru:
               blank: 'не может быть пустым'
             last_name:
               blank: 'не может быть пустой'
+            phone:
+              blank: 'не может быть пустым'
+              not_a_number: 'должен содержать только числа'
+              too_short: 'слишком короткий'
+              too_long: 'слишком длинный'

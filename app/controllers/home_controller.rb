@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     @slides = SlideImage.order(:position)
     @albums = Album.all
     @meets = Meet.order(:date)
+    @contents = Content.joins(:slide_image).order('slide_images.position')
+
 
     table = TablePublish.all
     date_week = table.first.day_week

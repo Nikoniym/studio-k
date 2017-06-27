@@ -1,6 +1,7 @@
 @import "susy";
 @import "variables";
 @import 'component/component';
+@import 'component/preloader';
 $susy: (
         columns: 12,  // The number of columns in your grid
         gutters: 1/4, // The size of a gutter in relation to a single column
@@ -121,7 +122,7 @@ footer {
   .item {
     @include span(6);
     &:nth-child(2){
-      @include span(last);
+      @include span(6 last);
     }
   }
   .social_link {
@@ -186,6 +187,20 @@ footer {
 .notice_red {
   background: #fff7f7;
   color: $error;
+}
+.message_wrapper {
+  text-align: center;
+  padding: 20px 5px;
+  margin-top: 20px;
+  h3 {
+    margin-top: 0;
+  }
+  a {
+    color: $error;
+    display: block;
+    font-weight: 700;
+    margin-top: 10px;
+  }
 }
 .main_menu {
   width: 100%;
@@ -769,6 +784,11 @@ footer {
       }
     }
   }
+  .message_wrapper {
+    width: 96%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
 }
 @include susy-breakpoint(max-width 899px, 12) {
   .person_wrapper {
@@ -816,12 +836,20 @@ footer {
 
   }
 }
+@include susy-breakpoint(720px, 6) {
+  .avatar_wrapper {
+    max-height: 220px;
+  }
+}
 @include susy-breakpoint(min-width 720px, max-width 740px, 6) {
   .avatar_wrapper .label_file {
     font-size: 15px;
   }
 }
 @include susy-breakpoint(max-width 720px, 6) {
+  .pre-loader.avatar {
+    margin-left: 0;
+  }
   .main_menu li {
     width: 100%;
   }
@@ -880,6 +908,7 @@ footer {
       -moz-opacity: 0;
       filter: alpha(opacity=0);
       opacity: 0;
+      padding: 0;
       a {
         display: block;
         position: absolute;

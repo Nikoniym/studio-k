@@ -80,11 +80,16 @@ GEM
     capistrano-bundler (1.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-logtail (0.1.1)
+      capistrano (>= 3.0.0, < 4.0.0)
     capistrano-rails (1.3.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-rails-collection (0.1.0)
       capistrano-rails (~> 1.1)
+    capistrano-rails-console (2.2.0)
+      capistrano (>= 3.5.0, < 4.0.0)
+      sshkit-interactive (~> 0.2.0)
     capistrano-rvm (0.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
@@ -279,6 +284,8 @@ GEM
     sshkit (1.13.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    sshkit-interactive (0.2.1)
+      sshkit (~> 1.12)
     susy (2.2.12)
       sass (>= 3.3.0, < 3.5)
     temple (0.7.7)
@@ -316,8 +323,10 @@ DEPENDENCIES
   cancancan
   capistrano
   capistrano-bundler
+  capistrano-logtail
   capistrano-rails
   capistrano-rails-collection
+  capistrano-rails-console
   capistrano-rvm
   coffee-rails (~> 4.2)
   compass-rails (~> 3.0, >= 3.0.2)

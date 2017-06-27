@@ -8,7 +8,7 @@ class TeachersController < ApplicationController
     if @user.has_role? :admin
       @time_table = ActiveTable.order(:date,:time_start).where('date >= ?', Date.today)
     else
-      @time_table = ActiveTable.order(:date,:time_start).where(' date >= ? and teacher = ?', Date.today.monday, @user.first_name)
+      @time_table = ActiveTable.order(:date,:time_start).where(' date >= ? and teacher_id = ?', Date.today.monday, @user.id)
     end
 
   end

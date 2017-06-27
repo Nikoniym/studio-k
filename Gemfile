@@ -84,5 +84,6 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-rvm', require: false
   gem 'capistrano-rails-collection', require: false
-  # gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-logtail', require: false
 end

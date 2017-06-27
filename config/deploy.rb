@@ -4,13 +4,15 @@ lock "3.8.2"
 set :application, "deploy"
 set :repo_url, "git@github.com:Nikoniym/studio-k.git"
 
-
+set :stage, :production
 set :git_enable_submodules, 1
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/nik/deploy"
 set :deploy_user, 'nik'
 set :console_env, :production
 set :console_user, 'nik'
+set :logtail_files, %w( /var/log/syslog )
+set :logtail_lines, 50
 # set :linked_file, %w{config/database.yml .env}
 # set :inked_dir, %w{bin log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle}
 # Default value for :format is :airbrussh.
@@ -27,7 +29,7 @@ set :console_user, 'nik'
 append :linked_files, "config/database.yml", ".env"
 
 # Default value for linked_dirs is []
-append :linked_dirs, "bin", "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle", "public/uploads"
+append :linked_dirs,  "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle", "public/uploads"
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -48,17 +50,13 @@ namespace :deploy do
   after :publishing, :restart
 end
 
-namespace :rails do
-  desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
-  task :console do
-    server = roles(:app)[ARGV[2].to_i]
-
-    puts "Opening a console on: #{server.hostname}...."
-
-    cmd = "ssh #{server.user}@#{server.hostname} -t 'cd #{fetch(:deploy_to)}/current && RAILS_ENV=#{fetch(:rails_env)} bundle exec rails console'"
-
-    puts cmd
-
-    exec cmd
+namespace :logs do
+  namespace :tail do
+    desc 'Tail sidekiq log'
+    task :sidekiq do
+      on roles(:app) do
+        logtail_utility.tail(release_path.join('log', 'sidekiq.log'))
+      end
+    end
   end
 end

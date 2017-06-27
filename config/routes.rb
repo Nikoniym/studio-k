@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'persons/edit_avatar'
   patch 'persons/update_avatar'
   get 'persons/avatar'
+  get 'persons/remove_message'
 
   get 'history/index'
 

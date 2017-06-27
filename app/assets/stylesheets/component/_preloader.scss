@@ -8,6 +8,15 @@
     margin: 0 auto;
     margin-top: 15px;
   }
+  &.avatar {
+    width: 70px;
+    margin: 0 auto;
+    margin-left: 20%;
+    margin-top: 10px;
+    div {
+      background: $link_content;
+    }
+  }
 }
 
 .pre-loader > div {

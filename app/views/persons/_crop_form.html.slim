@@ -1,3 +1,9 @@
+.pre-loader.avatar
+  .box1
+  .box2
+  .box3
+  .box4
+  .box5
 = form_for @user, url: persons_update_user_path(@user), method: :put do |f|
   /.landscape-crop-preview
   /  = f.crop_preview :avatar, width: 500
@@ -5,4 +11,4 @@
     = f.cropbox :avatar, width: @width
   .clear
   .actions
-    = f.submit 'Обрезать'
+    = f.submit 'Обрезать', onclick: 'cropAvatar()'

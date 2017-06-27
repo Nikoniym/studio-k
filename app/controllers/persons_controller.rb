@@ -15,6 +15,11 @@ class PersonsController < ApplicationController
     end
   end
 
+  def remove_message
+    user = current_user
+    user.update(message: nil, head_message: nil)
+  end
+
   def avatar
     @user = current_user
   end

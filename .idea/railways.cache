@@ -8,6 +8,7 @@
               persons_edit_avatar GET        /persons/edit_avatar(.:format)                               persons#edit_avatar
             persons_update_avatar PATCH      /persons/update_avatar(.:format)                             persons#update_avatar
                    persons_avatar GET        /persons/avatar(.:format)                                    persons#avatar
+           persons_remove_message GET        /persons/remove_message(.:format)                            persons#remove_message
                     history_index GET        /history/index(.:format)                                     history#index
                      album_images GET        /albums/:album_id/images(.:format)                           images#index
                                   POST       /albums/:album_id/images(.:format)                           images#create
@@ -58,14 +59,6 @@
                                   PATCH      /admin/active_tables/:id(.:format)                           admin/active_tables#update
                                   PUT        /admin/active_tables/:id(.:format)                           admin/active_tables#update
                                   DELETE     /admin/active_tables/:id(.:format)                           admin/active_tables#destroy
-      batch_action_admin_teachers POST       /admin/teachers/batch_action(.:format)                       admin/teachers#batch_action
-                   admin_teachers GET        /admin/teachers(.:format)                                    admin/teachers#index
-                                  POST       /admin/teachers(.:format)                                    admin/teachers#create
-                new_admin_teacher GET        /admin/teachers/new(.:format)                                admin/teachers#new
-               edit_admin_teacher GET        /admin/teachers/:id/edit(.:format)                           admin/teachers#edit
-                    admin_teacher PATCH      /admin/teachers/:id(.:format)                                admin/teachers#update
-                                  PUT        /admin/teachers/:id(.:format)                                admin/teachers#update
-                                  DELETE     /admin/teachers/:id(.:format)                                admin/teachers#destroy
       batch_action_admin_contents POST       /admin/contents/batch_action(.:format)                       admin/contents#batch_action
                    admin_contents GET        /admin/contents(.:format)                                    admin/contents#index
                                   POST       /admin/contents(.:format)                                    admin/contents#create
@@ -95,8 +88,7 @@
                                   POST       /admin/users(.:format)                                       admin/users#create
                    new_admin_user GET        /admin/users/new(.:format)                                   admin/users#new
                   edit_admin_user GET        /admin/users/:id/edit(.:format)                              admin/users#edit
-                       admin_user GET        /admin/users/:id(.:format)                                   admin/users#show
-                                  PATCH      /admin/users/:id(.:format)                                   admin/users#update
+                       admin_user PATCH      /admin/users/:id(.:format)                                   admin/users#update
                                   PUT        /admin/users/:id(.:format)                                   admin/users#update
                                   DELETE     /admin/users/:id(.:format)                                   admin/users#destroy
         batch_action_admin_albums POST       /admin/albums/batch_action(.:format)                         admin/albums#batch_action

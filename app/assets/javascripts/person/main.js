@@ -15,6 +15,13 @@ function tdHeight() {
 }
 function submitAvatar() {
     $('.edit_user').submit();
+    $('.avatar_wrapper .back').fadeOut(0);
+    $('.edit_user').fadeOut(0);
+    $('.pre-loader.avatar').fadeIn(150);
+}
+function cropAvatar() {
+    $('.pre-loader.avatar').fadeIn(150);
+    $('.edit_user').fadeOut(0);
 }
 $(document).ready(function (){
     tdHeight();

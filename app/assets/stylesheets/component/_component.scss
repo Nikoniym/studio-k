@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'feathericons';
-	src:url('../fonts/feathericons/feathericons.eot?2h4ajg');
-	src:url('../fonts/feathericons/feathericons.eot?#iefix2h4ajg') format('embedded-opentype'),
-		url('../fonts/feathericons/feathericons.woff?2h4ajg') format('woff'),
-		url('../fonts/feathericons/feathericons.ttf?2h4ajg') format('truetype'),
-		url('../fonts/feathericons/feathericons.svg?2h4ajg#feathericons') format('svg');
+	src: asset-url('feathericons.eot?2h4ajg');
+	src: asset-url('feathericons.eot?#iefix2h4ajg') format('embedded-opentype'),
+    asset-url('feathericons.woff?2h4ajg') format('woff'),
+    asset-url('feathericons.ttf?2h4ajg') format('truetype'),
+    asset-url('feathericons.svg?2h4ajg#feathericons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

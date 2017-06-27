@@ -2,6 +2,15 @@ ActiveAdmin.register Content do
   actions :all, :except => [:show]
   permit_params :name, :name_shot,  :slide_image_id, :description, :user_ids => []
 
+  config.sort_order = 'slide_images.position'
+
+
+  controller do
+    def scoped_collection
+      end_of_association_chain.joins(:slide_image).order('slide_images.position')
+    end
+  end
+
   index do
     column :slide_image do |s|
       s.slide_image.position
