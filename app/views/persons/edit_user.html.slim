@@ -1,7 +1,7 @@
 .link_wrapper.strong
   .register_wrapper.clearfix
     h2 Редактировать профиль
-    = form_tag persons_update_user_path, method: :put, multipart: true do
+    = form_tag  persons_update_user_path, method: :put, multipart: true do
       = render 'common/errors', resource: @user
       /.field.clearfix
       /  = label_tag 'Аватар:'
