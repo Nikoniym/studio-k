@@ -144,6 +144,7 @@ $(document).on('click','.filter_arrow',function(){
 
 
 $(document).ready(function (){
+    $('.pre-loader.face').fadeIn(0);
     boxhover();
     telNumber();
     hoverMenu();

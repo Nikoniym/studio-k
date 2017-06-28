@@ -38,7 +38,7 @@
 
           .datepicker_field
             = f.label :date_start, 'Дата начала:'
-            = f.text_field :date_start, id: 'datepicker'
+            = f.date_field :date_start, class: 'date_picker'
 
 
           = f.submit 'Сделать заказ'

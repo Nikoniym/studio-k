@@ -36,6 +36,7 @@ nav { @include span(25%); }
   margin-bottom: 10px;
 }
 .link_wrapper {
+  position: relative;
   max-width: 456px;
   margin: 0 auto;
   margin-bottom: 50px;
@@ -75,6 +76,7 @@ nav { @include span(25%); }
     position: absolute;
     margin-top: 25px;
     color: $error;
+    padding-left: 7px;
   }
 
   input {

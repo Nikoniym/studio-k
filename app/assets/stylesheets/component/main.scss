@@ -780,7 +780,7 @@
     margin-top: 60px;
   }
   .contacts {
-    p {
+    .contact_info {
       padding: 18px 61px!important;
       display: block;
       width: 90%;
@@ -857,7 +857,7 @@
     margin-top: 0 !important;
   }
   .contacts {
-    p, .tel_link {
+    .contact_info {
       padding: 0 10px;
     }
   }
@@ -1012,7 +1012,7 @@
     top: 3.5em;
   }
   .contacts  {
-    p,  .tel_link {
+    .contact_info {
       padding: 0 20px;
     }
   }
@@ -1083,6 +1083,13 @@
   }
   .js .img-dragger-large .slide h2 {
     max-width: 530px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .albums {
+    .box {
+      width: 51%;
+    }
   }
 }
 @media screen and (max-width: 660px) {
@@ -1250,7 +1257,6 @@
   }
 }
 @media screen and (max-width: 500px) {
-
   .pages .content  {
     h2 {
       font-size: 2em;
@@ -1441,7 +1447,7 @@
   }
 }
 
-@media only screen and (max-device-width : 700px) and (orientation : landscape) {
+@media only screen and (max-device-width : 750px) and (orientation : landscape) {
   .rotate {
     display: block;
     position: absolute;
@@ -1458,10 +1464,9 @@
       width: 188px;
     }
     img {
-      width: 100%;
+      width: 78%;
     }
   }
 }
-
 
 

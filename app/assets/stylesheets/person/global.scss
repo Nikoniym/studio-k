@@ -295,6 +295,12 @@ footer {
 
 
 }
+.history_list {
+  .head {
+    text-align: center;
+    font-size: 19px;
+  }
+}
 .time_teacher,
 .write_table,
 .history_list,
@@ -411,7 +417,7 @@ footer {
     border: 2px solid $divider;
     border-radius: 3px;
     padding: 5px;
-    width: 85px;
+    width: 150px;
     outline: none;
   }
   label {
@@ -544,11 +550,11 @@ footer {
         outline: none;
       }
     }
-    #datepicker {
+    .date_picker {
       border: 2px solid lighten( $link_content, 30% );
       border-radius: 3px;
       padding: 5px;
-      width: 85px;
+      width: 150px;
       outline: none;
     }
     .datepicker_field {

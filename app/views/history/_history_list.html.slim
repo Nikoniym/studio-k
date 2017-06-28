@@ -10,3 +10,5 @@
         td = table.teacher
   .chardin_box
     = will_paginate @history, renderer: WillPaginate::ActionView::BootstrapLinkRenderer
+- else
+    .head Вы еще не посещали занятия.

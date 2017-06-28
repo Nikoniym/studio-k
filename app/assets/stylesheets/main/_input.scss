@@ -157,6 +157,7 @@
 
 .input__label-content--hoshi {
 	position: absolute;
+    z-index: 999999;
 }
 
 .input__label--hoshi::before,

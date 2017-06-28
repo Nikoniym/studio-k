@@ -30,7 +30,7 @@ ActiveAdmin.register Timetable do
 
     f.inputs do
       f.input :day_week
-      f.input :time_spending, :label => 'Время', :as => :select, :collection => TimeSpending.order(:position).map{|u| [u.name, u.id]}
+      f.input :time_spending, :label => 'Время', :as => :select, :collection => TimeSpending.order(:time_start).map{|u| [u.name, u.id]}
       f.input :training_name
       f.input :user, :label => 'Преподаватель', :as => :select, :collection => User.with_role(:teacher).map{|u| ["#{u.first_name} #{u.last_name}", u.id]}
       f.input :place
