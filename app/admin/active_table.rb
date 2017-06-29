@@ -38,7 +38,7 @@ ActiveAdmin.register ActiveTable do
      f.input :time_start
      f.input :training_name
      f.input :date
-     f.input :day_week
+     f.input :day_week, :label => 'День недели', :as => :select, :collection => DayWeek.all.map{|u| u.name }
      f.input :place
      f.input :place_current
      f.input :no_registration

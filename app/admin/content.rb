@@ -26,10 +26,10 @@ ActiveAdmin.register Content do
 
   form do |f|
     f.inputs do
-      f.input :slide_image_id, :label => 'Слайд', :as => :select, :collection =>SlideImage.all.map{|u| [u.name, u.id]}
-      f.input  :name
-      f.input  :name_shot
-      f.input  :description
+      f.input :slide_image_id,  :label => 'Слайд', :as => :select, :collection =>SlideImage.all.map{|u| [u.name, u.id]}
+      f.input  :name, :label => 'Тренировка', :as => :select, :collection =>TrainingName.all.map{|u| u.name }
+      f.input  :name_shot, :label => 'Сокращённое имя', :as => :select, :collection =>TrainingName.all.map{|u| [u.name, u.name_shot]}
+      f.input  :description, label: 'Описание'
       f.input :users, :label => 'Преподаватель', :as => :select, :collection => User.with_role(:teacher).map{|u| ["#{u.first_name} #{u.last_name}", u.id]}
     end
 
