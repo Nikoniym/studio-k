@@ -1,7 +1,7 @@
 class TablePublishesController < ApplicationController
   def publish
     TablePublish.destroy_all
-    table = Timetable.order(day_week_id: :asc).order(:time_spending_id).joins(:time_spending).order('time_spendings.time_start asc')
+    table = Timetable.order(day_week_id: :asc).joins(:time_spending).order('time_spendings.time_start asc')
     date_week = 'Понедельник'
 
     table.each do |t|

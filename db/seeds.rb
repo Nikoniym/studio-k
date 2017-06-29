@@ -1,19 +1,19 @@
 TimeSpending.create!([
-                         {id: 15, name: "21:00 - 22:00", position: 15, time_start: "2000-01-01 21:00:00"},
-                         {id: 14, name: "20:00 - 21:00", position: 14, time_start: "2000-01-01 20:00:00"},
-                         {id: 13, name: "19:10 - 20:00", position: 13, time_start: "2000-01-01 19:10:00"},
-                         {id: 12, name: "19:00 - 20:00", position: 12, time_start: "2000-01-01 19:00:00"},
-                         {id: 11, name: "18:00 - 19:00", position: 11, time_start: "2000-01-01 18:00:00"},
-                         {id: 10, name: "17:00 - 18:00", position: 10, time_start: "2000-01-01 17:00:00"},
-                         {id: 9, name: "16:00 - 17:00", position: 9, time_start: "2000-01-01 16:00:00"},
-                         {id: 8, name: "15:00 - 16:00", position: 8, time_start: "2000-01-01 15:00:00"},
-                         {id: 7, name: "13:00 - 14:00", position: 7, time_start: "2000-01-01 13:00:00"},
-                         {id: 6, name: "12:30 - 14:00", position: 6, time_start: "2000-01-01 12:30:00"},
-                         {id: 5, name: "12:00 - 13:00", position: 5, time_start: "2000-01-01 12:00:00"},
-                         {id: 4, name: "11:00 - 12:30", position: 4, time_start: "2000-01-01 11:00:00"},
-                         {id: 3, name: "10:00 - 11:30", position: 3, time_start: "2000-01-01 10:00:00"},
-                         {id: 2, name: "10:00 - 11:00", position: 2, time_start: "2000-01-01 10:00:00"},
-                         {id: 1, name: "9:00 - 10:00", position: 1, time_start: "2000-01-01 09:00:00"}
+                         {name: "21:00 - 22:00",  time_start: "2000-01-01 21:00:00"},
+                         {name: "20:00 - 21:00",  time_start: "2000-01-01 20:00:00"},
+                         {name: "19:10 - 20:00",  time_start: "2000-01-01 19:10:00"},
+                         {name: "19:00 - 20:00",  time_start: "2000-01-01 19:00:00"},
+                         {name: "18:00 - 19:00",  time_start: "2000-01-01 18:00:00"},
+                         {name: "17:00 - 18:00",  time_start: "2000-01-01 17:00:00"},
+                         {name: "16:00 - 17:00",  time_start: "2000-01-01 16:00:00"},
+                         {name: "15:00 - 16:00",  time_start: "2000-01-01 15:00:00"},
+                         {name: "13:00 - 14:00",  time_start: "2000-01-01 13:00:00"},
+                         {name: "12:30 - 14:00",  time_start: "2000-01-01 12:30:00"},
+                         {name: "12:00 - 13:00",  time_start: "2000-01-01 12:00:00"},
+                         {name: "11:00 - 12:30", time_start: "2000-01-01 11:00:00"},
+                         {name: "10:00 - 11:30",  time_start: "2000-01-01 10:00:00"},
+                         {name: "10:00 - 11:00",  time_start: "2000-01-01 10:00:00"},
+                         {name: "9:00 - 10:00",  time_start: "2000-01-01 09:00:00"}
                      ])
 DayWeek.create!([
                     {id: 1, name: "Понедельник"},
@@ -36,12 +36,7 @@ Meet.create!([
   {date: "2013-03-05", description: "drgdsgfdg gds fdsf ", time_start: "Начало в 18.00", image_file_name: "2.JPG", image_content_type: "image/jpeg", image_file_size: 1401860, image_updated_at: "2017-06-03 10:10:12"},
   {date: "2014-03-05", description: "Приглашаем всех на чаяпитие. Общение этоже так здорово", time_start: "Начало в 18.00", image_file_name: "2.JPG", image_content_type: "image/jpeg", image_file_size: 1401860, image_updated_at: "2017-06-03 10:23:15"}
 ])
-Teacher.create!([
-  {user_id: 1},
-  {user_id: 2},
-  {user_id: 3},
-  {user_id: 5}
-])
+
 
 SelectCash.create!([
   {count: 100000, name: "безлимит", price: 7000, cash_sort_id: 1, subscription: true},

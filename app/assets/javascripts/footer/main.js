@@ -163,33 +163,35 @@ $(document).ready(function (){
 
     $(".timetable .content_wrapper table").rowspanizer({ vertical_align: 'middle'});
 
-    $('.page_timetable').find('.tg, .hy, .yg, .trx, .ras, .child, .pd, .pe, .ta, .sy ').css('display','none');
+    $('.page_timetable').find('.tg, .y, .yg, .trx, .r, .child, .pd, .pe, .ta, .sy, .ps, .sp, .tl, .tw').css('display','none');
 
-    $('.page_timetable.hy').find('tr.tg, tr.trx, tr.ras, tr.yg, tr.sy, tr.child, tr.pd, tr.pe, tr.ta, td:nth-child(2)').remove();
-    $('.page_timetable.hy').find('.hy').fadeIn(0);
+    $('.page_timetable.y').find('tr.ps, tr.sp, tr.tl, tr.tw, tr.tg, tr.trx, tr.r, tr.yg, tr.sy, tr.child, tr.pd, tr.pe, tr.ta, td:nth-child(2)').remove();
+    $('.page_timetable.y').find('.y').fadeIn(0);
 
-    $('.page_timetable.yg').find('tr.tg, tr.trx, tr.ras, tr.hy, tr.sy, tr.child, tr.pd, tr.pe, tr.ta, td:nth-child(2)').remove();
+    $('.page_timetable.yg').find('tr.ps, tr.sp, tr.tl, tr.tw, tr.tg, tr.trx, tr.r, tr.y, tr.sy, tr.child, tr.pd, tr.pe, tr.ta, td:nth-child(2)').remove();
     $('.page_timetable.yg').find('.yg').fadeIn(0);
 
-    $('.page_timetable.pd').find('tr.tg, tr.trx, tr.yg, tr.hy, tr.sy, tr.child, tr.ras, tr.pe, tr.ta, td:nth-child(2)').remove();
+    $('.page_timetable.pd').find('tr.ps, tr.sp, tr.tl, tr.tw, tr.tg, tr.trx, tr.yg, tr.y, tr.sy, tr.child, tr.r, tr.pe, tr.ta, td:nth-child(2)').remove();
     $('.page_timetable.pd').find('.pd').fadeIn(0);
 
-    $('.page_timetable.pe').find('tr.tg, tr.trx, tr.yg, tr.hy, tr.sy, tr.child, tr.ras, tr.pd, tr.ta, td:nth-child(2)').remove();
+    $('.page_timetable.pe').find('tr.ps, tr.sp, tr.tl, tr.tw, tr.tg, tr.trx, tr.yg, tr.y, tr.sy, tr.child, tr.r, tr.pd, tr.ta, td:nth-child(2)').remove();
     $('.page_timetable.pe').find('.pe').fadeIn(0);
 
-    $('.page_timetable.ras').find('tr.tg, tr.trx, tr.yg, tr.hy, tr.sy, tr.child, tr.pd, tr.pe, tr.ta, td:nth-child(2)').remove();
-    $('.page_timetable.ras').find('.ras').fadeIn(0);
+    $('.page_timetable.r').find('tr.ps, tr.sp, tr.tl, tr.tw, tr.tg, tr.trx, tr.yg, tr.y, tr.sy, tr.child, tr.pd, tr.pe, tr.ta, td:nth-child(2)').remove();
+    $('.page_timetable.r').find('.r').fadeIn(0);
 
-    $('.page_timetable.ta').find('tr.tg, tr.trx, tr.yg, tr.hy, tr.sy, tr.child, tr.pd, tr.pe, tr.ras, td:nth-child(2)').remove();
+    $('.page_timetable.ta').find('tr.ps, tr.sp, tr.tl, tr.tw, tr.tg, tr.trx, tr.yg, tr.y, tr.sy, tr.child, tr.pd, tr.pe, tr.r, td:nth-child(2)').remove();
     $('.page_timetable.ta').find('.ta').fadeIn(0);
 
-    $('.page_timetable.trx').find('tr.tg, tr.ta, tr.yg, tr.hy, tr.sy, tr.child, tr.pd, tr.pe, tr.ras, td:nth-child(2)').remove();
+    $('.page_timetable.trx').find('tr.ps, tr.sp, tr.tl, tr.tw, tr.tg, tr.ta, tr.yg, tr.y, tr.sy, tr.child, tr.pd, tr.pe, tr.r, td:nth-child(2)').remove();
     $('.page_timetable.trx').find('.trx').fadeIn(0);
 
-    $('.page_timetable.child').find('tr.tg, tr.ta, tr.yg, tr.hy, tr.sy, tr.trx, tr.pd, tr.pe, tr.ras, td:nth-child(2)').remove();
+    $('.page_timetable.child').find('tr.ps, tr.sp, tr.tl, tr.tw, tr.tg, tr.ta, tr.yg, tr.y, tr.sy, tr.trx, tr.pd, tr.pe, tr.r, td:nth-child(2)').remove();
     $('.page_timetable.child').find('.child').fadeIn(0);
 
     $('.page_timetable table').rowspanizer({ vertical_align: 'middle'});
+
+
 
     // if ($( window).width() > 900) {
     //     $('body').removeClass().addClass('dark');
