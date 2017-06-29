@@ -4,9 +4,10 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.force_ssl = true
-  config.assets.js_compressor :uglifier
+  config.assets.js_compressor :yui
+  config.assets.css_compressor :yui
 
-  # Eager load code on boot. This eager loads most of Rails and
+                               # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.

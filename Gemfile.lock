@@ -311,6 +311,7 @@ GEM
     will_paginate (3.1.5)
     will_paginate-bootstrap4 (0.1.2)
       will_paginate (~> 3.0, >= 3.0.9)
+    yui-compressor (0.12.0)
 
 PLATFORMS
   ruby
@@ -359,6 +360,7 @@ DEPENDENCIES
   whenever
   will_paginate
   will_paginate-bootstrap4
+  yui-compressor (~> 0.12.0)
 
 BUNDLED WITH
    1.14.6
