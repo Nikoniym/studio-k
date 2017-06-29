@@ -1,13 +1,19 @@
 ru:
   activerecord:
     models:
-      user:
-        one: 'профиль'
-        many: 'профили'
-        few:  'профилей'
-        other: 'профили'
+      user: 'Пользователи'
+#        one: 'профиль'
+#        many: 'профили'
+#        few:  'профилей'
+#        other: 'профили'
       slide_image: 'Слайды'
       teacher: 'Преподаватели'
       timetable: 'Расписание'
       time_spending: 'Время тренировки'
       training_name: 'Виды теренировок'
+      subscription: 'Абонементы'
+      select_cash: 'Цены'
+      content: 'Контент'
+      meet: 'Мероприятия'
+      album: 'Альбомы'
+      active_table: 'Активное расписание'

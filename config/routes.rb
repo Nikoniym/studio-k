@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     get :load_table, on: :collection
     get :entry_lesson, on: :member
     get :remove_lesson, on: :member
+    get :destoy_table, on: :member
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

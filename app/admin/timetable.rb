@@ -37,11 +37,11 @@ ActiveAdmin.register Timetable do
     end
     f.actions
   end
-  def display_name
-    "Order number - #{id}"
-  end
+  # def display_name
+  #   "Order number - #{id}"
+  # end
   action_item :only => :index do
-    link_to "Опубликовать", table_publishes_publish_path, remote: true
+    link_to "Опубликовать", table_publishes_publish_path
   end
 
 

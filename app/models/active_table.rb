@@ -70,7 +70,6 @@ class ActiveTable < ApplicationRecord
         data[:place_current] = t.place
         data[:no_registration] = 0
         data[:active] = true
-        data[:name_class] = t.name_shot
 
         ActiveTable.create(data)
       end

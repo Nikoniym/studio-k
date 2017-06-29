@@ -8,7 +8,7 @@ ActiveAdmin.register SelectCash do
     column :price
     column :count
     column :cash_sort_id
-    column :subscription
+    # column :subscription
 
     actions
   end

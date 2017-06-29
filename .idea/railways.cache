@@ -25,6 +25,7 @@
          load_table_active_tables GET        /active_tables/load_table(.:format)                          active_tables#load_table
         entry_lesson_active_table GET        /active_tables/:id/entry_lesson(.:format)                    active_tables#entry_lesson
        remove_lesson_active_table GET        /active_tables/:id/remove_lesson(.:format)                   active_tables#remove_lesson
+        destoy_table_active_table GET        /active_tables/:id/destoy_table(.:format)                    active_tables#destoy_table
                     active_tables GET        /active_tables(.:format)                                     active_tables#index
                                   POST       /active_tables(.:format)                                     active_tables#create
                  new_active_table GET        /active_tables/new(.:format)                                 active_tables#new
@@ -55,10 +56,17 @@
                                   POST       /admin/active_tables(.:format)                               admin/active_tables#create
            new_admin_active_table GET        /admin/active_tables/new(.:format)                           admin/active_tables#new
           edit_admin_active_table GET        /admin/active_tables/:id/edit(.:format)                      admin/active_tables#edit
-               admin_active_table GET        /admin/active_tables/:id(.:format)                           admin/active_tables#show
-                                  PATCH      /admin/active_tables/:id(.:format)                           admin/active_tables#update
+               admin_active_table PATCH      /admin/active_tables/:id(.:format)                           admin/active_tables#update
                                   PUT        /admin/active_tables/:id(.:format)                           admin/active_tables#update
                                   DELETE     /admin/active_tables/:id(.:format)                           admin/active_tables#destroy
+ batch_action_admin_subscriptions POST       /admin/subscriptions/batch_action(.:format)                  admin/subscriptions#batch_action
+              admin_subscriptions GET        /admin/subscriptions(.:format)                               admin/subscriptions#index
+                                  POST       /admin/subscriptions(.:format)                               admin/subscriptions#create
+           new_admin_subscription GET        /admin/subscriptions/new(.:format)                           admin/subscriptions#new
+          edit_admin_subscription GET        /admin/subscriptions/:id/edit(.:format)                      admin/subscriptions#edit
+               admin_subscription PATCH      /admin/subscriptions/:id(.:format)                           admin/subscriptions#update
+                                  PUT        /admin/subscriptions/:id(.:format)                           admin/subscriptions#update
+                                  DELETE     /admin/subscriptions/:id(.:format)                           admin/subscriptions#destroy
       batch_action_admin_contents POST       /admin/contents/batch_action(.:format)                       admin/contents#batch_action
                    admin_contents GET        /admin/contents(.:format)                                    admin/contents#index
                                   POST       /admin/contents(.:format)                                    admin/contents#create
@@ -67,14 +75,6 @@
                     admin_content PATCH      /admin/contents/:id(.:format)                                admin/contents#update
                                   PUT        /admin/contents/:id(.:format)                                admin/contents#update
                                   DELETE     /admin/contents/:id(.:format)                                admin/contents#destroy
-  batch_action_admin_select_boxes POST       /admin/select_boxes/batch_action(.:format)                   admin/select_boxes#batch_action
-               admin_select_boxes GET        /admin/select_boxes(.:format)                                admin/select_boxes#index
-                                  POST       /admin/select_boxes(.:format)                                admin/select_boxes#create
-             new_admin_select_box GET        /admin/select_boxes/new(.:format)                            admin/select_boxes#new
-            edit_admin_select_box GET        /admin/select_boxes/:id/edit(.:format)                       admin/select_boxes#edit
-                 admin_select_box PATCH      /admin/select_boxes/:id(.:format)                            admin/select_boxes#update
-                                  PUT        /admin/select_boxes/:id(.:format)                            admin/select_boxes#update
-                                  DELETE     /admin/select_boxes/:id(.:format)                            admin/select_boxes#destroy
  batch_action_admin_select_cashes POST       /admin/select_cashes/batch_action(.:format)                  admin/select_cashes#batch_action
               admin_select_cashes GET        /admin/select_cashes(.:format)                               admin/select_cashes#index
                                   POST       /admin/select_cashes(.:format)                               admin/select_cashes#create
@@ -99,24 +99,6 @@
                       admin_album PATCH      /admin/albums/:id(.:format)                                  admin/albums#update
                                   PUT        /admin/albums/:id(.:format)                                  admin/albums#update
                                   DELETE     /admin/albums/:id(.:format)                                  admin/albums#destroy
-   batch_action_admin_admin_users POST       /admin/admin_users/batch_action(.:format)                    admin/admin_users#batch_action
-                admin_admin_users GET        /admin/admin_users(.:format)                                 admin/admin_users#index
-                                  POST       /admin/admin_users(.:format)                                 admin/admin_users#create
-             new_admin_admin_user GET        /admin/admin_users/new(.:format)                             admin/admin_users#new
-            edit_admin_admin_user GET        /admin/admin_users/:id/edit(.:format)                        admin/admin_users#edit
-                 admin_admin_user GET        /admin/admin_users/:id(.:format)                             admin/admin_users#show
-                                  PATCH      /admin/admin_users/:id(.:format)                             admin/admin_users#update
-                                  PUT        /admin/admin_users/:id(.:format)                             admin/admin_users#update
-                                  DELETE     /admin/admin_users/:id(.:format)                             admin/admin_users#destroy
-        batch_action_admin_cashes POST       /admin/cashes/batch_action(.:format)                         admin/cashes#batch_action
-                     admin_cashes GET        /admin/cashes(.:format)                                      admin/cashes#index
-                                  POST       /admin/cashes(.:format)                                      admin/cashes#create
-                   new_admin_cash GET        /admin/cashes/new(.:format)                                  admin/cashes#new
-                  edit_admin_cash GET        /admin/cashes/:id/edit(.:format)                             admin/cashes#edit
-                       admin_cash GET        /admin/cashes/:id(.:format)                                  admin/cashes#show
-                                  PATCH      /admin/cashes/:id(.:format)                                  admin/cashes#update
-                                  PUT        /admin/cashes/:id(.:format)                                  admin/cashes#update
-                                  DELETE     /admin/cashes/:id(.:format)                                  admin/cashes#destroy
 batch_action_admin_time_spendings POST       /admin/time_spendings/batch_action(.:format)                 admin/time_spendings#batch_action
              admin_time_spendings GET        /admin/time_spendings(.:format)                              admin/time_spendings#index
                                   POST       /admin/time_spendings(.:format)                              admin/time_spendings#create
@@ -125,24 +107,6 @@ batch_action_admin_time_spendings POST       /admin/time_spendings/batch_action(
               admin_time_spending PATCH      /admin/time_spendings/:id(.:format)                          admin/time_spendings#update
                                   PUT        /admin/time_spendings/:id(.:format)                          admin/time_spendings#update
                                   DELETE     /admin/time_spendings/:id(.:format)                          admin/time_spendings#destroy
-     batch_action_admin_day_weeks POST       /admin/day_weeks/batch_action(.:format)                      admin/day_weeks#batch_action
-                  admin_day_weeks GET        /admin/day_weeks(.:format)                                   admin/day_weeks#index
-                                  POST       /admin/day_weeks(.:format)                                   admin/day_weeks#create
-               new_admin_day_week GET        /admin/day_weeks/new(.:format)                               admin/day_weeks#new
-              edit_admin_day_week GET        /admin/day_weeks/:id/edit(.:format)                          admin/day_weeks#edit
-                   admin_day_week GET        /admin/day_weeks/:id(.:format)                               admin/day_weeks#show
-                                  PATCH      /admin/day_weeks/:id(.:format)                               admin/day_weeks#update
-                                  PUT        /admin/day_weeks/:id(.:format)                               admin/day_weeks#update
-                                  DELETE     /admin/day_weeks/:id(.:format)                               admin/day_weeks#destroy
-    batch_action_admin_cash_sorts POST       /admin/cash_sorts/batch_action(.:format)                     admin/cash_sorts#batch_action
-                 admin_cash_sorts GET        /admin/cash_sorts(.:format)                                  admin/cash_sorts#index
-                                  POST       /admin/cash_sorts(.:format)                                  admin/cash_sorts#create
-              new_admin_cash_sort GET        /admin/cash_sorts/new(.:format)                              admin/cash_sorts#new
-             edit_admin_cash_sort GET        /admin/cash_sorts/:id/edit(.:format)                         admin/cash_sorts#edit
-                  admin_cash_sort GET        /admin/cash_sorts/:id(.:format)                              admin/cash_sorts#show
-                                  PATCH      /admin/cash_sorts/:id(.:format)                              admin/cash_sorts#update
-                                  PUT        /admin/cash_sorts/:id(.:format)                              admin/cash_sorts#update
-                                  DELETE     /admin/cash_sorts/:id(.:format)                              admin/cash_sorts#destroy
   batch_action_admin_slide_images POST       /admin/slide_images/batch_action(.:format)                   admin/slide_images#batch_action
                admin_slide_images GET        /admin/slide_images(.:format)                                admin/slide_images#index
                                   POST       /admin/slide_images(.:format)                                admin/slide_images#create

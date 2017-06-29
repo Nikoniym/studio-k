@@ -21,6 +21,8 @@ class TablePublishesController < ApplicationController
 
       TablePublish.create(data)
     end
+    flash[:message] = 'Расписание опубликовано успешно'
+    redirect_to admin_timetables_path
   end
   def filter
     param = params[:publication][:category]
