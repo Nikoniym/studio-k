@@ -160,7 +160,9 @@ $(document).ready(function (){
         lrg: 2000,
         resize: false
     });
+    $(".timetable .content_wrapper table").rowspanizer({ vertical_align: 'middle'});
     $('.page_timetable').find('td:nth-child(2)').remove();
+    $('.page_timetable table').rowspanizer({ vertical_align: 'middle'});
     // if ($( window).width() > 900) {
     //     $('body').removeClass().addClass('dark');
     // }
