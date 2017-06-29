@@ -60,3 +60,15 @@ namespace :logs do
     end
   end
 end
+
+namespace :git do
+  desc 'Deploy'
+  task :deploy do
+    ask(:message, "Commit message?")
+    run_locally do
+      execute "git add -A"
+      execute "git commit -m '#{fetch(:message)}'"
+      execute "git push"
+    end
+  end
+end
