@@ -29,7 +29,7 @@ class ActiveTable < ApplicationRecord
     if t_false.count < 7
       table = TablePublish.where.not(day_week: t_false)
       t_false = table.first.day_week
-      d=Date.today.next_week.monday
+      d=Date.today.next_weekA.monday
       case t_false
         when 'Понедельник'
           date_week = 'Понедельник'

@@ -125,12 +125,13 @@ $(window).on("load",function(){
     }
     galleryAlign();
     sizeImg();
+    $(".overlay").css('display','none');
+    $("#header").removeClass('overlay_face');
 
-
-    setTimeout(function(){
-        $(".overlay").css('display','none');
-        $("#header").removeClass('overlay_face');
-    }, 1500);
+    // setTimeout(function(){
+    //     $(".overlay").css('display','none');
+    //     $("#header").removeClass('overlay_face');
+    // }, 1500);
 });
 
 
