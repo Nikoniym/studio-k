@@ -12,7 +12,7 @@
       p = content.description
       h3 Расписание
       .page_timetable class="#{content.name_shot}"
-        = render 'elements/table'
+        = render 'elements/table', time_table: @time_table.show_table(content.name_shot)
       h3 Преподавтели
       .teacher
         - content.users.each do |user|

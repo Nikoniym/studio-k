@@ -160,6 +160,7 @@ $(document).ready(function (){
         lrg: 2000,
         resize: false
     });
+    $('.page_timetable').find('td:nth-child(2)').remove();
     // if ($( window).width() > 900) {
     //     $('body').removeClass().addClass('dark');
     // }
