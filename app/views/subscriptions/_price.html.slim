@@ -32,9 +32,9 @@
           ul
             - @select_cash.each_with_index do |price, index|
               li
-                = f.radio_button :select_cash_id, price.id, :checked => index == 0 ? true : false
+                = f.radio_button :select_cash_id, price.id, :checked => index == 0 ? true : false, class: 'option-input radio'
                 = f.label "select_cash_id_#{price.id}",  " #{price.name} - #{price.price} руб. "
-                .check
+
 
           .datepicker_field
             = f.label :date_start, 'Дата начала:'
