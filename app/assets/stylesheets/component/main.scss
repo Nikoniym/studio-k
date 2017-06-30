@@ -22,22 +22,34 @@
   }
   .content_inner {
     position: relative;
-    margin-right: 425px;
+    //margin-right: 425px;
     height: 100%;
-    .slide_inner{
+    .slide_inner {
       -webkit-overflow-scrolling: touch;
       opacity: 0;
       z-index: 0;
       position: absolute;
       height: 92%;
       top: 4%;
-      left: 31px;
+      left: 30px;
       width: 100%;
       @include my_animation(.3s);
+      .mCSB_scrollTools .mCSB_draggerRail {
+        display: none;
+      }
+      .mCSB_scrollTools a + .mCSB_draggerContainer {
+        margin: 35px 0;
+      }
       &.show {
         z-index: 9910;
         opacity: 1;
         @include my_animation(.3s);
+      }
+      &.gallery {
+        height: 100%;
+        top: 0%;
+        left: 0;
+
       }
     }
     .timetable {
@@ -296,8 +308,8 @@
     font-family: fontello;
     font-size: 65px;
     cursor: pointer;
-    RIGHT: 483px;
-    top: 45px;
+    right: 446px;
+    top: 32px;
   }
 }
 .gallery {
@@ -1057,11 +1069,11 @@
     }
   }
   #info_content_wrapper {
+
     @include my_animation(.3s);
     .content_inner {
-      .slide_inner {
-        padding-right: 31px;
-      }
+      @include my_animation(.3s);
+      margin-right: 389px;
       .contacts {
         .social_link {
           .icon_menu{
@@ -1071,10 +1083,64 @@
           }
         }
       }
+      &.show_gallery {
+        margin-right: 389px;
+      }
+      .slide_inner{
+        padding-right: 60px;
+        .mCSB_inside > .mCSB_container {
+          margin-right: 0;
+        }
+
+        &.gallery {
+          padding-right: 0;
+          .mCSB_scrollTools .mCSB_draggerContainer {
+            display: none;
+          }
+          height: 100%;
+          top: 0%;
+          left: 0;
+
+        }
+        &.timetable {
+          padding-right: 30px;
+          height: 100%;
+          top: 0%;
+          .content_wrapper {
+            padding-right: 30px;
+          }
+          .filter_box {
+            right: 25px;
+          }
+          .mCSB_scrollTools {
+            right: 8px;
+          }
+          .filter_box {
+            margin-top: 40px;
+          }
+          .content_wrapper {
+            margin-top: 100px;
+          }
+        }
+        &.contacts {
+          height: 100%;
+          top: 0%;
+          padding-right: 30px;
+
+          .contacts_inner {
+            padding-right: 30px;
+            margin-top: 30px;
+          }
+          .mCSB_scrollTools {
+            right: 8px;
+          }
+        }
+      }
     }
   }
   .gallery_inner {
     overflow: hidden;
+
     .return{
       &:hover {
         color: $hover_title;

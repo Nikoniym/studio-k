@@ -679,6 +679,8 @@ footer {
       font-size: 21.66667px;
       text-align: center;
       line-height: 32px;
+      color: white;
+      font-family: 'Roboto', sans-serif;
     }
     .option-input:checked::after {
       -webkit-animation: click-wave 0.65s;

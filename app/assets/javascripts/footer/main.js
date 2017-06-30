@@ -236,7 +236,10 @@ $(document).ready(function (){
 		}
 		if ($(this).hasClass("photo_galary")){
 			$('.content_inner .gallery').addClass('show');
-		}
+            $('.content_inner').addClass('show_gallery');
+		}else{
+            $('.content_inner').removeClass('show_gallery');
+        }
         if ($(this).hasClass("share_price")){
             $('.content_inner .share_price').addClass('show');
         }
@@ -428,7 +431,7 @@ $( window ).resize(function() {
 
 	// toggle between fullscreen and small slideshow
 	switchBtnn.addEventListener( 'click', toggleSlideshow );
-	// close overlay
-	overlayClose.addEventListener( 'click', closeOverlay );
+	// // close overlay
+	// overlayClose.addEventListener( 'click', closeOverlay );
 
 }());

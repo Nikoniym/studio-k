@@ -1,11 +1,16 @@
 class TablePublish < ApplicationRecord
-  scope :tran_name, -> (object) { where(training_name: object) if object.present?}
+  # scope :tran_name, -> (object) { where(training_name: object) if object.present?}
 
   def show_table(object)
     if object == 'all'
       table = TablePublish.all
     else
-      table = TablePublish.all.where(name_shot: object)
+      if object.size < 4
+        table = TablePublish.all.where(name_shot: object)
+      else
+        table = TablePublish.all.where(training_name: object)
+      end
+
     end
 
     date_week = table.first.day_week
