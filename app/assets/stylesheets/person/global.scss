@@ -880,7 +880,7 @@ footer {
 }
 @include susy-breakpoint(720px, 6) {
   .avatar_wrapper {
-    max-height: 220px;
+    max-height: 300px;
   }
 }
 @include susy-breakpoint(min-width 720px, max-width 740px, 6) {
