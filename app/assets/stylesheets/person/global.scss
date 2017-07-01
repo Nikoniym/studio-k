@@ -28,6 +28,9 @@ body {
       color: $link_content_hover;
     }
   }
+  input {
+    -webkit-appearance: none;
+  }
   
 }
 
@@ -554,6 +557,7 @@ footer {
         border-radius: 3px;
         padding: 5px;
         outline: none;
+        width: 150px;
       }
     }
     .date_picker {
