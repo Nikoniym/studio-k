@@ -12,7 +12,7 @@ html, body {
 body {
   min-width: 320px;
   font-family: 'Comfortaa', cursive;
-  background: image-url('fon5.jpg') repeat;
+  background: image-url('fon5.jpg') repeat #ebebeb;
   color: $content_color;
   a { 
     color: $link_content;
@@ -663,6 +663,7 @@ footer {
       background: $link_content;
     }
     .option-input:checked::before {
+      font-family: 'Roboto', sans-serif;
       height: 30px;
       width: 30px;
       position: absolute;
@@ -671,8 +672,8 @@ footer {
       font-size: 21.66667px;
       text-align: center;
       line-height: 32px;
-      color: white;
-      font-family: 'Roboto', sans-serif;
+      color: white!important;
+
     }
     .option-input:checked::after {
       -webkit-animation: click-wave 0.65s;
