@@ -73,12 +73,15 @@ function telNumber() {
     // }
 }
 function galleryAlign() {
-    $('#lightgallery .box').each(function(){
-        $(this).height($('#lightgallery .box').first().width()-3);
-    });
-    $('.albums .box').each(function(){
-        $(this).height($('.albums .box').first().width());
-    });
+    setTimeout(function(){
+        $('#lightgallery .box').each(function(){
+            $(this).height($(this).width()-3);
+        });
+
+        $('.albums .box').each(function(){
+            $(this).height($(this).width());
+        });
+    }, 1);
 }
 // Ajax download page
 

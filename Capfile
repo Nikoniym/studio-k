@@ -6,10 +6,11 @@ require "capistrano/deploy"
 require "capistrano/rvm"
 require "capistrano/bundler"
 require "capistrano/rails"
-require 'capistrano/rails/collection'
-require 'capistrano/rails/console'
-require 'capistrano/logtail'
-
+require "capistrano/rails/collection"
+require "capistrano/rails/console"
+require "capistrano/logtail"
+require "whenever/capistrano"
+require "capistrano/scm/git"
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
@@ -18,7 +19,7 @@ require 'capistrano/logtail'
 # require "capistrano/scm/svn"
 # install_plugin Capistrano::SCM::Svn
 # or
-require "capistrano/scm/git"
+
 install_plugin Capistrano::SCM::Git
 
 # Include tasks from other gems included in your Gemfile

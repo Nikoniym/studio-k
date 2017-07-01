@@ -1,24 +1,17 @@
 @import "susy";
 @import "variables";
-@import 'component/component';
+//@import 'component/component';
 @import 'component/preloader';
 $susy: (
         columns: 12,  // The number of columns in your grid
         gutters: 1/4, // The size of a gutter in relation to a single column
 );
 html, body {
-  height: 97%;
+  height: 96%;
 }
 body {
-  //display: -webkit-box;
-  //display: -moz-box;
-  //display: -ms-flexbox;
-  //display: box;
   min-width: 320px;
-  //font-family: 'Comfortaa', cursive;
   font-family: 'Comfortaa', cursive;
-  //font-family: 'Lora', serif;
-  background: $white_grey;
   background: image-url('fon5.jpg') repeat;
   color: $content_color;
   a { 
@@ -42,8 +35,6 @@ h2 {
     margin-bottom: 15px;
   }
 }
-
-@import url('https://fonts.googleapis.com/css?family=Alice|Comfortaa:300,400,700|Lora:400,700|Open+Sans:300,400,700&subset=cyrillic');
 .clearfix:after {
   content: ".";
   display: block;
@@ -155,8 +146,7 @@ footer {
 .person_wrapper {
   @include container;
   background: $white;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  //margin-bottom: 2%;
   border-radius: 3px;
   min-height: 100%;
   border: 5px solid;
@@ -165,7 +155,9 @@ footer {
   box-shadow: 0 0 99px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 99px rgba(0, 0, 0, 0.5);
 }
-
+.bottom_block {
+  height: 30px;
+}
 #notice_wrapper {
   position: fixed;
   width: 100%;
@@ -819,7 +811,8 @@ footer {
 
 @include susy-breakpoint(900px, 12) {
   .person_wrapper {
-    @include container(900px)
+    @include container(900px);
+    margin-top: 30px;
   }
   .avatar_wrapper {
     .img_box {
@@ -833,10 +826,14 @@ footer {
     margin: 0 auto;
     margin-top: 20px;
   }
+
 }
 @include susy-breakpoint(max-width 899px, 12) {
   .person_wrapper {
-    @include container(100%)
+    @include container(100%);
+    padding: 7px 20px 20px;
+    border: none;
+    box-shadow: none;
   }
   header {
     .header_inner {
@@ -869,11 +866,6 @@ footer {
   }
   .filter_box #publication_category {
     margin-right: 0;
-  }
-  .person_wrapper {
-    padding: 20px;
-    border: none;
-    box-shadow: none;
   }
   body {
     background: $white;
@@ -927,7 +919,8 @@ footer {
     padding: 0;
   }
   .person_wrapper {
-    padding: 12px 20px 20px 20px;
+    padding: 25px 20px 20px 20px;
+
   }
   header {
     text-align: center;
