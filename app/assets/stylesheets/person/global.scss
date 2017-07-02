@@ -663,17 +663,16 @@ footer {
       background: $link_content;
     }
     .option-input:checked::before {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'fontello';
       height: 30px;
       width: 30px;
       position: absolute;
-      content: '✔';
+      content: '\e830';
       display: inline-block;
-      font-size: 21.66667px;
+      font-size: 14px;
       text-align: center;
       line-height: 32px;
-      color: white!important;
-
+      color: white;
     }
     .option-input:checked::after {
       -webkit-animation: click-wave 0.65s;

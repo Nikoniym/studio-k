@@ -75,7 +75,7 @@ gem 'remotipart' #ajax download image
 gem 'seed_dump'
 gem 'whenever'
 gem 'dotenv-rails'
-
+gem 'paperclip-optimizer'
 # gem 'dotenv-rails-deployment', requier: 'dotenv/deployment'
 
 
