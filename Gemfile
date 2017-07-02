@@ -75,10 +75,12 @@ gem 'remotipart' #ajax download image
 gem 'seed_dump'
 gem 'whenever'
 gem 'dotenv-rails'
-gem 'paperclip-optimizer'
+# gem 'paperclip-optimizer'
 # gem 'dotenv-rails-deployment', requier: 'dotenv/deployment'
-
-
+# gem 'paperclip-compression'
+gem 'image_optim'
+gem 'image_optim_pack'
+gem 'paperclip-optimizer'
 group :development do
   gem 'capistrano', require: false
   gem 'capistrano-bundler', require: false

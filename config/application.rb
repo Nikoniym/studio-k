@@ -10,6 +10,7 @@ module Krylia
   class Application < Rails::Application
     config.i18n.default_locale = :ru
     config.active_record.time_zone_aware_types = [:datetime, :time]
+    # config.paperclip_defaults = { :compression => { :png => false, :jpeg => '-optimize' } }
     config.assets.image_optim = false
   end
 end
