@@ -9,7 +9,15 @@
 
 Paperclip::PaperclipOptimizer.default_options = {
   skip_missing_workers: false,
-  svgo: false
+  allow_lossy: true,
+  svgo: false,
+  jpegoptim: {
+      strip: :all,        # List of extra markers to strip: :comments, :exif, :iptc, :icc or :all (defaults to :all)
+      max_quality: 50   # Maximum image quality factor 0..100 (defaults to 100)
+  },
+  jpegrecompress: {
+      quality: 2         # JPEG quality preset: 0 - low, 1 - medium, 2 - high, 3 - veryhigh (defaults to 3)
+  }
 }
 
 # All available image_optim options. See https://github.com/toy/image_optim for more information

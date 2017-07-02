@@ -1,9 +1,6 @@
 class SlideImage < ApplicationRecord
   has_attached_file :image,
                     processors: [:thumbnail, :paperclip_optimizer],
-                    paperclip_optimizer: {
-                        pngout: { strategy: 1 }
-                    },
                     styles: { medium: {geometry: "1600x1600>"},
                               small:{geometry: "1000x1000>"},
                               large:{geometry: "1880x1800>"},
