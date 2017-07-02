@@ -33,9 +33,7 @@
 })();
 $(window).on('load', function (){
     $('.input--hoshi input').change(function() {
-
         $(this).each(function () {
-
             if ($(this).val() != '') {
                 $(this).parent().addClass('input--filled')
             }

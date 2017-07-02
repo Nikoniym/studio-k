@@ -1,6 +1,13 @@
 ActiveAdmin.register SlideImage do
   actions :all, :except => [:show]
+  config.sort_order = [:position]
   permit_params :name, :image, :position
+
+  controller do
+    def scoped_collection
+      end_of_association_chain.order(:position)
+    end
+  end
 
   index do
     column :name

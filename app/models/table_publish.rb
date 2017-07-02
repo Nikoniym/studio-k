@@ -1,11 +1,11 @@
 class TablePublish < ApplicationRecord
   # scope :tran_name, -> (object) { where(training_name: object) if object.present?}
 
-  def show_table(object)
+  def show_table(object, sort=nil)
     if object == 'all'
       table = TablePublish.all
     else
-      if object.size < 4
+      if sort.blank?
         table = TablePublish.all.where(name_shot: object)
       else
         table = TablePublish.all.where(training_name: object)

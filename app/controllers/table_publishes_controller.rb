@@ -27,7 +27,7 @@ class TablePublishesController < ApplicationController
   def filter
     param = params[:publication][:category]
     param = 'all' if param.blank?
-    @time_table = TablePublish.new.show_table(param)
+    @time_table = TablePublish.new.show_table(param,param)
   end
 
   private
