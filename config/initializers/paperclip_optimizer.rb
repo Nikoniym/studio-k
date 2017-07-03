@@ -13,10 +13,10 @@ Paperclip::PaperclipOptimizer.default_options = {
   svgo: false,
   jpegoptim: {
       strip: :all,        # List of extra markers to strip: :comments, :exif, :iptc, :icc or :all (defaults to :all)
-      max_quality: 50   # Maximum image quality factor 0..100 (defaults to 100)
+      max_quality: 75   # Maximum image quality factor 0..100 (defaults to 100)
   },
   jpegrecompress: {
-      quality: 2         # JPEG quality preset: 0 - low, 1 - medium, 2 - high, 3 - veryhigh (defaults to 3)
+      quality: 3        # JPEG quality preset: 0 - low, 1 - medium, 2 - high, 3 - veryhigh (defaults to 3)
   }
 }
 
