@@ -31,15 +31,45 @@
         }
     }
 })();
-$(window).on('load', function (){
-    $('.input--hoshi input').change(function() {
-        $(this).each(function () {
-            if ($(this).val() != '') {
-                $(this).parent().addClass('input--filled')
-            }
-        })
-    });
+function ModernForm() {
+    var modernInputElement = $('.input__field--hoshi');
 
+    function recheckAllInput() {
+        modernInputElement.each(function() {
+            if ($(this).val() !== '') {
+                $(this).parent().find('label').addClass('input--filled');
+            }
+        });
+    }
+
+    modernInputElement.on('click', function() {
+        $(this).parent().find('label').addClass('input--filled');
+    });
+    modernInputElement.on('blur', function() {
+        if ($(this).val() === '') {
+            $(this).parent().find('label').removeClass('input--filled');
+        } else {
+            recheckAllInput();
+        }
+    });
+}
+$(window).on('load', function (){
+    // setTimeout(function(){
+    //     $('body').trigger('click');
+    //      console.log('click')
+    // }, 1000);
+    //
+    // $('.input--hoshi input').change(function() {
+    //     $(this).each(function () {
+    //         if ($(this).val() != '') {
+    //             $(this).parent().addClass('input--filled')
+    //             $('.register_wrapper').click();
+    //         }
+    //     })
+    // });
+
+
+    ModernForm();
 
 });
 
