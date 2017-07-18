@@ -1,0 +1,5 @@
+source 'http://rubygems.org'
+
+#Backup related gems
+gem 'backup', '~> 5.0.0.beta.1'
+gem 'dotenv'

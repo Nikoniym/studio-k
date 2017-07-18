@@ -11,7 +11,7 @@
       <resolve-scope>krylia:nik,public</resolve-scope>
     </data-source>
     <data-source name="Rails krylia: production" uuid="d8f34ae5-d3f0-49cb-b582-484a23da885e">
-      <database-info product="PostgreSQL" version="9.5.6" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4.1212">
+      <database-info product="PostgreSQL" version="9.5.7" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4.1212">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
