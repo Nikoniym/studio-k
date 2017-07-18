@@ -10,6 +10,9 @@
 # http://meskyanichi.github.io/backup
 #
 Model.new(:rails_database, 'Backups of the Rails Database') do
+  # archive :mayak_archive do |archive|
+  #   archive.add "/backup/"
+  # end
 
   store_with FTP do |server|
     server.username     = ENV['FTP_USER_NAME']
@@ -38,10 +41,10 @@ Model.new(:rails_database, 'Backups of the Rails Database') do
     mail.on_failure           = true
 
     mail.from                 = ENV['EMAIL_USER_NAME']
-    mail.to                   = "receiver@email.com"
+    mail.to                   = "worldnillin@gmail.com"
     mail.address              = "smtp.gmail.com"
     mail.port                 = 587
-    mail.domain               = "www.maxim-rada.ru"
+    mail.domain               = "gmail.com"
     mail.user_name            = ENV['EMAIL_USER_NAME']
     mail.password             = ENV['EMAIL_PASSWORD']
     mail.authentication       = "plain"

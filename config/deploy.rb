@@ -39,7 +39,7 @@ append :linked_dirs,  "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/sys
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-before 'deploy', 'git:deploy'
+# before 'deploy', 'git:deploy'
 after 'deploy', 'backup:setup'
 
 namespace :deploy do
