@@ -39,7 +39,7 @@ append :linked_dirs,  "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/sys
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-# before 'deploy', 'git:deploy'
+before 'deploy', 'git:deploy'
 after 'deploy', 'backup:setup'
 
 namespace :deploy do
@@ -84,7 +84,7 @@ namespace :git do
     run_locally do
       execute "git add -A"
       execute "git commit -m '#{fetch(:message)}'"
-      execute "git push"
+      execute "git push https://github.com/Nikoniym/studio-k.git"
     end
   end
 end

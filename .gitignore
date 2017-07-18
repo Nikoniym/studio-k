@@ -21,6 +21,7 @@
 .byebug_history
 
 config/database.yml
+backup/.env
 
 /public/system
 /public/tmp

@@ -10,9 +10,20 @@
 # http://meskyanichi.github.io/backup
 #
 Model.new(:rails_database, 'Backups of the Rails Database') do
-  # archive :mayak_archive do |archive|
-  #   archive.add "/backup/"
-  # end
+  archive :mayak_archive do |archive|
+    archive.add "/backup/"
+  end
+
+  database PostgreSQL do |db|
+    db.name = ENV['DB_NAME']
+    db.username = ENV['DB_USER_NAME']
+    db.password = ENV['DB_PASSWORD']
+    db.host = "localhost"
+    db.port = 5432
+    db.skip_tables  = []
+    db.socket = '/var/run/postgresql'
+    db.additional_options = ["-xc", "-E=utf8"]
+  end
 
   store_with FTP do |server|
     server.username     = ENV['FTP_USER_NAME']
