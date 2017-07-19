@@ -47,9 +47,9 @@ Model.new(:rails_database, 'Backups of the Rails Database') do
   # See the documentation for other delivery options.
   #
   notify_by Mail do |mail|
-    mail.on_success           = true
-    mail.on_warning           = true
-    mail.on_failure           = true
+    mail.on_success           = false
+    mail.on_warning           = false
+    mail.on_failure           = false
 
     mail.from                 = ENV['EMAIL_USER_NAME']
     mail.to                   = "worldnillin@gmail.com"
