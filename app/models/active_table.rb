@@ -26,7 +26,7 @@ class ActiveTable < ApplicationRecord
   def create_table
     t_false = ActiveTable.where('date >= ? and active = ?', Date.today, true)
     t_false = t_false.pluck(:day_week).uniq
-    if t_false.count < 7
+    if t_false.count < 7 && t_false.present?
       table = TablePublish.where.not(day_week: t_false)
       t_false = table.first.day_week
       d=Date.today.next_week.monday

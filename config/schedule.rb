@@ -6,6 +6,6 @@ every 1.hours do
   backup 'rails_database', backup_path: 'backup'
 end
 
-every :day, :at => '11:30 pm' do
+every :day, :at => '11:00 pm' do
   runner "ActiveTable.new.create_table"
 end

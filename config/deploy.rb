@@ -13,7 +13,7 @@ set :console_env, :production
 set :console_user, 'nik'
 set :logtail_files, %w( /var/log/syslog )
 set :logtail_lines, 50
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+
 # set :linked_file, %w{config/database.yml .env}
 # set :inked_dir, %w{bin log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle}
 # Default value for :format is :airbrussh.
@@ -41,7 +41,6 @@ append :linked_dirs,  "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/sys
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 before :deploy, 'git:deploy'
-
 
 namespace :deploy do
   desc 'Restart application'
