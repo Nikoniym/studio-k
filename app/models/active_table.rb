@@ -49,7 +49,7 @@ class ActiveTable < ApplicationRecord
           d+=5
           date_week = 'Суббота'
         when 'Воскресенье'
-          d+=6
+          d-=1
           date_week = 'Воскресенье'
       end
 
