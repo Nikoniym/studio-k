@@ -27,7 +27,7 @@ set :logtail_lines, 50
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", ".env"
+append :linked_files, "config/database.yml", ".env", "backup/.env"
 
 # Default value for linked_dirs is []
 append :linked_dirs,  "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle", "public/uploads"
@@ -84,7 +84,7 @@ namespace :git do
     run_locally do
       execute "git add -A"
       execute "git commit -m '#{fetch(:message)}'"
-      execute "git push https://github.com/Nikoniym/studio-k.git"
+      execute "git push git@github.com:Nikoniym/studio-k.git"
     end
   end
 end

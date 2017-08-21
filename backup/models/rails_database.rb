@@ -31,7 +31,7 @@ Model.new(:rails_database, 'Backups of the Rails Database') do
     server.ip           = ENV['FTP_IP']
     server.port         = 21
     server.path         = '/backup/'
-    server.keep         = 5
+    server.keep         = 150
     server.passive_mode = false
   end
 
