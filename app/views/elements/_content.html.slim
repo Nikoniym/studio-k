@@ -13,7 +13,7 @@
       h3 Расписание
       .page_timetable class="#{content.name_shot}"
         = render 'elements/table', time_table: @time_table.show_table(content.name_shot)
-      h3 Преподавтели
+      h3 = t('teacher', count: content.users.size)
       .teacher
         - content.users.each do |user|
           .teacher_item

@@ -1,4 +1,7 @@
 ru:
+  teacher:
+    one: 'Преподаватель'
+    other: 'Преподаватели'
   time:
     formats:
       standart: "%m.%d.%Y %H:%M"
