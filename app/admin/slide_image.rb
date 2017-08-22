@@ -1,4 +1,5 @@
 ActiveAdmin.register SlideImage do
+  menu parent: 'Оформление, наполнение'
   actions :all, :except => [:show]
   config.sort_order = [:position]
   permit_params :name, :image, :position

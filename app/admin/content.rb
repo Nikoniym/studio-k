@@ -1,4 +1,5 @@
 ActiveAdmin.register Content do
+  menu parent: 'Оформление, наполнение'
   actions :all, :except => [:show]
   permit_params :name, :name_shot,  :slide_image_id, :description, :user_ids => []
 

@@ -1,4 +1,5 @@
 ActiveAdmin.register Album do
+  menu parent: 'Оформление, наполнение'
   actions :all, :except => [:show]
   permit_params :avatar, :name
 

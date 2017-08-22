@@ -1,5 +1,5 @@
 ActiveAdmin.register Timetable do
-
+  menu parent: 'Расписание'
   config.sort_order = 'time_spendings.time_start asc and day_week_id asc'
   config.per_page = 100
 

@@ -1,4 +1,5 @@
 ActiveAdmin.register Meet do
+  menu parent: 'Оформление, наполнение'
   actions :all, :except => [:show]
   permit_params :image, :description,  :time_start, :date
 

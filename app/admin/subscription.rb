@@ -1,5 +1,5 @@
 ActiveAdmin.register Subscription do
-
+  menu priority: 2
   config.sort_order = 'created_at desc'
   config.per_page = 100
 
@@ -30,7 +30,7 @@ ActiveAdmin.register Subscription do
     f.inputs do
       f.input :paid
       f.input :date_paid
-      f.input :teacher_name
+      f.input :teacher_name, :label => 'Имя преподавателя', :as => :select, :collection => User.with_role(:teacher).map{|u| "#{u.first_name} #{u.last_name}"}
     end
     f.actions
   end

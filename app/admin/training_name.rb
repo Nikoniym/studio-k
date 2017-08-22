@@ -1,4 +1,5 @@
 ActiveAdmin.register TrainingName do
+  menu parent: 'Расписание'
   actions :all, :except => [:show]
   permit_params :name, :name_shot
 

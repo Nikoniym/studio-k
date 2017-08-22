@@ -1,36 +1,37 @@
 ActiveAdmin.register ActiveTable do
- actions :all, :except => [:show]
- config.sort_order = 'active desc and date asc and time_start asc'
- permit_params :teacher, :teacher_id, :time_spending, :training_name, :date, :day_week, :place, :place_current, :active, :time_start, :no_registration
- config.sort_order = 'date desc and time_start'
- config.per_page = 100
+  menu parent: 'Расписание'
+  actions :all, :except => [:show]
+  config.sort_order = 'active desc and date asc and time_start asc'
+  permit_params :teacher, :teacher_id, :time_spending, :training_name, :date, :day_week, :place, :place_current, :active, :time_start, :no_registration
+  config.sort_order = 'date desc and time_start'
+  config.per_page = 100
 
- controller do
+  controller do
    def scoped_collection
      end_of_association_chain.order(active: :desc).order(date: :asc).order(time_start: :asc)
    end
- end
+  end
 
 
- index do
-   column :active
-   column :day_week
-   column :date
-   column :time_spending
-   column :time_start do |t|
+  index do
+    column :active
+    column :day_week
+    column :date
+    column :time_spending
+    column :time_start do |t|
      t.time_start.strftime("%H:%M")
-   end
-   column :training_name
-   column :place
-   column :place_current
-   column :no_registration
-   column :teacher
-   column :teacher_id
+    end
+    column :training_name
+    column :place
+    column :place_current
+    column :no_registration
+    column :teacher
+    column :teacher_id
 
-   actions
- end
+    actions
+  end
 
- form do |f|
+  form do |f|
 
    f.inputs do
      f.input :active
@@ -46,7 +47,7 @@ ActiveAdmin.register ActiveTable do
      f.input :teacher_id,  :label => 'Id преподавателя', :as => :select, :collection => User.with_role(:teacher).map{|u| ["#{u.first_name} #{u.last_name}", u.id]}
    end
    f.actions
- end
+  end
 
 
 end

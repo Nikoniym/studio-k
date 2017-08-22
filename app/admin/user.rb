@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-
+  menu priority: 1
   actions :all, :except => [:show]
   permit_params :first_name, :last_name, :social_link, :phone, :message, :head_message, :role_ids => []
 
