@@ -328,6 +328,7 @@ GEM
     will_paginate (3.1.5)
     will_paginate-bootstrap4 (0.1.2)
       will_paginate (~> 3.0, >= 3.0.9)
+    yandex-metrica-rails (0.1.4)
     yui-compressor (0.12.0)
 
 PLATFORMS
@@ -380,6 +381,7 @@ DEPENDENCIES
   whenever
   will_paginate
   will_paginate-bootstrap4
+  yandex-metrica-rails
   yui-compressor (~> 0.12.0)
 
 BUNDLED WITH

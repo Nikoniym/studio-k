@@ -1,5 +1,10 @@
 class ImagesController < ApplicationController
   def index
+    @user = current_admin_user
+    if @user.blank?
+      redirect_to root_path
+    end
+
     @image = Image.new
     @album = Album.find(params[:album_id])
     @images = @album.images.all

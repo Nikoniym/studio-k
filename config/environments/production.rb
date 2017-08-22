@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  YM.counter = "45691815"
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.force_ssl = false

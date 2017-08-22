@@ -75,7 +75,7 @@ function telNumber() {
 function galleryAlign() {
     setTimeout(function(){
         $('#lightgallery .box').each(function(){
-            $(this).height($(this).width()-3);
+            $(this).height($('#lightgallery .box').first().width()-3);
         });
 
         $('.albums .box').each(function(){

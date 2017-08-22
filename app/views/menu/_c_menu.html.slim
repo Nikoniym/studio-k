@@ -1,6 +1,6 @@
 header.clearfix
   .header_inner
-    = link_to home_index_path do
+    = link_to root_path do
       = image_tag 'logo_smoll.png'
       h1
         |"Крылья"
@@ -12,7 +12,7 @@ header.clearfix
 .menu_nav.clearfix
   nav.cl-effect-14.main_menu
     ul
-      - if current_user.has_role? :teacher
+      - if (@user.has_role? :teacher) || (@user.has_role? :admin)
         li = link_to 'Занятия', teachers_path
         li = link_to 'Семейный тариф', families_path
       - else

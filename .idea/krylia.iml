@@ -283,6 +283,7 @@
     <orderEntry type="library" scope="PROVIDED" name="whenever (v0.9.7, RVM: ruby-2.4.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="will_paginate (v3.1.5, RVM: ruby-2.4.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="will_paginate-bootstrap4 (v0.1.2, RVM: ruby-2.4.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="yandex-metrica-rails (v0.1.4, RVM: ruby-2.4.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="yui-compressor (v0.12.0, RVM: ruby-2.4.0) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">

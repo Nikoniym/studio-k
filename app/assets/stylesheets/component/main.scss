@@ -418,24 +418,21 @@
     width: 48%;
     float: left;
     margin-right: 4%;
-    &:nth-child(1) {
-      margin-top: 20px;
+    margin-top: 20px;
+    .subscription {
+      font-weight: 700;
+      padding-left: 10px;
     }
-    &:nth-child(2) {
+    &.footer {
+      padding-top: 20px;
+      font-weight: 700;
+      text-align: left;
+    }
+    &:nth-child(2n) {
       margin-right: 0;
     }
   }
-  .price_footer {
-    clear: both;
-    /* margin-top: 21px; */
-    padding-top: 60px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    span {
-      text-align: left;
-    }
 
-  }
 }
 .meet_wrapper {
   height: 100%;
@@ -1014,6 +1011,9 @@
       width: 100%;
       text-align: center;
       margin-right: 0;
+      .subscription {
+        padding-left: 0;
+      }
     }
 
   }

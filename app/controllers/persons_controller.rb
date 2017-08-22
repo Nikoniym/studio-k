@@ -42,7 +42,7 @@ class PersonsController < ApplicationController
   def profile
     if user_signed_in?
       @user = current_user
-      if @user.has_role? :teacher
+      if (@user.has_role? :teacher) || (@user.has_role? :admin)
         redirect_to teachers_path
       end
 

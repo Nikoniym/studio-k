@@ -3,24 +3,24 @@
   .price_wrapper.scroll
     .price_column
       h2 Для взрослых:
-      span Пробное занятие - 300 р
-      span Разовое посещение - 400 р
-      span Индивидуальное - 1200 р
-      span Абонементы на месяц:
-      span 5 занятий - 2000 р
-      span 10 занятий - 3000 р
-      span 15 занятий - 4000 р
-      span 20 занятий - 5000 р
-      span безлимит - 7000 р
-      span Семейный безлимит - 9000 р
+      - @price.where(cash_sort_id: 1, subscription: false).each do |price|
+        span #{price.name} - #{price.price} руб.
+      span.subscription Абонементы на месяц:
+      - @price.where(cash_sort_id: 1, subscription: true).each do |price|
+        span #{price.name} - #{price.price} руб.
     .price_column
       h2 Для детей:
-      span Пробное занятие - 200 р
-      span Разовое посещение - 300 р
-      span Абонементы на месяц:
-      span 5 занятий - 1500 р
-      span 10 занятий - 2500 р
-      span 15 занятий - 3500 р
-    .price_footer
-      span Все абониметы действуют 30 дней с момента покупки
+      - @price.where(cash_sort_id: 3, subscription: false).each do |price|
+        span #{price.name} - #{price.price} руб.
+      span.subscription Абонементы на месяц:
+      - @price.where(cash_sort_id: 3, subscription: true).each do |price|
+        span #{price.name} - #{price.price} руб.
+    .price_column
+      h2 Для семьи:
+      span.subscription Абонементы на месяц:
+      - @price.where(cash_sort_id: 2, subscription: true).each do |price|
+        span #{price.name} - #{price.price} руб.
+
+    .price_column.footer
+      span Все абониметы действуют 30 дней с момента покупки. Их можно заморозить на 14 дней по предворительной просьбе!
       span При покупке абонемента в день пробного занятия это занятие в подарок!

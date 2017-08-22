@@ -7,5 +7,6 @@ class HomeController < ApplicationController
     @meets = Meet.order(:date)
     @contents = Content.joins(:slide_image).order('slide_images.position')
     @time_table = TablePublish.new
+    @price = SelectCash.order(:price)
   end
 end

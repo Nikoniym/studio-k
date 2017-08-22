@@ -5,7 +5,7 @@ class SubscriptionsController < ApplicationController
   def select_tariff
     @user = current_user
     @sort_id = params[:id]
-    @select_cash = SelectCash.where(cash_sort_id: @sort_id).order(:price)
+    @select_cash = SelectCash.where(cash_sort_id: @sort_id, subscription: true).order(:price)
     @family = User.where('last_name ~* ?', @user.last_name.chop.chop).where.not(id: @user)
     @subscription = Subscription.new
     @birth_date = @user.birth_date.present? ? @user.birth_date.find_age : nil
@@ -23,11 +23,10 @@ class SubscriptionsController < ApplicationController
       @orders = @user.subscriptions.where(order_destroy: true)
       @subscriptions = @user.subscriptions.page(params[:page]).where(order_destroy: false).order(created_at: :desc)
       @cash_sort = CashSort.all
-      @select_cash = SelectCash.where(cash_sort_id: 1).order(:price)
+      @select_cash = SelectCash.where(cash_sort_id: 1, subscription: true).order(:price)
       @sort_id = '1'
       @users_cash = @user.cashes.where(cash_sort_id: 2)
       @birth_date = @user.birth_date.present? ? @user.birth_date.find_age : nil
-
   end
 
   def show
