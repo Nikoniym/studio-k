@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   crop_attached_file :avatar
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :confirm, presence: true
   validates :phone, :presence => true,
             :numericality => true,
             :length => { :minimum => 10, :maximum => 15 }

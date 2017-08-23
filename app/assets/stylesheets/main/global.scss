@@ -35,6 +35,14 @@ nav { @include span(25%); }
   margin-top: 10px;
   margin-bottom: 10px;
 }
+input  {
+  &#user_confirm,
+  &#user_remember_me {
+    display: block;
+    float: left;
+    width: 24px;
+  }
+}
 .link_wrapper {
   position: relative;
   max-width: 456px;
@@ -55,8 +63,35 @@ nav { @include span(25%); }
   }
   &.edit{
     .register_wrapper {
-      margin-top: 15%;
+      margin-top: 8%;
     }
+  }
+}
+.terms_inner {
+  position: absolute;
+  width: 98%;
+  margin-left: 1%;
+  height: 90%;
+  margin-top: 1%;
+  background: white;
+  padding: 50px 41px;
+  box-sizing: border-box;
+  z-index: 9;
+  .head {
+    font-weight: 700;
+  }
+  ul {
+    padding: 0 20px;
+  }
+  li {
+    padding-bottom: 10px;
+  }
+  span#close {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-weight: 700;
+    cursor: pointer;
   }
 }
 .register_wrapper {
@@ -214,8 +249,17 @@ nav { @include span(25%); }
       margin-top: 20px;
     }
   }
+  .terms_inner {
+    height: 100%;
+  }
+
   body {
     background: $white;
 
+  }
+}
+@include susy-breakpoint(max-width 350px, 12) {
+  .register_wrapper input[type="submit"] {
+    text-transform: none;
   }
 }

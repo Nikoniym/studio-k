@@ -21,7 +21,7 @@ class TeachersController < ApplicationController
 
 
     @current_user = current_user
-    if @current_user.has_role? :user
+    if (@current_user.has_role? :user if @current_user.present?) && current_admin_user.blank?
       redirect_to user_root_path
     end
 

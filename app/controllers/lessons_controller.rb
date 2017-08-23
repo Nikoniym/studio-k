@@ -33,10 +33,9 @@ class LessonsController < ApplicationController
       @lesson.update(place_current: place+1)
       @answer = true
 
-      user = current_user
-      if user.has_role? :admin
-          message = "#{@lesson.day_week} #{ l @lesson.date, format: :standard} #{@lesson.time_spending} #{@lesson.training_name}"
-          @user.update(message: message, head_message: 'Занятие отменено!')
+      if current_admin_user.present?
+        message = "#{@lesson.day_week} #{ l @lesson.date, format: :standard} #{@lesson.time_spending} #{@lesson.training_name}"
+        @user.update(message: message, head_message: 'Занятие отменено!')
       end
 
       user =  @lesson.users.with_role(:user).order(:last_name)

@@ -102,10 +102,9 @@ class PersonsController < ApplicationController
 
       redirect_to new_user_session_path
     end
+  end
 
-
-
-
+  def terms_of_use
   end
 
   private

@@ -9,6 +9,7 @@
             persons_update_avatar PATCH      /persons/update_avatar(.:format)                             persons#update_avatar
                    persons_avatar GET        /persons/avatar(.:format)                                    persons#avatar
            persons_remove_message GET        /persons/remove_message(.:format)                            persons#remove_message
+             persons_terms_of_use GET        /persons/terms_of_use(.:format)                              persons#terms_of_use
                     history_index GET        /history/index(.:format)                                     history#index
                      album_images GET        /albums/:album_id/images(.:format)                           images#index
                                   POST       /albums/:album_id/images(.:format)                           images#create
@@ -42,7 +43,7 @@
               admin_user_password PATCH      /admin/password(.:format)                                    active_admin/devise/passwords#update
                                   PUT        /admin/password(.:format)                                    active_admin/devise/passwords#update
                                   POST       /admin/password(.:format)                                    active_admin/devise/passwords#create
-                       admin_root GET        /admin(.:format)                                             admin/dashboard#index
+                       admin_root GET        /admin(.:format)                                             admin/users#index
          batch_action_admin_meets POST       /admin/meets/batch_action(.:format)                          admin/meets#batch_action
                       admin_meets GET        /admin/meets(.:format)                                       admin/meets#index
                                   POST       /admin/meets(.:format)                                       admin/meets#create
@@ -58,7 +59,6 @@
           edit_admin_active_table GET        /admin/active_tables/:id/edit(.:format)                      admin/active_tables#edit
                admin_active_table PATCH      /admin/active_tables/:id(.:format)                           admin/active_tables#update
                                   PUT        /admin/active_tables/:id(.:format)                           admin/active_tables#update
-                                  DELETE     /admin/active_tables/:id(.:format)                           admin/active_tables#destroy
  batch_action_admin_subscriptions POST       /admin/subscriptions/batch_action(.:format)                  admin/subscriptions#batch_action
               admin_subscriptions GET        /admin/subscriptions(.:format)                               admin/subscriptions#index
                                   POST       /admin/subscriptions(.:format)                               admin/subscriptions#create

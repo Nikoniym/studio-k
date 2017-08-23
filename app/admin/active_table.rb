@@ -1,6 +1,6 @@
 ActiveAdmin.register ActiveTable do
   menu parent: 'Расписание'
-  actions :all, :except => [:show]
+  actions :all, :except => [:show, :destroy]
   config.sort_order = 'active desc and date asc and time_start asc'
   permit_params :teacher, :teacher_id, :time_spending, :training_name, :date, :day_week, :place, :place_current, :active, :time_start, :no_registration
   config.sort_order = 'date desc and time_start'
@@ -28,7 +28,9 @@ ActiveAdmin.register ActiveTable do
     column :teacher
     column :teacher_id
 
-    actions
+    actions  do |table|
+      item 'Отменить занятие', edit_teacher_path(table)
+    end
   end
 
   form do |f|

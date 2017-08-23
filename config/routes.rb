@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   patch 'persons/update_avatar'
   get 'persons/avatar'
   get 'persons/remove_message'
-
+  get 'persons/terms_of_use'
   get 'history/index'
 
   # resource :persons, except: [:index, :show, :edit, :destroy, :update, :new, :create]do

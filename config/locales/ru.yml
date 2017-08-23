@@ -65,10 +65,13 @@ ru:
         last_name: 'Фамилия'
         password: 'Пароль'
         phone: 'Номер'
+        confirm: 'Необходимо'
     errors:
       models:
         user:
           attributes:
+            confirm:
+              blank: 'принять условия'
             email:
               blank: 'не может быть пустым'
               taken: 'уже зарегистрирован'

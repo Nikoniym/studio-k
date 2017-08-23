@@ -27,6 +27,9 @@
       .field.clearfix
         = f.label 'Потверждение пароля'
         = f.password_field :password_confirmation
+      .field.clearfix
+        = f.check_box :confirm
+        = f.label :confirm, "Я согласен(-а) с условиями #{link_to 'пользовательского соглашения', persons_terms_of_use_path, remote: true}.".html_safe
 
       .actions
         = f.submit 'Зарегестрироваться'

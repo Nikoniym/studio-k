@@ -1,7 +1,7 @@
 ActiveAdmin.register Content do
   menu parent: 'Оформление, наполнение'
   actions :all, :except => [:show]
-  permit_params :name, :name_shot,  :slide_image_id, :description, :user_ids => []
+  permit_params :name, :name_shot,  :slide_image_id, :description
 
   config.sort_order = 'slide_images.position'
 
@@ -19,9 +19,7 @@ ActiveAdmin.register Content do
     column :name
     column :name_shot
     column :description
-    column  :user_ids do |u|
-     u.users.map{|us| us.first_name}
-    end
+
     actions
   end
 
@@ -31,7 +29,6 @@ ActiveAdmin.register Content do
       f.input  :name, :label => 'Тренировка', :as => :select, :collection =>TrainingName.all.map{|u| u.name }
       f.input  :name_shot, :label => 'Сокращённое имя', :as => :select, :collection =>TrainingName.all.map{|u| [u.name, u.name_shot]}
       f.input  :description, label: 'Описание'
-      f.input :users, :label => 'Преподаватель', :as => :select, :collection => User.with_role(:teacher).map{|u| ["#{u.first_name} #{u.last_name}", u.id]}
     end
 
     f.actions         # adds the 'Submit' and 'Cancel' buttons

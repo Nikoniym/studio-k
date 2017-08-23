@@ -53,6 +53,7 @@ function ModernForm() {
         }
     });
 }
+
 $(window).on('load', function (){
     // setTimeout(function(){
     //     $('body').trigger('click');

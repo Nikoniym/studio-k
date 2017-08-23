@@ -1,0 +1,8 @@
+$('.link_wrapper.edit').prepend($('<%= escape_javascript(render("terms_of_use"))%>'));
+$('.terms_inner').css('display','none').fadeIn();
+$('#close').on('click', function(){
+    $('.terms_inner').fadeOut();
+    setTimeout(function () {
+        $('.terms_inner').remove();
+    }, 500);
+});

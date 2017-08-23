@@ -3,7 +3,7 @@ h2 Занятие
 .table_name
   = render 'teachers/table_header'
 .paid_subscription
-  = render 'lessons/paid'
+  = render 'lessons/paid' if current_admin_user.blank?
 h2 Записанные
 .users_list
   span.place_current Количество свободных мест: #{@table.place_current}
@@ -13,7 +13,7 @@ h2 Записанные
         tr data-id="#{user.id}"
           td = image_tag user.avatar.url(:thumb)
           td #{user.last_name} #{user.first_name}
-          - if @current_user.has_role? :admin
+          - if current_admin_user.present?
             td  = user.phone
             td = user.email
           - else

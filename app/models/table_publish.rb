@@ -6,13 +6,13 @@ class TablePublish < ApplicationRecord
       table = TablePublish.all
     else
       if sort.blank?
-        table = TablePublish.all.where(name_shot: object)
+        table = TablePublish.where(name_shot: object)
+        @content_users = User.where(id: table.pluck(:teacher_id).uniq)
       else
-        table = TablePublish.all.where(training_name: object)
+        table = TablePublish.where(training_name: object)
       end
-
     end
-
+    @content_users = User.where(id: table.pluck(:teacher_id).uniq)
     date_week = table.first.day_week
 
     @head_class=''
@@ -45,6 +45,12 @@ class TablePublish < ApplicationRecord
       end
     end
     @time_table[day_week: @day_name, head_class: @head_class]=@table_day if @table_day.present?
+
     @time_table
+  end
+
+  def content_users(object)
+    table = TablePublish.where(name_shot: object)
+    @content_users = User.where(id: table.pluck(:teacher_id).uniq)
   end
 end

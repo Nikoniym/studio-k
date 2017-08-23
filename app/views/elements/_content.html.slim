@@ -13,9 +13,10 @@
       h3 Расписание
       .page_timetable class="#{content.name_shot}"
         = render 'elements/table', time_table: @time_table.show_table(content.name_shot)
-      h3 = t('teacher', count: content.users.size)
+      - @content_users = @time_table.content_users(content.name_shot)
+      h3 = t('teacher', count: @content_users.size)
       .teacher
-        - content.users.each do |user|
+        - @content_users.each do |user|
           .teacher_item
             a href="#{user.social_link}" target="_blank"
               = image_tag user.avatar.url(:thumb)

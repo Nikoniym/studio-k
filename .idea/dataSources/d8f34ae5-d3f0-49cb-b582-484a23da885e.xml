@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-08-22.11:09:32.854</IntrospectionTimestamp>
-      <IntrospectionStateNumber>21682</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-08-23.16:19:51.723</IntrospectionTimestamp>
+      <IntrospectionStateNumber>23477</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -227,7 +227,7 @@
     </table>
     <table id="53" parent="3" name="users">
       <ObjectId>81501</ObjectId>
-      <StateNumber>21346</StateNumber>
+      <StateNumber>23477</StateNumber>
     </table>
     <table id="54" parent="3" name="users_roles">
       <ObjectId>81516</ObjectId>
@@ -1658,49 +1658,54 @@ resource_id</ColNames>
       <DataType>varchar|0</DataType>
       <StateNumber>21346</StateNumber>
     </column>
-    <index id="319" parent="53" name="users_pkey">
+    <column id="319" parent="53" name="confirm">
+      <Position>27</Position>
+      <DataType>boolean|0</DataType>
+      <StateNumber>23477</StateNumber>
+    </column>
+    <index id="320" parent="53" name="users_pkey">
       <ObjectId>81511</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="320" parent="53" name="index_users_on_email">
+    <index id="321" parent="53" name="index_users_on_email">
       <ObjectId>81514</ObjectId>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="321" parent="53" name="index_users_on_reset_password_token">
+    <index id="322" parent="53" name="index_users_on_reset_password_token">
       <ObjectId>81515</ObjectId>
       <ColNames>reset_password_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="322" parent="53" name="index_users_on_cash_sort_id">
+    <index id="323" parent="53" name="index_users_on_cash_sort_id">
       <ObjectId>81513</ObjectId>
       <ColNames>cash_sort_id</ColNames>
     </index>
-    <key id="323" parent="53" name="users_pkey">
+    <key id="324" parent="53" name="users_pkey">
       <ObjectId>81512</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="324" parent="53" name="fk_rails_dc848ab5b7">
+    <foreign-key id="325" parent="53" name="fk_rails_dc848ab5b7">
       <ObjectId>81535</ObjectId>
       <ColNames>cash_sort_id</ColNames>
       <RefTableName>cash_sorts</RefTableName>
       <RefKeyName>cash_sorts_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="325" parent="54" name="user_id">
+    <column id="326" parent="54" name="user_id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <StateNumber>21132</StateNumber>
     </column>
-    <column id="326" parent="54" name="role_id">
+    <column id="327" parent="54" name="role_id">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <StateNumber>21132</StateNumber>
     </column>
-    <index id="327" parent="54" name="index_users_roles_on_user_id_and_role_id">
+    <index id="328" parent="54" name="index_users_roles_on_user_id_and_role_id">
       <ObjectId>81519</ObjectId>
       <ColNames>user_id
 role_id</ColNames>
