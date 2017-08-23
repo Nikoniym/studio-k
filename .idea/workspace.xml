@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ad60a62-ea4c-47e6-b7bc-79340dca0d90" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/persons/_terms_of_use.html.slim" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/persons/terms_of_use.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/91c71b25-19e2-403f-ad19-629b9f25e4b7.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/91c71b25-19e2-403f-ad19-629b9f25e4b7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/ccd1e5d9-85bb-42f1-a057-bfa60e1c4b27.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/ccd1e5d9-85bb-42f1-a057-bfa60e1c4b27.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/d8f34ae5-d3f0-49cb-b582-484a23da885e.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/d8f34ae5-d3f0-49cb-b582-484a23da885e.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/railways.cache" afterPath="$PROJECT_DIR$/.idea/railways.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/active_table.rb" afterPath="$PROJECT_DIR$/app/admin/active_table.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/admin/content.rb" afterPath="$PROJECT_DIR$/app/admin/content.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/main/global.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/main/global.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/main/_input.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main/_input.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/main/global.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main/global.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/lessons_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/lessons_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/persons_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/persons_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/teachers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/teachers_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/table_publish.rb" afterPath="$PROJECT_DIR$/app/models/table_publish.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.slim" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.slim" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/elements/_content.html.slim" afterPath="$PROJECT_DIR$/app/views/elements/_content.html.slim" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/menu/_c_menu.html.slim" afterPath="$PROJECT_DIR$/app/views/menu/_c_menu.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/persons/profile.html.slim" afterPath="$PROJECT_DIR$/app/views/persons/profile.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/_table_header.html.slim" afterPath="$PROJECT_DIR$/app/views/teachers/_table_header.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/edit.html.slim" afterPath="$PROJECT_DIR$/app/views/teachers/edit.html.slim" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/active_admin.rb" afterPath="$PROJECT_DIR$/config/initializers/active_admin.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/ru.yml" afterPath="$PROJECT_DIR$/config/locales/ru.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <list id="2cec054d-14d7-435b-ba7c-6278a51f7396" name="active_table kron" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -102,6 +75,24 @@
         <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$GroupNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
+        <option name="myItemId" value="users" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="krylia@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$GroupNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
         <option name="myItemId" value="table_publishes" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
@@ -154,11 +145,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_c_menu.html.slim" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_c_menu.html.slim" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/menu/_c_menu.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            <state relative-caret-position="324">
+              <caret line="18" column="101" lean-forward="false" selection-start-line="18" selection-start-column="101" selection-end-line="18" selection-end-column="101" />
               <folding />
             </state>
           </provider>
@@ -177,8 +168,8 @@
       <file leaf-file-name="persons_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/persons_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+            <state relative-caret-position="-792">
+              <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -187,7 +178,7 @@
       <file leaf-file-name="profile.html.slim" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/persons/profile.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="468">
               <caret line="26" column="215" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="215" />
               <folding />
             </state>
@@ -204,11 +195,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/admin/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+            <state relative-caret-position="252">
+              <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -334,7 +325,6 @@
         <option value="$PROJECT_DIR$/app/views/registrations/_terms_of_use.html.slim" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/persons_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.slim" />
         <option value="$PROJECT_DIR$/app/views/persons/_terms_of_use.html.slim" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
@@ -347,8 +337,9 @@
         <option value="$PROJECT_DIR$/app/models/table_publish.rb" />
         <option value="$PROJECT_DIR$/app/views/elements/_content.html.slim" />
         <option value="$PROJECT_DIR$/app/controllers/teachers_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/menu/_c_menu.html.slim" />
         <option value="$PROJECT_DIR$/app/views/persons/profile.html.slim" />
+        <option value="$PROJECT_DIR$/app/controllers/persons_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/menu/_c_menu.html.slim" />
       </list>
     </option>
   </component>
@@ -1105,7 +1096,7 @@
       <workItem from="1503389298801" duration="8697000" />
       <workItem from="1503415245725" duration="4064000" />
       <workItem from="1503478936765" duration="3400000" />
-      <workItem from="1503494379263" duration="5947000" />
+      <workItem from="1503494379263" duration="7270000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1489798717004</created>
@@ -1321,7 +1312,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1007742000" />
+    <option name="totallyTimeSpent" value="1009065000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1334,7 +1325,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3427308" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32815966" sideWeight="0.49143174" order="10" side_tool="false" content_ui="tabs" />
@@ -1344,7 +1335,7 @@
       <window_info id="Routes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36539525" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30860215" sideWeight="0.3620785" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39247313" sideWeight="0.79988945" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39247313" sideWeight="0.79988945" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40537634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1793,10 +1784,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/menu/_c_menu.html.slim">
+    <entry file="file://$PROJECT_DIR$/app/admin/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1809,26 +1800,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/persons_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/persons/profile.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="468">
           <caret line="26" column="215" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="215" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/persons_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/menu/_c_menu.html.slim">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        <state relative-caret-position="324">
+          <caret line="18" column="101" lean-forward="false" selection-start-line="18" selection-start-column="101" selection-end-line="18" selection-end-column="101" />
           <folding />
         </state>
       </provider>

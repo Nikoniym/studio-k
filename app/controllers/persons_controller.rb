@@ -17,7 +17,7 @@ class PersonsController < ApplicationController
 
   def remove_message
     user = current_user
-    user.update(message: nil, head_message: nil)
+    user.update(message: '', head_message: '')
   end
 
   def avatar
