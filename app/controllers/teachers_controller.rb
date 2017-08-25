@@ -1,16 +1,19 @@
 class TeachersController < ApplicationController
   layout "person"
   def index
-    @user = current_user
-    if @user.has_role? :user
-      redirect_to user_root_path
-    end
-    if @user.has_role? :admin
-      @time_table = ActiveTable.order(:date,:time_start).where('date >= ?', Date.today)
+    if user_signed_in?
+      @user = current_user
+      if @user.has_role? :user
+        redirect_to user_root_path
+      end
+      if @user.has_role? :admin
+        @time_table = ActiveTable.order(:date,:time_start).where('date >= ?', Date.today)
+      else
+        @time_table = ActiveTable.order(:date,:time_start).where(' date >= ? and teacher_id = ?', Date.today.monday, @user.id)
+      end
     else
-      @time_table = ActiveTable.order(:date,:time_start).where(' date >= ? and teacher_id = ?', Date.today.monday, @user.id)
+      redirect_to new_user_session_path
     end
-
   end
 
   def edit
