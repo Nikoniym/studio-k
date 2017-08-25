@@ -17,25 +17,28 @@ class TeachersController < ApplicationController
   end
 
   def edit
-    @filterrific = initialize_filterrific(
-        User.with_role(:user).order(:last_name),
-        params[:filterrific]
-    ) or return
+    if user_signed_in?
+      @filterrific = initialize_filterrific(
+          User.with_role(:user).order(:last_name),
+          params[:filterrific]
+      ) or return
 
+      @current_user = current_user
+      if (@current_user.has_role? :user if @current_user.present?) && current_admin_user.blank?
+        redirect_to user_root_path
+      end
 
-    @current_user = current_user
-    if (@current_user.has_role? :user if @current_user.present?) && current_admin_user.blank?
-      redirect_to user_root_path
+      @table = ActiveTable.find(params[:id])
+      @user =  @table.users.order(:last_name)
+
+      # id = @user.pluck(:id)
+      # @new_users = User.with_role(:user).order(:last_name)
+      @new_users = @filterrific.find.page(params[:page])
+
+      @subscriptions = Subscription.where(user: @user, paid: false)
+    else
+      redirect_to new_user_session_path
     end
-
-    @table = ActiveTable.find(params[:id])
-    @user =  @table.users.order(:last_name)
-
-    # id = @user.pluck(:id)
-    # @new_users = User.with_role(:user).order(:last_name)
-    @new_users = @filterrific.find.page(params[:page])
-
-    @subscriptions = Subscription.where(user: @user).where(paid: false)
   end
 
   def add_no_registration

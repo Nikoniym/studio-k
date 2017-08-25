@@ -12,8 +12,8 @@
         td = sub.select_cash.name
         td = sub.select_cash.cash_sort.name
         td = sub.price
-        td = sub.active
-        td = sub.paid
+        td = sub.active ? 'активирован' : 'не активирован'
+        td = sub.paid ? 'оплачен' : 'не оплачен'
         - if sub.paid
           td = link_to 'Отменить', delete_paid_teacher_path(sub), remote: true
         - else

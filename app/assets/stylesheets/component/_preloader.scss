@@ -42,6 +42,10 @@
   -webkit-animation: heightChange 1s infinite ease-in-out;
   animation: heightChange 1s infinite ease-in-out;
 }
+.pre-loader .box1 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
 .pre-loader .box2 {
   -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;

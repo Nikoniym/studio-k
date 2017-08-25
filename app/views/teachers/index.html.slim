@@ -19,7 +19,7 @@ table.time_teacher
         td = table.day_week
         td = l table.date, format: :short
     tr data-id="#{table.id}"
-      td = table.active
+      td = table.active ? 'Активно' : 'Закрыто'
       td = table.time_spending[0..4]
       td = table.training_name
       td = table.place_current
