@@ -25,7 +25,7 @@
 .message_wrapper.notice_red
   h3 Тестовый режим
   span Личный кабинет находиться в тестовом режиме. По этому можно проверить функционал: купить абонемент, записаться на занятия, посмотреть историю. Для реальной записи на занятие необходимо позвонить и записаться.
-
+  = link_to 'закрыть', persons_remove_message_path, remote: true
 .entry_lesson class=('divider' if @table_current.present?)
   - if @table_current.present?
     = render 'active_tables/entry_lesson'
