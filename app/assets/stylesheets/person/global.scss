@@ -154,6 +154,9 @@ footer {
   padding-top: 20px;
   box-shadow: 0 0 99px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 99px rgba(0, 0, 0, 0.5);
+  &.teacher {
+    min-width: 700px;
+  }
 }
 .bottom_block {
   height: 30px;

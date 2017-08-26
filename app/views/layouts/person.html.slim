@@ -14,7 +14,7 @@ html.no-js lang="ru"
     = stylesheet_link_tag "person/person", media: "all"
     = csrf_meta_tags
   body
-    .person_wrapper
+    .person_wrapper class=('teacher' if controller_name ==  'teachers'  && action_name == 'edit')
       = render 'menu/c_menu'
       = yield
       /= render 'menu/footer'

@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
   menu priority: 1
   actions :all, :except => [:show]
-  permit_params :first_name, :last_name, :social_link, :phone, :message, :head_message, :role_ids => []
+  permit_params :first_name, :avatar, :last_name, :social_link, :phone, :specialty, :message, :head_message, :role_ids => []
 
   index do
     column :avatar do |u|
@@ -20,6 +20,7 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs do
+      f.input :avatar
       f.input :first_name
       f.input :last_name
       f.input :specialty

@@ -10,10 +10,6 @@
 # http://meskyanichi.github.io/backup
 #
 Model.new(:rails_database, 'Backups of the Rails Database') do
-  archive :app_archive do |archive|
-    archive.use_sudo
-    archive.add '/home/nik/deploy/'
-  end
 
   database PostgreSQL do |db|
     db.name = ENV['DB_NAME']
