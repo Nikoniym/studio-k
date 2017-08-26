@@ -1,4 +1,8 @@
 h2 Добавить на занятие
+.search_form
+  = form_for_filterrific @filterrific do |f|
+    = f.text_field :search_query, :class => 'filterrific-periodically-observed form-control'
+    = link_to "удаить фильтр", reset_filterrific_url
 table.ready_user
   - @new_users.each do |user|
     tr data-id="#{user[:id]}"

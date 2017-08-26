@@ -3,7 +3,7 @@ tr data-id="#{@subscription.id}"
   td = @subscription.select_cash.name
   td = @subscription.select_cash.cash_sort.name
   td = @subscription.price
-  td = @subscription.active ? 'активирован' : 'не активирован'
+  /td = @subscription.active ? 'активирован' : 'не активирован'
   td = @subscription.paid ? 'оплачен' : 'не оплачен'
   - if @subscription.paid
     td = link_to 'Отменить', delete_paid_teacher_path(@subscription), remote: true

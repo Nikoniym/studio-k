@@ -5,7 +5,9 @@
 @import 'demo';
 @import "preloader";
 
-
+html {
+  -webkit-text-size-adjust: none;
+}
 #info_content_wrapper {
   background-attachment: scroll;
   position: absolute;

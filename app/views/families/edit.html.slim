@@ -1,7 +1,5 @@
-= link_to 'Назад', families_path
+= link_to 'Назад', families_path, class: 'back_index'
 h2 Общий кошелек
-span #{@cash.id} #{@cash.cash_count}
-br
 table.active_user
   - if @users.present?
     - @users.each do |user|
@@ -11,9 +9,6 @@ table.active_user
         td = link_to 'Удалить', remove_user_family_family_cash_path(@cash, user), remote: true
   - else
     tr
-.search_form
-  = form_for_filterrific @filterrific do |f|
-    = f.text_field :search_query, :class => 'filterrific-periodically-observed form-control'
-    = link_to "удаить фильтр", reset_filterrific_url
+
 .new_users_list
   = render 'families/user_list'

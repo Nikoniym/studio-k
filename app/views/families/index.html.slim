@@ -6,5 +6,6 @@ h2 Семейный тариф
       tr
         td = link_to 'Удаить', family_path(cash), method: :delete, data: { confirm: 'Вы уверены?' }
         td = cash.users.select(:last_name, :first_name).map {|c| "#{c.last_name} #{c.first_name}" }.join(', ')
+        td = cash.cash_count
         td = link_to 'Изменить', edit_family_path(cash)
 

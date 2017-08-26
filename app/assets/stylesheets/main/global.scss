@@ -2,6 +2,9 @@
 @import "component/variables";
 @import 'input';
 
+html {
+  -webkit-text-size-adjust: none;
+}
 body {
   font-family: 'Comfortaa', cursive;
   background: $white_grey;

@@ -6,6 +6,9 @@ $susy: (
         columns: 12,  // The number of columns in your grid
         gutters: 1/4, // The size of a gutter in relation to a single column
 );
+html {
+  -webkit-text-size-adjust: none;
+}
 html, body {
   height: 96%;
 }
@@ -156,6 +159,11 @@ footer {
   -webkit-box-shadow: 0 0 99px rgba(0, 0, 0, 0.5);
   &.teacher {
     min-width: 700px;
+    .back_index {
+      text-align: center;
+      display: block;
+      margin-top: 20px;
+    }
   }
 }
 .bottom_block {
@@ -931,6 +939,7 @@ footer {
       width: 273px;
       margin: 0 auto;
       float: none;
+      overflow: hidden;
     }
     h2 {
       display: inline-block;
