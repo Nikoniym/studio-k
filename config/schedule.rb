@@ -1,8 +1,10 @@
+require "dotenv"
+
 set :output, "#{path}/log/cron.log"
 
 job_type :backup, "cd :path/:backup_path && :environment_variable=:environment bundle exec backup perform -t :task --config_file ./config.rb :output"
 
-job_type :renew, "/home/nik/letsencrypt echo '#{Rails.application.secrets.email_provider_username.my_password}' | sudo -S :task :function"
+job_type :renew, "/home/nik/letsencrypt echo #{ENV['MY_PASSWORD']} | sudo -S :task :function"
 
 every :month do
   renew './letsencrypt-auto', function: 'renew'
