@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ad60a62-ea4c-47e6-b7bc-79340dca0d90" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/schedule.rb" afterPath="$PROJECT_DIR$/config/schedule.rb" />
     </list>
     <list id="2cec054d-14d7-435b-ba7c-6278a51f7396" name="active_table kron" comment="" />
@@ -873,7 +874,7 @@
       <workItem from="1503494379263" duration="7465000" />
       <workItem from="1503506821028" duration="742000" />
       <workItem from="1503659517893" duration="15978000" />
-      <workItem from="1503735028290" duration="3680000" />
+      <workItem from="1503735028290" duration="4052000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1489798717004</created>
@@ -1089,7 +1090,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1029660000" />
+    <option name="totallyTimeSpent" value="1030032000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
