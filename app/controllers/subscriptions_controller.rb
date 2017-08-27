@@ -17,6 +17,7 @@ class SubscriptionsController < ApplicationController
 
   end
   def index
+    if user_signed_in?
       @user = current_user
       # @family = User.where(last_name: @user.last_name)
       @subscription = Subscription.new
@@ -27,6 +28,9 @@ class SubscriptionsController < ApplicationController
       @sort_id = '1'
       @users_cash = @user.cashes.where(cash_sort_id: 2)
       @birth_date = @user.birth_date.present? ? @user.birth_date.find_age : nil
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def show
