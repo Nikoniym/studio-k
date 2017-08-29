@@ -382,8 +382,7 @@
       display: inline-block;
       background: $menu_color;
       float: none;
-      margin-bottom: 5%;
-
+      margin: 0 3% 6%;
       a {
         &:before {
           content: '';
@@ -752,16 +751,7 @@
   }
 }
 @media screen and (min-width: 1200px) {
-  .albums {
-    .albums_inner {
-      .box {
-        margin-right: 6%;
-        &:nth-child(2n+1):not(:nth-child(1)) {
-          margin-right: 0;
-        }
-      }
-    }
-  }
+
 }
 @media screen and (min-width: 900px) and (max-width: 1450px){
   .albums {
@@ -771,15 +761,7 @@
   }
 }
 @media screen and (min-width: 800px) and (max-width: 1199px) {
-  .albums {
-    .albums_inner {
-      .box {
-        &:nth-child(1) {
-          margin-right: 6%;
-        }
-      }
-    }
-  }
+
 }
 @media screen and (min-width: 600px) and (max-width: 900px) {
   .dragslider h2 {
