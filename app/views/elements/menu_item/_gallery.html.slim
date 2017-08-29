@@ -8,15 +8,16 @@
   .albums
     h2 Альбомы
     .albums_inner
+
       - @albums.each do |album|
-        .box
-          /
-          .image-wrap
-            .image
-              = image_tag album.avatar.url(:medium)
-          .border
-          .text
-            span = album.name
-          .albums_link
-            = link_to '', load_gallery_album_path(album), remote: true
+        - if album.images.size >= 4
+          .box
+            .image-wrap
+              .image
+                = image_tag album.avatar.url(:medium)
+            .border
+            .text
+              span = album.name
+            .albums_link
+              = link_to '', load_gallery_album_path(album), remote: true
   .gallery_album
