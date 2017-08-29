@@ -57,6 +57,17 @@
       }
     }
     .timetable {
+      .time_teacher {
+        td:nth-child(1) {
+          width: 20%;
+        }
+        td:nth-child(2) {
+          width: 50%;
+        }
+        td:nth-child(3) {
+          width: 30%;
+        }
+      }
       .content_wrapper {
         margin-top: 65px;
         margin-bottom: 8px;
@@ -557,16 +568,7 @@
   //        padding-top: 10px;
   //    }
   //}
-  //.time_teacher {
-  //    width: 53%;
-  //    margin-left: 41%;
-  //    float: left;
-  //    td {
-  //        width: 50%;
-  //        padding: 10px;
-  //        border: 2px solid;
-  //    }
-  //}
+
 
   .day_wrapper {
     overflow: hidden;

@@ -4,7 +4,9 @@ html.no-js lang="ru"
     title Личный кабинет
     meta charset="UTF-8"
     meta content="IE=edge" http-equiv="X-UA-Compatible"
-    meta content="#{(controller_name ==  'teachers' ||  controller_name == 'families') ? 'width=720' :  'width=device-width'},  maximum-scale=1.0, user-scalable=no" name="viewport"
+    meta content="width=device-width,  maximum-scale=1.0, user-scalable=no" name="viewport"
+    - if controller_name ==  'teachers' ||  controller_name == 'families'
+      meta content="width=720" name="viewport" id="viewport"
     meta name="apple-mobile-web-app-capable" content="yes"
     meta content="Крылья студия спорта и танца. Легдост и уверенность для вас" name="description"
     meta content="Крылья студия спорта и танца, йога, табата, йога в гамаках, айройога, десткая хореография, pole dance, pole exotic, растяжка" name="keywords"

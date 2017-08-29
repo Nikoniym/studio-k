@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @slides = SlideImage.order(:position)
-    @albums = Album.order(id: :desc)
+    @albums = Album.order(:position).where(publish: true)
     @meets = Meet.order(:date)
     @contents = Content.joins(:slide_image).order('slide_images.position')
     @time_table = TablePublish.new
