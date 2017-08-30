@@ -184,8 +184,8 @@
       <file leaf-file-name="main.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/component/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="372" column="23" lean-forward="false" selection-start-line="372" selection-start-column="23" selection-end-line="372" selection-end-column="23" />
+            <state relative-caret-position="123">
+              <caret line="364" column="6" lean-forward="true" selection-start-line="364" selection-start-column="6" selection-end-line="364" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -1066,7 +1066,7 @@
       <workItem from="1503735028290" duration="15078000" />
       <workItem from="1503813246037" duration="1229000" />
       <workItem from="1503862181334" duration="86000" />
-      <workItem from="1504047768736" duration="3631000" />
+      <workItem from="1504047768736" duration="4296000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1489798717004</created>
@@ -1282,7 +1282,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1046004000" />
+    <option name="totallyTimeSpent" value="1046669000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1806,8 +1806,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/component/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="372" column="23" lean-forward="false" selection-start-line="372" selection-start-column="23" selection-end-line="372" selection-end-column="23" />
+        <state relative-caret-position="123">
+          <caret line="364" column="6" lean-forward="true" selection-start-line="364" selection-start-column="6" selection-end-line="364" selection-end-column="6" />
           <folding />
         </state>
       </provider>
