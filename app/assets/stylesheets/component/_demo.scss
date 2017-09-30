@@ -52,7 +52,7 @@ a:hover, a:focus {
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	background-color: $fond_transparent;
+	background-color: $header_title;
 	z-index: 10000;
 }
 
@@ -85,7 +85,7 @@ a:hover, a:focus {
 	text-align: center;
 	vertical-align: top;
 	background-size: 75%;
-	background-color: rgba(119, 187, 222, 0.7);
+	background-color: rgba(245, 167, 167, 0.84);
 	background-repeat: no-repeat;
 	background-position: 50% 85%;
 }
