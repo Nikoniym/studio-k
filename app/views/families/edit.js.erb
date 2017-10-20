@@ -1,4 +1,1 @@
-<% js = escape_javascript(
-  render(:partial => 'teachers/user_list' )
-) %>
-$(".new_users_list").html("<%= js %>");
+$(".new_users_block").html("<%= escape_javascript(render('families/user_list')) %>");

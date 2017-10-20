@@ -14,7 +14,9 @@
         .validity Абонимент действует: с #{l subscription.date_start, format: :long} до #{l subscription.date_finish, format: :long} включительно
       .created_at Заказ сделан: #{l subscription.created_at, format: :standart}
       .status Статус: #{ subscription.paid ? 'оплачен' : 'не оплачен' }
+      .tariff Тариф: #{subscription.tariff.downcase if subscription.tariff.present?}
       .sub_info
         span Количество занятий: #{subscription.count > 1000 ? 'безлимитно' : subscription.count}
         span Стоимость: #{subscription.price} руб.
-        = link_to 'Отменить', subscription,  method: :delete unless subscription.paid
+        - if  !subscription.paid or current_user.has_role? :teacher
+          = link_to 'Отменить', subscription,  method: :delete, remote: true

@@ -15,7 +15,7 @@ ActiveAdmin.register Meet do
   end
   form do |f|
     f.inputs do
-      f.input  :date
+      f.input  :date, :as => :datepicker
       f.input  :description
       f.input  :time_start
       f.input  :image

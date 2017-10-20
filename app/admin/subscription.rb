@@ -14,9 +14,12 @@ ActiveAdmin.register Subscription do
       t.user.first_name
     end
     column :active
+    column :confirm
+    column :order_destroy
     column :date_start
     column :date_finish
     column :count
+    column :price
     column :paid
     column :date_paid
     column :teacher_name

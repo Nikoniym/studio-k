@@ -1,0 +1,4 @@
+$(".teacher_lesson").fadeOut(300);
+setTimeout(function () {
+    $(".teacher_lesson").fadeOut(300).html("<%= escape_javascript(render('statistics/detail_table')) %>").fadeIn(300);
+},300);

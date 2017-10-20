@@ -38,7 +38,6 @@ class FamiliesController < ApplicationController
     if @cash.blank?
       @cash = Cash.create!(cash_sort_id: 2, cash_count: 0)
     end
-
   end
 
   def destroy

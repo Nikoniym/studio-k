@@ -37,12 +37,22 @@ $(document).ready(function (){
         }
     }
     if ($(window).width() < 600) {
-        $('.time_teacher tr.date_table td').attr('colspan','2');
+        // $('.time_teacher tr.date_table td').attr('colspan','2');
         $('.write_table tr.date_table td:nth-child(1)').attr('colspan','2');
     }else{
-        $('.time_teacher tr.date_table td').attr('colspan','1');
+        // $('.time_teacher tr.date_table td').attr('colspan','2');
         $('.write_table tr.date_table td:nth-child(1)').attr('colspan','1');
     }
+
+    $('.show_link').on('click', function(){
+        if ($('.new_users_list').hasClass('show_count')){
+            $('.new_users_list').removeClass('show_count').addClass('show_email');
+            $('.show_link').text('Показать тариф');
+        }else{
+            $('.new_users_list').removeClass('show_email').addClass('show_count');
+            $('.show_link').text('Показать email и телефон');
+        }
+    });
 });
 
 $( window ).resize(function() {

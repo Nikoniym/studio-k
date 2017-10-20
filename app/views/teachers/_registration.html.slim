@@ -1,0 +1,25 @@
+h2 Регистрация
+= form_for(:user,  remote: true, url: registration_user_teacher_path, html: {class: 'reg_user'})  do |f|
+  .field.clearfix
+    = f.label 'Имя'
+    = f.text_field :first_name, autofocus: true
+  .field.clearfix
+    = f.label 'Фамилия'
+    = f.text_field :last_name
+  .field.clearfix
+    = f.label 'Телефон'
+    = f.telephone_field :phone
+  .field.clearfix
+    = f.label 'Аватар'
+    = f.file_field :avatar
+  .actions
+    = f.submit 'Зарегестрировать'
+- if @auto_users.present?
+  .auto_registration
+    span.title Зарегистрированы на занятии:
+    table.write_user
+      - @auto_users.each do |user|
+        tr
+          td = user.full_name
+          td = user.phone
+          td = user.email

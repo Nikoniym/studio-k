@@ -3,4 +3,6 @@ class Meet < ApplicationRecord
                     processors: [:thumbnail, :paperclip_optimizer],
                     :styles => { :medium => "500x500>", :thumb => "200x200>" }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  validates :date, :image, :description, :time_start, presence: true
 end

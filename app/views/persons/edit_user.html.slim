@@ -12,9 +12,10 @@
       .field.clearfix
         = label_tag 'Фамилия:'
         = text_field(:user, :last_name)
-      .field.clearfix
-        = label_tag 'Дата рождения:'
-        = date_field(:user, :birth_date)
+      - if current_user.has_role? :teacher
+        .field.clearfix
+          = label_tag 'Дата рождения:'
+          = date_field(:user, :birth_date)
       .field.clearfix
         = label_tag 'Противопоказания:'
         = text_area(:user, :specialty, size: '24x3')
@@ -24,30 +25,6 @@
       .field.clearfix
         = label_tag 'Тариф:'
         = collection_select(:user, :cash_sort_id, @select, :id, :name)
-      /.field
-      /  = f.label :email
-      /
-      /  = f.email_field :email, autofocus: true
-      //- if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      //  div
-      //    | Currently waiting confirmation for:
-      //    = resource.unconfirmed_email
-      /.field.clearfix
-      /  = f.label 'Новый пароль (оставить пустым, если не нужно менять)'
-      /
-      /  = f.password_field :password, autocomplete: "off"
-      /  - if @minimum_password_length
-      /
-      /    em Минимум #{@minimum_password_length} символов
-      /
-      /
-      /.field.clearfix
-      /  = f.label 'Подтвердить пароль'
-      /  = f.password_field :password_confirmation, autocomplete: "off"
-      /
-      /.field.clearfix
-      /  = f.label 'Текуший пароль'
-      /  = f.password_field :current_password, autocomplete: "off"
       .actions.clearfix
         = submit_tag "Обновить"
   = link_to 'Изменить email, пароль', edit_user_registration_path, class: 'forgotten'

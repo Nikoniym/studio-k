@@ -1,0 +1,28 @@
+.statistics_wrapper
+  h2 Статистика
+  .teacher_lesson
+    table
+      tr
+        th Преподаватель
+        th Вчера
+        th Сегодня
+        th Неделя
+        th Месяц
+        th год
+      - @statistics.each do |user, data|
+        tr
+          td = user.full_name
+          - data.each do |var|
+            td
+              span Занятий:  #{var[:lesson_count]}
+              span Чел.: #{var[:user_count]}
+              span Деньги: #{var[:paid]}
+          td = link_to 'Подробно', detail_statistic_path(user)
+      tr
+        td Итого:
+        - @total.each do |total|
+          td
+            span Занятий: #{total[:lesson_count]}
+            span Чел.: #{total[:user_count]}
+            span Деньги: #{total[:paid]}
+        td = link_to 'Подробно', detail_statistic_path('total')

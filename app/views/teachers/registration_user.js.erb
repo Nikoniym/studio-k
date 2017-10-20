@@ -1,0 +1,6 @@
+<% if @user.errors.any? %>
+  $('.reg_user ul').remove();
+  $(".reg_user").prepend("<%= escape_javascript(render('errors')) %>");
+<% else %>
+  location.reload();
+<% end %>

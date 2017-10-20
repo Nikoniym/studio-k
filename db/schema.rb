@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829230503) do
+ActiveRecord::Schema.define(version: 20171019125544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20170829230503) do
     t.datetime "updated_at",   null: false
     t.integer  "cash_sort_id"
     t.boolean  "subscription"
+    t.boolean  "trial_lesson"
     t.index ["cash_sort_id"], name: "index_select_cashes_on_cash_sort_id", using: :btree
   end
 
@@ -206,6 +207,8 @@ ActiveRecord::Schema.define(version: 20170829230503) do
     t.datetime "date_paid"
     t.integer  "teacher_id"
     t.string   "teacher_name"
+    t.boolean  "trial_lesson"
+    t.string   "tariff"
     t.index ["cash_id"], name: "index_subscriptions_on_cash_id", using: :btree
     t.index ["select_cash_id"], name: "index_subscriptions_on_select_cash_id", using: :btree
     t.index ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
@@ -279,8 +282,12 @@ ActiveRecord::Schema.define(version: 20170829230503) do
     t.string   "message"
     t.string   "head_message"
     t.boolean  "confirm"
+    t.boolean  "trial_lesson"
+    t.integer  "auto_registration"
+    t.boolean  "show_teacher"
     t.index ["cash_sort_id"], name: "index_users_on_cash_sort_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["first_name", "last_name"], name: "index_users_on_first_name_and_last_name", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 

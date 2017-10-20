@@ -1,0 +1,3 @@
+setTimeout(function () {
+    $(".no_active_subscriptions").fadeOut(300).html("<%= escape_javascript(render('lessons/user_order')) %>").fadeIn(300);
+},300);

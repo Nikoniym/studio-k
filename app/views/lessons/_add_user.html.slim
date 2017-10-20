@@ -1,11 +1,11 @@
 tr data-id="#{@user[:id]}"
   td = image_tag @user.avatar.url(:thumb)
-  td   #{@user.last_name} #{@user.first_name}
+  td = @user.full_name
   td
     - if @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count  > 1000
       span.symbol &#xe82a
     - else
       = @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count
-  td = @user.specialty
   td = @user.cash_sort.name if @user.cash_sort.present?
+  td = @user.specialty
   td = link_to 'Удалить', remove_user_teacher_lesson_path(@lesson, @user), remote: true

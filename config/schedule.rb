@@ -18,3 +18,8 @@ end
 every :day, :at => '11pm' do
   runner "ActiveTable.new.create_table"
 end
+
+every :day, :at => '1am' do
+  runner "ActiveTable.new.create_table"
+end
+

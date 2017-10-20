@@ -1,0 +1,23 @@
+table.write_user
+  - if @user.present?
+    - @user.each do |user|
+      tr data-id="#{user[:id]}"
+        td = user.full_name
+        td
+          - if user.cashes.find_by(cash_sort: user.cash_sort).cash_count  > 1000
+            span.symbol &#xe82a
+          - else
+            = user.cashes.find_by(cash_sort: user.cash_sort).cash_count
+        td = user.email
+        td
+           = form_tag change_cash_teacher_lessons_path, method: "get", id: "filter", class: "filter_box filter_#{user[:id]}", remote: true do
+            = hidden_field_tag 'user', user.id
+            = hidden_field_tag 'table', @table.id
+            /= label_tag user.cash_sort.name if user.cash_sort.present?
+            = select "publication", "category", options_for_select(user.cashes.joins(:cash_sort).where.not('cash_sorts.id =?', user.cash_sort_id).select('cash_sorts.id, cash_sorts.name').map{|t| [t.name, t.id]}), {prompt: user.cash_sort.name},   onchange: "$('.filter_#{user[:id]}').submit();"
+
+        td = link_to 'Абонемент', subscriptions_teacher_lessons_path(user), remote: true
+  - else
+    tr
+.no_active_subscriptions
+  = render 'lessons/user_order'

@@ -1,0 +1,23 @@
+/.teacher_back = link_to 'Назад', teachers_path
+h2 Занятие
+.table_name
+  = render 'cancel_admins/table_header'
+
+h2 Записанные
+.users_list
+
+  table.write_user
+    - if @user.present?
+      - @user.each do |user|
+        tr data-id="#{user.id}"
+          td = image_tag user.avatar.url(:thumb)
+          td #{user.last_name} #{user.first_name}
+          td  = user.phone
+          td = user.email
+          - unless @table.active
+            td = link_to 'Удалить', remove_user_cancel_admin_lessons_admin_path(@table, user), remote: true
+    - else
+        tr
+
+
+

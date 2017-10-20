@@ -10,18 +10,10 @@ h1 Профиль
   = link_to 'Редактировть профиль', persons_edit_user_path
   br
   = link_to 'Выйти', destroy_user_session_path, :method => :delete
+
 h2.clear_both Расписание
-table.time_teacher
-  - @time_table.each do |table|
-    - if @day_const != table.day_week
-      - @day_const = table.day_week
-      tr.date_table
-        td = table.day_week
-        td = l table.date, format: :short
-    tr data-id="#{table.id}"
-      td = table.active ? 'Активно' : 'Закрыто'
-      td = table.time_spending[0..4]
-      td = table.training_name
-      td = table.place_current
-      td = table.teacher
-      td = link_to 'Перейти', edit_teacher_path(table)
+= form_tag timetable_options_teachers_path, method: "get", id: "filter", class: "filter_box", remote: true do
+  = label_tag 'Варианты расписания:'
+  = select "publication", "category", options_for_select([['Запись на занятия', 2]]), {prompt: 'Мои занятия'},   onchange: "$('#filter').submit();"
+.timetable_wrapper
+  = render 'teachers/teacher_timetable'

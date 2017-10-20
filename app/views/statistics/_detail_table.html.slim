@@ -1,0 +1,17 @@
+table
+  tr
+    th Название тренировки
+    th Количество занятий
+    th Количесво учеников
+  - @lessons.each do |name, count|
+    tr
+      td = name
+      td = count[0]
+      td = count[1]
+  tr
+    td ИТОГО:
+    td = @total[0]
+    td = @total[1]
+  tr
+    td ИТОГО ПО ДЕНЬГАМ:
+    td collspan='2' =@paid

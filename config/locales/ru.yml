@@ -68,6 +68,16 @@ ru:
         confirm: 'Необходимо'
     errors:
       models:
+        meet:
+          attributes:
+            date:
+              blank: 'не может быть пустым'
+            description:
+              blank: 'не может быть пустым'
+            time_start:
+              blank: 'не может быть пустым'
+            image:
+              blank: 'не может быть пустым'
         user:
           attributes:
             confirm:
@@ -85,6 +95,7 @@ ru:
               confirmation: 'пароли не совпадают'
             first_name:
               blank: 'не может быть пустым'
+              taken: 'в сочетании с фамилией уже зарегестрировано'
             last_name:
               blank: 'не может быть пустой'
             phone:

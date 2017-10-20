@@ -15,7 +15,7 @@
           span.input__label-content.input__label-content--hoshi Пароль
       - if devise_mapping.rememberable?
         .field
-         = f.check_box :remember_me
+         = f.check_box :remember_me, checked: true
          = f.label 'Запомнить меня'
 
 

@@ -40,25 +40,40 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
 
-  resources :teachers do
-    get :destroy_lesson, on: :member
-    get :active_lesson, on: :member
+  resources :teachers, only: [:index, :edit] do
     get :add_no_registration, on: :member
     get :remove_no_registration, on: :member
     get :paid, on: :member
     get :delete_paid, on: :member
-    resources :lessons, only: [:add_user, :remove_user] do
+    get :timetable_options, on: :collection
+    post :registration_user, on: :member
+    resources :lessons, only: [] do
+      get :destroy_subscription, on: :member
       get :add_user, on: :member
+      get :remove_user, on: :member
+      get :teacher_nav, on: :member
+      get :subscriptions, on: :collection
+      get :change_cash, on: :collection
+    end
+  end
+
+  resources :cancel_admins, only: [:destroy, :edit]  do
+    get :destroy_lesson, on: :member
+    get :active_lesson, on: :member
+    resources :lessons_admins, only: :remove_user do
       get :remove_user, on: :member
     end
   end
 
   devise_for :users, :controllers => { registrations: 'registrations' }
+
   resources :subscriptions do
     get :confirm, on: :member
-    get :select_tariff, on: :member
     get :paid, on: :member
     get :no_paid, on: :member
+    resources :select_subscriptions, only: [] do
+      get :select_tariff, on: :member
+    end
   end
   get 'home/index'
   root to: 'home#index'
@@ -70,6 +85,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :statistics, only: [:index] do
+    get :detail, on: :member
+    get :date_picker, on: :member
+  end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

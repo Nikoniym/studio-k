@@ -49,6 +49,7 @@ header {
   margin-bottom: 1px;
   .header_inner {
     float: left;
+    width: 240px;
     a {
       color: $content_color;
     }
@@ -192,6 +193,9 @@ footer {
 }
 .notice_red {
   background: #fff7f7;
+  color: $error;
+}
+.errors {
   color: $error;
 }
 .message_wrapper {
@@ -474,10 +478,56 @@ footer {
     }
   }
 }
+.no_active_subscriptions {
+  margin-top: 30px;
+}
+.title {
+  display: block;
+  width: 88%;
+  margin: 0 auto;
+  padding-left: 5px;
+  font-weight: 700;
+}
+.add_user {
+  &.divider {
+    border-top: 2px solid $divider;
+    margin-top: 30px;
+    padding-top: 5px;
+  }
+  .show_link {
+    color: $link_content;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+    &:hover {
+      color: $content_color;
+    }
+  }
+  .show_count {
+    td:nth-child(4),
+    td:nth-child(5) {
+      display: none;
+    }
+  }
+  .show_email {
+    td:nth-child(2),
+    td:nth-child(3) {
+      display: none;
+    }
+  }
+}
+
 .subscription_wrapper {
   .no_border {
     border-bottom: none !important;
     margin-bottom: 0 !important;
+  }
+  .user_name {
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 700;
   }
   .order {
 
@@ -709,7 +759,12 @@ footer {
 
   }
 }
-
+.auto_registration {
+  margin-bottom: 20px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid $divider;
+}
 .filter_box {
   text-align: right;
   #publication_category {
@@ -800,10 +855,79 @@ footer {
 .info_wrapper, .teacher_avatar {
   float: left;
 }
+.info_wrapper {
+  margin-left: 15px;
+}
+.teacher_avatar {
+  width: 200px;
+}
 .clear_both {
   clear: both;
 }
 
+.teacher_nav {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 18px;
+  a {
+    margin-right: 15px;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid $link_content;
+    color:  $link_content;
+    &:hover {
+      border-color: #a7afb7;
+    }
+  }
+}
+.reg_user {
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input {
+    margin-bottom: 10px;
+    border: 2px solid $divider;
+    border-radius: 3px;
+    padding: 5px;
+    outline: none;
+    background: $white;
+    width: 100%;
+  }
+  .actions {
+    input {
+      border-color: $link_content;
+      color: $link_content;
+      font-size: 18px;
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+  }
+}
+//statistics
+.statistics_wrapper{
+  font-family: 'Open Sans', sans-serif;
+  h2 {
+    text-align: center;
+  }
+  table {
+    border-collapse: collapse;
+    span {
+      display: block;
+    }
+    td,
+    th {
+      border: 1px solid;
+      padding: 5px;
+    }
+  }
+}
 // Datepiker
 .ui-widget-header, .ui-widget-content .ui-state-default {
   background: $divider;
@@ -881,6 +1005,12 @@ footer {
   body {
     background: $white;
 
+  }
+  .no_active_subscriptions {
+
+  }
+  .title {
+    width: 100%;
   }
 }
 @include susy-breakpoint(720px, 6) {

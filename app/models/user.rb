@@ -21,10 +21,12 @@ class User < ApplicationRecord
   validates :phone, :presence => true,
             :numericality => true,
             :length => { :minimum => 10, :maximum => 15 }
-  # accepts_nested_attributes_for :edit_user
+  validates_uniqueness_of :first_name, scope: :last_name
 
   after_validation :assign_default_role
   after_create :create_cash
+
+  # self.per_page = 70
 
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
@@ -32,19 +34,14 @@ class User < ApplicationRecord
 
   def create_cash
     if self.cashes.empty?
-      c = Cash.create!(cash_sort_id: 1, cash_count: 0, date_finish: Date.today)
+      c = Cash.create!(cash_sort_id: 1, cash_count: 0, date_finish: Date.today, last_name:  self.full_name)
       c.users << self
-      # cash_sort = CashSort.all
-      # cash_sort.each do |sort|
-      #   c = Cash.create!(cash_sort: sort, cash_count: 0)
-      #   c.users << self
-      # end
     end
-    self.update(cash_sort_id: 1)
+    self.update(cash_sort_id: 1, trial_lesson: true, show_teacher: false)
   end
 
   def full_name
-    [last_name, first_name].compact.join(', ')
+    [last_name, first_name].compact.join(' ')
   end
 
   filterrific :default_filter_params => { :sorted_by => 'created_at_desc' },

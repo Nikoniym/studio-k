@@ -2,20 +2,20 @@ class SubscriptionsController < ApplicationController
   layout "person"
   require 'adroit-age'
 
-  def select_tariff
-    @user = current_user
-    @sort_id = params[:id]
-    @select_cash = SelectCash.where(cash_sort_id: @sort_id, subscription: true).order(:price)
-    @family = User.where('last_name ~* ?', @user.last_name.chop.chop).where.not(id: @user)
-    @subscription = Subscription.new
-    @birth_date = @user.birth_date.present? ? @user.birth_date.find_age : nil
-  end
+  # def select_tariff
+  #   @user = current_user
+  #   @sort_id = params[:id]
+  #   @select_cash = SelectCash.where(cash_sort_id: @sort_id, subscription: true).order(:price)
+  #   @family = User.where('last_name ~* ?', @user.last_name.chop.chop).where.not(id: @user)
+  #   @subscription = Subscription.new
+  #   @birth_date = @user.birth_date.present? ? @user.birth_date.find_age : nil
+  # end
 
-  def confirm
-    @subscription = Subscription.find(params[:id])
-    @subscription.update(confirm: false)
+  # def confirm
+  #   @subscription = Subscription.find(params[:id])
+  #   @subscription.update(confirm: false)
+  # end
 
-  end
   def index
     if user_signed_in?
       @user = current_user
@@ -24,7 +24,12 @@ class SubscriptionsController < ApplicationController
       @orders = @user.subscriptions.where(order_destroy: true)
       @subscriptions = @user.subscriptions.page(params[:page]).where(order_destroy: false).order(created_at: :desc)
       @cash_sort = CashSort.all
-      @select_cash = SelectCash.where(cash_sort_id: 1, subscription: true).order(:price)
+      if @user.trial_lesson
+        @select_cash = SelectCash.where(cash_sort_id: 1,  trial_lesson: true).order(:price)
+      else
+        @select_cash = SelectCash.where(cash_sort_id: 1, subscription: true).order(:price)
+      end
+
       @sort_id = '1'
       @users_cash = @user.cashes.where(cash_sort_id: 2)
       @birth_date = @user.birth_date.present? ? @user.birth_date.find_age : nil
@@ -39,7 +44,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @user = User.find params[:user_control]
 
     flash[:answer] = false
     flash[:notice] = false
@@ -58,26 +63,15 @@ class SubscriptionsController < ApplicationController
     if @user.subscriptions.find_by(paid: false).blank?
       # current_cash = @user.cashes.find_by(cash_sort_id: subscription_params[:select_cash_id])
       select_cash = SelectCash.find(subscription_params[:select_cash_id])
-      cash_sort = select_cash.cash_sort
+      cash_sort = select_cash.cash_sort.id
       # проверка на детский
-      if (cash_sort.id == 3 && ((user_params && user_params[:birth_date].present? && user_params[:birth_date].to_date.find_age < 18) || (@user.birth_date.present? && @user.birth_date.find_age < 18))) || cash_sort.id != 3
-        cash = @user.cashes.find_by(cash_sort: cash_sort)
-        cash = @user.cashes.create!(cash_sort: cash_sort , cash_count: 0)  if cash.nil?
+      if (cash_sort == 3 && ((user_params && user_params[:birth_date].present? && user_params[:birth_date].to_date.find_age < 14) || (@user.birth_date.present? && @user.birth_date.find_age < 14))) || cash_sort != 3
+        cash = @user.cashes.find_by(cash_sort_id: cash_sort)
+        cash = @user.cashes.create!(cash_sort_id: cash_sort , cash_count: 0, last_name: @user.full_name)  if cash.nil?
 
-        if @user.cash_sort.blank? || @user.cashes.blank? || @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count == 0
-          @user.update(cash_sort: cash_sort)
+        if @user.cash_sort.blank? || @user.cashes.blank? || @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count ==0
+          @user.update(cash_sort_id: cash_sort)
         end
-
-        # семейный тариф
-        # unless subscription_params[:user].nil? || subscription_params[:user].empty?
-        #   user_ids = subscription_params[:user]
-        #   user_ids.delete_at(0)
-        #   @users = User.find(user_ids)
-        #   @users.each do |u|
-        #     cash.users << u
-        #   end
-        # end
-
 
         if subscription_params[:date_start].present?
           date_start = subscription_params[:date_start].to_date
@@ -89,36 +83,58 @@ class SubscriptionsController < ApplicationController
         if Date.today >  date_start
           date_start =  Date.today
         end
-
+        # Для поздней активации, чтобы не затереть текущий абонемент
         if cash.cash_count > 0 && cash.date_finish >= date_start
           confirm = true
         else
           confirm = false
         end
 
+        #trial activation
+        if @user.trial_lesson
+          if select_cash.count > 1
+            cash_count = select_cash.count + 1
+          else
+            cash_count = select_cash.count
+          end
+        else
+          cash_count = select_cash.count
+        end
 
         @subscription = Subscription.new(
             active: false,
-            count: select_cash.count,
+            count: cash_count,
             price: select_cash.price,
             date_start: date_start,
             date_finish:  date_start + 29,
-            paid: false,
+            paid: (current_user.has_role? :teacher) ? true : false,
             select_cash_id: subscription_params[:select_cash_id],
             cash: cash,
             confirm: confirm,
+            tariff: select_cash.cash_sort.name,
             user: @user,
-            order_destroy: true
+            order_destroy: true,
+            trial_lesson: @user.trial_lesson ? true : false
         )
 
-
-        if @subscription.save!
-          @orders = @user.subscriptions.where(order_destroy: true).order(created_at: :desc)
-        else
-          render :index
+        #teacher paid
+        if (current_user.has_role? :teacher)
+          @subscription.date_paid = Time.now
+          @subscription.teacher_id =  current_user.id
+          @subscription.teacher_name = "#{current_user.last_name} #{current_user.first_name}"
         end
-        # else
-        #   @answer = 'Необходимо выбрать из списка членов семьи'
+
+        if (current_user.has_role? :teacher) && @user.subscriptions.where(order_destroy: true).present?
+          flash[:notice] = "Уже заказан"
+        else
+          if @subscription.save!
+            @orders = @user.subscriptions.where(order_destroy: true).order(created_at: :desc)
+            @user.update(trial_lesson: false) if @user.trial_lesson
+          else
+            render :index
+          end
+        end
+
 
       else
         flash[:notice] = "Заполните поле даты рождения."
@@ -136,8 +152,10 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     @order = Subscription.find(params[:id])
+    user = User.find @order.user_id
+    user.update(trial_lesson: true) if @order.trial_lesson
     @order.destroy
-    redirect_to subscriptions_path
+    # redirect_to subscriptions_path
   end
 
   private
@@ -153,7 +171,5 @@ class SubscriptionsController < ApplicationController
       false
     end
   end
-
-
 end
 

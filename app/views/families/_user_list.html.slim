@@ -1,14 +1,8 @@
-h2 Добавить на занятие
-.search_form
-  = form_for_filterrific @filterrific do |f|
-    = f.text_field :search_query, :class => 'filterrific-periodically-observed form-control'
-    = link_to "удаить фильтр", reset_filterrific_url
 table.ready_user
   - @new_users.each do |user|
     tr data-id="#{user[:id]}"
       /td = image_tag user.avatar.url(:thumb)
-      td #{user.last_name}
-      td #{user.first_name}
+      td = user.full_name
       td = user.cashes.find_by(cash_sort: user.cash_sort).cash_count if user.cashes.find_by(cash_sort: user.cash_sort).present?
       td = user.cash_sort.name if user.cash_sort.present?
       td = link_to 'Добавить', add_user_family_family_cash_path(@cash, user), remote: true

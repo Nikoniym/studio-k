@@ -6,40 +6,24 @@ h2 Занятие
   = render 'lessons/paid' if current_admin_user.blank?
 h2 Записанные
 .users_list
-  span.place_current Количество свободных мест: #{@table.place_current}
-  table.write_user
-    - if @user.present?
-      - @user.each do |user|
-        tr data-id="#{user.id}"
-          td = image_tag user.avatar.url(:thumb)
-          td #{user.last_name} #{user.first_name}
-          - if current_admin_user.present?
-            td  = user.phone
-            td = user.email
-          - else
-            td
-              - if user.cashes.find_by(cash_sort: user.cash_sort).cash_count  > 1000
-                span.symbol &#xe82a
-              - else
-                = user.cashes.find_by(cash_sort: user.cash_sort).cash_count
-            td = user.specialty
-            td = user.cash_sort.name if user.cash_sort.present?
-          td = link_to 'Удалить', remove_user_teacher_lesson_path(@table, user), remote: true
-    - else
-        tr
-
-.no_registration_wrapper
-  span.title Без регистрации:
-  = link_to '&#xe822'.html_safe, remove_no_registration_teacher_path(@table), remote: true
-  span.no_registration = @table.no_registration
-  = link_to '&#xe821'.html_safe, add_no_registration_teacher_path(@table), remote: true
-h2 Добавить на занятие
-.search_form
-    = form_for_filterrific @filterrific, class: 'search_name' do |f|
-      = f.label 'Поиск по фамилии:'
-      = f.text_field :search_query, :class => 'filterrific-periodically-observed form-control'
-      = link_to "удалить фильтр", reset_filterrific_url
-.new_users_list
-  = render 'teachers/user_list'
+  span.place_current На занятие записаны: #{@lesson.users.count}
+  span.place_current Свободных мест: #{@lesson.place_current}
+  .teacher_nav
+    = link_to 'запись', teacher_nav_teacher_lesson_path(1), remote: true, class: 'active'
+    = link_to 'тарифы и абонементы', teacher_nav_teacher_lesson_path(2), remote: true
+    = link_to 'регистрация', teacher_nav_teacher_lesson_path(3), remote: true
+  .active_place
+    = render 'teachers/write_user'
+.add_user.divider
+  h2 Добавить на занятие
+  .show_wrapper
+    span.show_link Показать email и телефон
+  .search_form
+      = form_for_filterrific @filterrific, class: 'search_name' do |f|
+        = f.label 'Поиск по фамилии:'
+        = f.text_field :search_query, :class => 'filterrific-periodically-observed form-control'
+        = link_to "Удалить фильтр", reset_filterrific_url
+  .new_users_list.show_count
+    = render 'teachers/user_list'
 
 

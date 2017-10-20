@@ -1,0 +1,4 @@
+$(".timetable_wrapper").fadeOut(300);
+setTimeout(function () {
+    $(".timetable_wrapper").fadeOut(300).html("<%= escape_javascript(render('teachers/teacher_timetable')) %>").fadeIn(300);
+},300);

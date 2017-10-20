@@ -154,9 +154,10 @@ Timetable.create!([
 ])
 
 Role.create!([
-  {id: 1, name: "teacher", resource_type: nil, resource_id: nil},
-  {id: 2, name: "admin", resource_type: nil, resource_id: nil},
-  {id: 3, name: "user", resource_type: nil, resource_id: nil}
+  { name: "teacher", resource_type: nil, resource_id: nil},
+  { name: "admin", resource_type: nil, resource_id: nil},
+  { name: "user", resource_type: nil, resource_id: nil},
+  { name: "statistician", resource_type: nil, resource_id: nil}
 ])
 
 TablePublish.create!([

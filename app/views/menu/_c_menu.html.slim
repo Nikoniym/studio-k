@@ -12,16 +12,15 @@ header.clearfix
 .menu_nav.clearfix
   nav.cl-effect-14.main_menu
     ul
-      - if current_admin_user.blank? || current_user.present?
+      - if  controller_name != 'cancel_admins'
         - if current_user.has_role? :teacher
           li = link_to 'Занятия', teachers_path
           li = link_to 'Семейный тариф', families_path
-          li = link_to 'Вернуться в админку', admin_active_tables_path if current_admin_user.present?
+          li = link_to 'Статистика', statistics_path if current_user.has_role? :statistician
         - else
           li = link_to 'Запись', user_root_path
           li = link_to 'История посещений', history_index_path
           li = link_to 'Абонемент', subscriptions_path
-          li = link_to 'Вернуться в админку', admin_active_tables_path if current_admin_user.present?
       - else
           li = link_to 'Вернуться в админку', admin_active_tables_path
 

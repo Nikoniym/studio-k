@@ -1,7 +1,2 @@
-|#{@table.active if current_admin_user.present?} #{@table.day_week} #{ l @table.date, format: :standard} #{@table.time_spending} #{@table.training_name}
+|#{@lesson.day_week} #{ l @lesson.date, format: :standard} #{@lesson.time_spending} #{@lesson.training_name}
 /span.place_current = @table.place_current
-br
-- if @table.active
-  = link_to 'Отменить', destroy_lesson_teacher_path(@table) if  current_admin_user.present?
-- else
-  = link_to 'Активировать', active_lesson_teacher_path(@table) if current_admin_user.present?

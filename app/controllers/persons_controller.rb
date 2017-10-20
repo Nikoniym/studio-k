@@ -50,9 +50,9 @@ class PersonsController < ApplicationController
       @cash_current = @user.cashes.find_by(cash_sort: @user.cash_sort)
       @cash_current_count = @cash_current.cash_count if @cash_current.present?
 
-      if @cash_current_count > 0 && @cash_current.date_finish < Date.today
-        @cash_current.update(cash_count: 0)
-      end
+      # if @cash_current_count > 0 && @cash_current.date_finish < Date.today
+      #   @cash_current.update(cash_count: 0)
+      # end
 
       if @cash_current_count == 0
         @user.cashes.each do |cash|
@@ -70,7 +70,6 @@ class PersonsController < ApplicationController
         if order.date_start <= Date.today
           order.update(active: true)
         end
-
       end
       order = @user.subscriptions.where('order_destroy = ? and active = ?', true, true)
       if order.present?
@@ -82,8 +81,6 @@ class PersonsController < ApplicationController
             @user.update(cash_sort: order.cash.cash_sort)
             @cash_current_count = @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count
           end
-
-
         end
       end
 

@@ -1,0 +1,7 @@
+|#{@table.active}  #{@table.day_week} #{ l @table.date, format: :standard} #{@table.time_spending} #{@table.training_name}
+/span.place_current = @table.place_current
+br
+- if @table.active
+  = link_to 'Отменить', destroy_lesson_cancel_admin_path(@table)
+- else
+  = link_to 'Активировать', active_lesson_cancel_admin_path(@table)

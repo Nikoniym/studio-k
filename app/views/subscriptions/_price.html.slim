@@ -1,13 +1,13 @@
 .price_container.clearfix
   h4 Все абонементы действуют 30 дней. Оплата абонемента производиться наличными на занятии.
+  - if @user.trial_lesson
+    h4 Вы можете заказать пробное занятие или к любому абонементу будет добавлнено одно занятие.
   .wrapper_form
     - if @sort_id == '2' && @user.cashes.find_by(cash_sort: '2').blank?
       .message
         |Обратитесь к админисратору для активации тарифа.
         br
         |К тарифу можно подключить до 3 членов семьи.
-
-
         ul
           - @select_cash.each do |price|
             li #{price.name} - #{price.price} руб.
@@ -23,6 +23,7 @@
       - else
         = form_for @subscription, remote: true do |f|
           = render 'common/errors', resource: @subscription
+          = hidden_field_tag 'user_control', @user.id
           .answer
           - if @user.birth_date.blank? && @sort_id == '3'
             .user_age

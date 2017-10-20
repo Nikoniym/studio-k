@@ -1,0 +1,21 @@
+table.write_user
+  - if @user.present?
+    - @user.each do |user|
+      tr data-id="#{user.id}"
+        td = image_tag user.avatar.url(:thumb)
+        td #{user.last_name} #{user.first_name}
+        td
+          - if user.cashes.find_by(cash_sort: user.cash_sort).cash_count  > 1000
+            span.symbol &#xe82a
+          - else
+            = user.cashes.find_by(cash_sort: user.cash_sort).cash_count
+        td = user.cash_sort.name if user.cash_sort.present?
+        td = user.specialty
+        td = link_to 'Удалить', remove_user_teacher_lesson_path(@lesson, user), remote: true
+  - else
+    tr
+/.no_registration_wrapper
+/  span.title Без регистрации:
+/  = link_to '&#xe822'.html_safe, remove_no_registration_teacher_path(@table), remote: true
+/  span.no_registration = @table.no_registration
+/  = link_to '&#xe821'.html_safe, add_no_registration_teacher_path(@table), remote: true

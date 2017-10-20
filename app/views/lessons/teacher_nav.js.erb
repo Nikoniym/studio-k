@@ -1,0 +1,11 @@
+<% case @param %>
+  <% when '1' %>
+    $(".active_place").html("<%= escape_javascript(render('teachers/write_user')) %>");
+    $('.add_user').fadeIn(0);
+  <% when '2' %>
+    $(".active_place").html("<%= escape_javascript(render('lessons/user_subscription')) %>");
+    $('.add_user').fadeOut(0);
+  <% when '3' %>
+    $(".active_place").html("<%= escape_javascript(render('teachers/registration')) %>");
+    $('.add_user').fadeOut(0);
+<% end %>

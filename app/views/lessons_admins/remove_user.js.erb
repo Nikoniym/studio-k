@@ -1,0 +1,6 @@
+<% if @answer %>
+  $(".write_user tr[data-id='<%=@user.id %>']").css('display','none');
+  <% if @destroy %>
+    document.location.href = "/admin/active_tables";
+  <% end %>
+<% end %>
