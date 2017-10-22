@@ -4,14 +4,11 @@ ActiveAdmin.register Subscription do
   config.per_page = 100
 
   actions :all, :except => [:show]
-  permit_params :paid , :date_paid, :teacher_name
+  permit_params :paid , :date_paid, :teacher_name, :order_destroy
 
   index do
-    column 'Фамилия' do |t|
-      t.user.last_name
-    end
-    column 'Имя' do |t|
-      t.user.first_name
+    column 'Пользователь' do |t|
+      t.user.full_name
     end
     column :active
     column :confirm
@@ -32,6 +29,7 @@ ActiveAdmin.register Subscription do
 
     f.inputs do
       f.input :paid
+      f.input :order_destroy
       f.input :date_paid
       f.input :teacher_name, :label => 'Имя преподавателя', :as => :select, :collection => User.with_role(:teacher).map{|u| "#{u.first_name} #{u.last_name}"}
     end

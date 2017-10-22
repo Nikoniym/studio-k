@@ -44,7 +44,7 @@ $(document).ready(function (){
         $('.write_table tr.date_table td:nth-child(1)').attr('colspan','1');
     }
 
-    $('.show_link').on('click', function(){
+    $('.add_user .show_link').on('click', function(){
         if ($('.new_users_list').hasClass('show_count')){
             $('.new_users_list').removeClass('show_count').addClass('show_email');
             $('.show_link').text('Показать тариф');
@@ -52,6 +52,31 @@ $(document).ready(function (){
             $('.new_users_list').removeClass('show_email').addClass('show_count');
             $('.show_link').text('Показать email и телефон');
         }
+    });
+
+    $('.show_history').on('click', function(){
+        if ($(this).hasClass('show')){
+            $(this).removeClass('show').text('скрыть историю абонементов');
+            $('.price').removeClass('no_border');
+            $('.toggle').fadeIn();
+        }else{
+            $(this).addClass('show').text('показать историю абонементов');
+            $('.price').addClass('no_border');
+            $('.toggle').fadeOut();
+        }
+    });
+
+    $('#date_start').change(function () {
+        $('form').submit();
+    });
+    $('#date_finish').change(function () {
+        $('form').submit();
+    });
+    $('#user_cash_sort_id').change(function () {
+        $('#change_tariff').submit();
+    });
+    $('.reg_user_avatar').change(function () {
+        $('#change_tariff').submit();
     });
 });
 

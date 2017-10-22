@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'persons/avatar'
   get 'persons/remove_message'
   get 'persons/terms_of_use'
+  put '/persons/:id', to: 'persons#change_tariff', as: 'change_tariff'
+
   get 'history/index'
 
   # resource :persons, except: [:index, :show, :edit, :destroy, :update, :new, :create]do
@@ -41,6 +43,10 @@ Rails.application.routes.draw do
 
 
   resources :teachers, only: [:index, :edit] do
+    get :add_edit_avatar, on: :member
+    get :add_edit_phone, on: :member
+    patch :edit_avatar, on: :member
+    get :edit_phone, on: :member
     get :add_no_registration, on: :member
     get :remove_no_registration, on: :member
     get :paid, on: :member

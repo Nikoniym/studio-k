@@ -16,7 +16,10 @@ header.clearfix
         - if current_user.has_role? :teacher
           li = link_to 'Занятия', teachers_path
           li = link_to 'Семейный тариф', families_path
-          li = link_to 'Статистика', statistics_path if current_user.has_role? :statistician
+          - if current_user.has_role? :statistician
+            li = link_to 'Статистика', statistics_path
+          - else
+            li = link_to 'Статистика', detail_statistic_path(current_user)
         - else
           li = link_to 'Запись', user_root_path
           li = link_to 'История посещений', history_index_path

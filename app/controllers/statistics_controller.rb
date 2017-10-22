@@ -38,7 +38,7 @@ class StatisticsController < ApplicationController
   end
 
   def detail
-    generate_table(params[:id])
+    generate_table(params[:id], Date.today.to_s)
   end
 
 
@@ -48,7 +48,7 @@ class StatisticsController < ApplicationController
 
   private
 
-  def generate_table (id, date_start = Date.today, date_finish = nil)
+  def generate_table (id, date_start, date_finish = nil)
 
     date_start = date_start.to_date if date_start.present?
 

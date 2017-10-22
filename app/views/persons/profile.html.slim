@@ -3,10 +3,13 @@
     = render 'persons/avatar'
   .info_user.item
     .user_name #{@user.first_name} #{@user.last_name}
-    - if @user.cash_sort.present?
+    - if @user.cashes.count > 1
+      = form_tag change_tariff_path(@user), method: :put, remote: true, id: 'change_tariff'  do
+        = label_tag 'Тариф:'
+        = collection_select(:user, :cash_sort_id, @select, :id, :name)
+    - else
       div Тариф: #{@user.cash_sort.name}
-    /div =@user.phone
-    /.specialty =@user.specialty
+
 
 
   .cash_count_list.item

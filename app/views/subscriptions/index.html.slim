@@ -6,11 +6,12 @@
   .select-tariff
     - @cash_sort.each_with_index do |cash, index|
       = link_to cash.name, select_tariff_subscription_select_subscription_path(cash, @user), remote: true, class: ('active' if index == 0)
-  .price class=('no_border' if @subscriptions.blank? )
+  .price.no_border
     = render 'price'
   - if  @subscriptions.present?
-    .history_subscription.no_border
-      h2 История
+    .show_wrapper
+      span.show_link.show_history.show показать историю абонементов
+    .history_subscription.toggle.no_border
       - @subscriptions.each do |subscription|
         /td Заказ оформил #{subscription.user.first_name} #{subscription.user.last_name}
         .validity Абонимент действует: с #{l subscription.date_start, format: :long} до #{l subscription.date_finish, format: :long} включительно.

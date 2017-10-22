@@ -1,0 +1,6 @@
+<% if @user.errors.any? %>
+  $('.reg_user_phone ul').remove();
+  $(".reg_user_phone").prepend("<%= escape_javascript(render('errors')) %>");
+<% else %>
+  $(".write_user td[data-id='<%=@user.id %>']").html("<%= escape_javascript(@user.phone) %>");
+<% end %>

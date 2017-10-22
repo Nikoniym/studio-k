@@ -1,19 +1,16 @@
-.statistics_wrapper
-  h2 Подробно
-  .date_picker
-    = form_tag date_picker_statistic_path(params[:id]), method:'get', remote: true, id: 'filter'  do
-      .filter_item
-        label дата c:
-        = date_field_tag :date_start, onchange: "$('#filter').submit();"
+.date_picker
+  = form_tag date_picker_statistic_path(params[:id]), method:'get', remote: true, class: 'training_name'  do
+    .filter_item
+      label дата c:
+      = date_field_tag :date_start
+      label по:
+      = date_field_tag :date_finish
 
-        label по:
-        = date_field_tag :date_finish, onchange: "$('#filter').submit();"
-        .actions
-          = submit_tag 'Применить'
-      = link_to "Отменить фильтры", detail_statistic_path(1)
+    = link_to "Отменить фильтры", detail_statistic_path(params[:id])
 
+.history_list
+  h2 = @user.class == User::ActiveRecord_Relation  ? 'Все преподаватели' : @user.full_name
   .teacher_lesson
-    span.title = @user.class == User::ActiveRecord_Relation  ? 'Все преподаватели' : @user.full_name
     = render 'statistics/detail_table'
 
 

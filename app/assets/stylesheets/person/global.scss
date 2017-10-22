@@ -494,16 +494,7 @@ footer {
     margin-top: 30px;
     padding-top: 5px;
   }
-  .show_link {
-    color: $link_content;
-    display: block;
-    text-align: center;
-    cursor: pointer;
-    margin-bottom: 15px;
-    &:hover {
-      color: $content_color;
-    }
-  }
+
   .show_count {
     td:nth-child(4),
     td:nth-child(5) {
@@ -514,6 +505,25 @@ footer {
     td:nth-child(2),
     td:nth-child(3) {
       display: none;
+    }
+  }
+}
+.show_wrapper {
+  text-align: center;
+  .show_link {
+    &.show_history {
+      margin-bottom: 25px;
+    }
+    &.show {
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    color: $link_content;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 15px;
+    &:hover {
+      color: $content_color;
     }
   }
 }
@@ -536,7 +546,9 @@ footer {
     padding-bottom: 15px;
     border-bottom: 2px solid $divider;
     margin-bottom: 33px;
-
+    &.toggle{
+      display: none;
+    }
     .warning {
       margin-bottom: 12px;
       color: $error;
@@ -767,18 +779,26 @@ footer {
 }
 .filter_box {
   text-align: right;
-  #publication_category {
-    border: 2px solid rgba(96, 137, 213, 0.2);
-    padding: 5px;
-    background: $white;
-    outline: none;
-    margin-right: 6%;
-    border-radius: 3px;
-    color: $content_color;
-  }
+
   label {
     padding-right: 10px;
   }
+}
+#change_tariff {
+  margin-bottom: 41px;
+  label {
+    margin-right: 15px;
+  }
+}
+#publication_category,
+#user_cash_sort_id {
+  border: 2px solid rgba(96, 137, 213, 0.2);
+  padding: 5px;
+  background: $white;
+  outline: none;
+  margin-right: 6%;
+  border-radius: 3px;
+  color: $content_color;
 }
 
 //Преподавательская часть
@@ -787,6 +807,7 @@ footer {
   font-weight: 700;
   font-size: 20px;
   color: $link_content;
+  margin-top: 30px;
 }
 .teacher_back {
   text-align: center;
@@ -910,13 +931,46 @@ footer {
     }
   }
 }
+.reg_user_phone {
+  #phone,
+  input[type="submit"] {
+    border: 2px solid rgba(96, 137, 213, 0.2);
+    padding: 5px;
+    background: white;
+    outline: none;
+    margin-right: 6%;
+    border-radius: 3px;
+    color: #4f6e8c;
+
+  }
+  #phone {
+    width: 111px;
+  }
+  input[type="submit"] {
+    margin-top: 15px;
+    width: 111px;
+  }
+  .errors {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0;
+    margin: 0 0 5px 0;
+  }
+}
+.reg_user_avatar {
+  input[type='file'] {
+    width: 120px;
+    padding: 5px 0;
+  }
+}
+
 //statistics
-.statistics_wrapper{
-  font-family: 'Open Sans', sans-serif;
+.statistics_wrapper {
   h2 {
     text-align: center;
   }
   table {
+    font-family: 'Open Sans', sans-serif;
     border-collapse: collapse;
     span {
       display: block;
@@ -926,6 +980,11 @@ footer {
       border: 1px solid;
       padding: 5px;
     }
+  }
+}
+.teacher_lesson {
+  th {
+    color: $link_content;
   }
 }
 // Datepiker

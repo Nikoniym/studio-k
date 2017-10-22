@@ -1,0 +1,4 @@
+$(".cash_count_list").fadeOut(300);
+setTimeout(function () {
+    $(".cash_count_list").fadeOut(300).html("<%= escape_javascript(render('persons/cash_count')) %>").fadeIn(300);
+},300);

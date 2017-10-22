@@ -5,7 +5,10 @@ tr data-id="#{@user[:id]}"
       span.symbol &#xe82a
     - else
       = @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count
-  td = @user.email
+    - if @user.phone == '11111111111'
+      td data-id="#{@user[:id]}" = link_to 'Добавить', add_edit_phone_teacher_path(@user), remote: true
+    - else
+      td = @user.phone
   td
     = form_tag change_cash_teacher_lessons_path, method: "get", id: "filter", class: "filter_box filter_#{@user[:id]}", remote: true do
       = hidden_field_tag 'user', @user.id

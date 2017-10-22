@@ -1,4 +1,3 @@
-$("").html("<%= escape_javascript(render('')) %>");
 $(".time_teacher").fadeOut(300);
 setTimeout(function () {
     $(".time_teacher").fadeOut(300).html("<%= escape_javascript(render('persons/active_table')) %>").fadeIn(300);

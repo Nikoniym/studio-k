@@ -1,5 +1,5 @@
 h2 Регистрация
-= form_for(:user,  remote: true, url: registration_user_teacher_path, html: {class: 'reg_user'})  do |f|
+= form_for :user,  remote: true, url: registration_user_teacher_path, html: {class: 'reg_user'}  do |f|
   .field.clearfix
     = f.label 'Имя'
     = f.text_field :first_name, autofocus: true

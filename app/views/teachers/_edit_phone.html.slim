@@ -1,0 +1,5 @@
+= form_tag edit_phone_teacher_path(@user), remote: true, method: 'get', class: 'reg_user_phone'  do
+  .field.clearfix
+    = telephone_field_tag :phone
+    .actions
+      = submit_tag 'Отправить'

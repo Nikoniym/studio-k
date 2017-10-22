@@ -1,5 +1,16 @@
 tr data-id="#{@user[:id]}"
-  td = image_tag @user.avatar.url(:thumb)
+  - if @user.avatar.exists?
+    td = image_tag @user.avatar.url(:thumb)
+  - else
+    td data-id="#{@user[:id]}"
+      = form_for @user, url: edit_avatar_teacher_path(@user.id), method: :patch, remote: true, html: {class: "reg_user_avatar submit_#{@user.id}"}  do |f|
+        .pre-loader.avatar style='margin: 0 auto;'
+          .box1
+          .box2
+          .box3
+          .box4
+          .box5
+        = f.file_field :avatar, id: "avatar-#{@user.id}", onchange: " $(this).fadeOut(0).parent().find('.pre-loader').fadeIn(300); $(this).parent().submit(); "
   td = @user.full_name
   td
     - if @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count  > 1000

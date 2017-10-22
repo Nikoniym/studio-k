@@ -25,6 +25,32 @@ class TeachersController < ApplicationController
     end
   end
 
+  def add_edit_phone
+    @id = params[:id]
+    @user = User.find @id
+  end
+
+
+  def edit_avatar
+    @user = User.find  params[:id]
+    @user.avatar = params[:user][:avatar]
+    if @user.save
+      @answer = true
+    else
+      @answer = false
+    end
+  end
+
+  def edit_phone
+    @user = User.find  params[:id]
+    @user.phone = params[:phone]
+    if @user.save
+      @answer = true
+    else
+      @answer = false
+    end
+  end
+
   def edit
     if user_signed_in?
       if current_user.has_role? :user

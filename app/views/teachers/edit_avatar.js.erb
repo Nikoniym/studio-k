@@ -1,0 +1,6 @@
+<% if @user.errors.any? %>
+  $("'.write_user td[data-id='<%=@user.id %>'] .reg_user_avatar ul'").remove();
+  $(".write_user td[data-id='<%=@user.id %>'] .reg_user_avatar").prepend("<%= escape_javascript(render('errors')) %>");
+<% else %>
+  $(".write_user td[data-id='<%=@user.id %>']").html("<%= escape_javascript(image_tag @user.avatar.url(:thumb)) %>");
+<% end %>

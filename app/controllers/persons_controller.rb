@@ -1,6 +1,13 @@
 class PersonsController < ApplicationController
   layout "person", except: [:edit_user, :update_user]
 
+  def change_tariff
+    @user = User.find params[:id]
+    @user.update(cash_sort_id: user_params[:cash_sort_id])
+    @cash_current = @user.cashes.find_by(cash_sort: @user.cash_sort)
+    @cash_current_count = @cash_current.cash_count if @cash_current.present?
+  end
+
   def edit_avatar
     @user = current_user
   end
@@ -49,7 +56,7 @@ class PersonsController < ApplicationController
       # Обработка кошелька
       @cash_current = @user.cashes.find_by(cash_sort: @user.cash_sort)
       @cash_current_count = @cash_current.cash_count if @cash_current.present?
-
+      @select = @user.cashes.joins(:cash_sort).select('cash_sorts.id, cash_sorts.name')
       # if @cash_current_count > 0 && @cash_current.date_finish < Date.today
       #   @cash_current.update(cash_count: 0)
       # end

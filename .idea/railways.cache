@@ -10,6 +10,7 @@
                                 persons_avatar GET        /persons/avatar(.:format)                                                        persons#avatar
                         persons_remove_message GET        /persons/remove_message(.:format)                                                persons#remove_message
                           persons_terms_of_use GET        /persons/terms_of_use(.:format)                                                  persons#terms_of_use
+                                 change_tariff PUT        /persons/:id(.:format)                                                           persons#change_tariff
                                  history_index GET        /history/index(.:format)                                                         history#index
                                   album_images GET        /albums/:album_id/images(.:format)                                               images#index
                                                POST       /albums/:album_id/images(.:format)                                               images#create
@@ -144,6 +145,10 @@
                                                POST       /admin/comments(.:format)                                                        admin/comments#create
                                  admin_comment GET        /admin/comments/:id(.:format)                                                    admin/comments#show
                                                DELETE     /admin/comments/:id(.:format)                                                    admin/comments#destroy
+                       add_edit_avatar_teacher GET        /teachers/:id/add_edit_avatar(.:format)                                          teachers#add_edit_avatar
+                        add_edit_phone_teacher GET        /teachers/:id/add_edit_phone(.:format)                                           teachers#add_edit_phone
+                           edit_avatar_teacher PATCH      /teachers/:id/edit_avatar(.:format)                                              teachers#edit_avatar
+                            edit_phone_teacher GET        /teachers/:id/edit_phone(.:format)                                               teachers#edit_phone
                    add_no_registration_teacher GET        /teachers/:id/add_no_registration(.:format)                                      teachers#add_no_registration
                 remove_no_registration_teacher GET        /teachers/:id/remove_no_registration(.:format)                                   teachers#remove_no_registration
                                   paid_teacher GET        /teachers/:id/paid(.:format)                                                     teachers#paid
