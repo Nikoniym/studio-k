@@ -2,7 +2,7 @@ class StatisticsController < ApplicationController
   layout "person"
 
   def index
-    users = User.order(:last_name).with_role(:teacher).where(show_teacher: true)
+    users = User.order(:last_name).with_role(:teacher)
     @statistics = {}
     @total = [{:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0},{:lesson_count=>0, :user_count=>0, :paid=>0}]
     interval = [Date.today - 1.day, Date.today, Date.today.beginning_of_week, Date.today.beginning_of_month, Date.today.beginning_of_year]
