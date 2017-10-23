@@ -8,5 +8,11 @@ class HomeController < ApplicationController
     @contents = Content.joins(:slide_image).order('slide_images.position')
     @time_table = TablePublish.new
     @price = SelectCash.order(:price)
+    @teachers = User.where(show_teacher: true).with_role(:teacher)
+  end
+
+  def select_teacher
+    @user = User.find params[:id]
+    @id = params[:content_id]
   end
 end

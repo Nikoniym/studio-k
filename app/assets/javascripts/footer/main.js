@@ -113,10 +113,12 @@ $(window).on("load",function(){
 	$.mCustomScrollbar.defaults.axis="y"; //enable 2 axis scrollbars by default
 
     if ($(window).width() > 900) {
-        $(".scroll").mCustomScrollbar({theme:"inset", });
+        $(".teacher_scroll").mCustomScrollbar({theme:"insetminimal-dark"});
+        $(".scroll").mCustomScrollbar({theme:"inset"});
         $("#scroll").mCustomScrollbar({theme:"minimal-dark"});
         $("#minimal").mCustomScrollbar({theme:"minimal"});
     }else{
+        $(".teacher_scroll").css('overflow-y', 'scroll');
         $('.scroll').css('overflow-y', 'scroll');
         $('#scroll').css('overflow-y', 'scroll');
         $('#minimal').css('overflow-y', 'scroll');
@@ -170,7 +172,6 @@ $(document).ready(function (){
     // if ($( window).width() > 900) {
     //     $('body').removeClass().addClass('dark');
     // }
-
     $('.meet_icon').on('click', function(){
         if ($( window).width() <= 900) {
             $('body').removeClass().addClass('blue');
@@ -308,6 +309,7 @@ $(document).ready(function (){
     }
     $('.content-switch').on('click', function(){
         contentSwith();
+        $('.teacher_show').removeClass('show');
         $('.logo_studio').toggleClass("open");
         // if ($( window).width() <= 900) {
         //     if ($('#mobile_menu').hasClass("hide")) {

@@ -11,7 +11,7 @@ class TeachersController < ApplicationController
       time_table =  ActiveTable.where('date = ? and active = ? and time_start <= ?', Date.today, true, Time.now.to_s(:time))
       time_table.update_all(active: false) if time_table.present?
 
-      @time_table = ActiveTable.order(:date,:time_start).where(' date >= ? and teacher_id = ?', Date.today.monday - 1, @user.id)
+      @time_table = ActiveTable.order(:date,:time_start).where(' date >= ? and teacher_id = ?', Date.today.monday - 1.day, @user.id)
     else
       redirect_to new_user_session_path
     end
@@ -19,7 +19,7 @@ class TeachersController < ApplicationController
 
   def timetable_options
     if timetable_params[:category].blank?
-      @time_table = ActiveTable.order(:date,:time_start).where(' date >= ? and teacher_id = ?', Date.today.monday - 1, current_user.id)
+      @time_table = ActiveTable.order(:date,:time_start).where(' date >= ? and teacher_id = ?', Date.today.monday - 1.day, current_user.id)
     else
       @time_table = ActiveTable.order(:date,:time_start).where(active: true)
     end

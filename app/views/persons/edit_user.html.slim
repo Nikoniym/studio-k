@@ -17,14 +17,17 @@
           = label_tag 'Дата рождения:'
           = date_field(:user, :birth_date)
       .field.clearfix
-        = label_tag 'Противопоказания:'
-        = text_area(:user, :specialty, size: '24x3')
+        - if @user.has_role?(:teacher)
+          = label_tag 'О себе:'
+          = javascript_include_tag Ckeditor.cdn_url
+          = cktext_area :user, :specialty, ckeditor: { toolbar: 'mini' }
+        - else
+          = label_tag 'Противопоказания:'
+          = text_area(:user, :specialty, size: '24x3')
       .field.clearfix
         = label_tag 'Телефон:'
         = telephone_field(:user, :phone)
-      .field.clearfix
-        = label_tag 'Тариф:'
-        = collection_select(:user, :cash_sort_id, @select, :id, :name)
+
       .actions.clearfix
         = submit_tag "Обновить"
   = link_to 'Изменить email, пароль', edit_user_registration_path, class: 'forgotten'

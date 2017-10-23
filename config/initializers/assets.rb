@@ -7,6 +7,8 @@ Rails.application.config.assets.precompile += %w( footer/special_layout.js )
 Rails.application.config.assets.precompile += %w( filterrific/filterrific-spinner.gif )
 Rails.application.config.assets.precompile += %w( person/person.css )
 Rails.application.config.assets.precompile += %w( person/person.js )
+Rails.application.config.assets.precompile += %w( ckeditor/*)
+Rails.application.config.assets.precompile += %w(ckeditor/config.js)
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

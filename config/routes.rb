@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   get 'table_publishes/publish'
   get 'table_publishes/filter'
   get 'active_tables/filter'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   get 'persons/remove_message'
   get 'persons/terms_of_use'
   put '/persons/:id', to: 'persons#change_tariff', as: 'change_tariff'
+  get 'teacher_show/:id/content/:content_id', to: 'home#select_teacher', as: 'select_teacher'
 
   get 'history/index'
 

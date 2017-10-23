@@ -1,0 +1,12 @@
+$(".content[data-content='content-<%= @id%>'] .teacher_list").fadeOut(300);
+setTimeout(function () {
+    $(".content[data-content='content-<%= @id%>'] .teacher_show").html("<%= escape_javascript(render 'home/show_teacher') %>").fadeIn(300);
+
+    $(".close_teacher").on('click', function(){
+        $(".content[data-content='content-<%= @id%>'] .teacher_show").fadeOut(300);
+        setTimeout(function () {
+            $(".content[data-content='content-<%= @id%>'] .teacher_list").fadeIn(300);
+        },300);
+    });
+},300);
+

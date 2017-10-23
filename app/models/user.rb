@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :timetables
 
   has_and_belongs_to_many :cashes
-  has_and_belongs_to_many :contents
   has_and_belongs_to_many :active_tables
   belongs_to :cash_sort
 

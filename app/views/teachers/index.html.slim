@@ -4,7 +4,9 @@ h2 Профиль
     = image_tag @user.avatar.url(:thumb), class: 'avatar'
 .info_wrapper
   p #{@user.first_name} #{@user.last_name}
-
+  - if @user.has_role?(:statistician)
+    = link_to 'Админка', admin_users_path
+    br
   = link_to (@user.avatar.exists? ? 'Изменить фото' : 'Добавить фото' ), persons_edit_avatar_path, remote: true
   br
   = link_to 'Редактировть профиль', persons_edit_user_path

@@ -2,7 +2,7 @@ class StatisticsController < ApplicationController
   layout "person"
 
   def index
-    users = User.order(:last_name).with_role(:teacher)
+    users = User.order(:last_name).with_role(:teacher).where(show_teacher: true)
     @statistics = {}
     @total = [{:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0},{:lesson_count=>0, :user_count=>0, :paid=>0}]
     interval = [Date.today - 1.day, Date.today, Date.today.beginning_of_week, Date.today.beginning_of_month, Date.today.beginning_of_year]
@@ -54,9 +54,9 @@ class StatisticsController < ApplicationController
 
     date_finish = date_finish.to_date if date_finish.present?
 
-    @total = [0,0]
+    @total = [0,0,0,0]
     if id == 'total'
-      @user = User.with_role(:teacher)
+      @user = User.with_role(:teacher).where(show_teacher: true)
     else
       @user = User.find id
     end
@@ -79,19 +79,27 @@ class StatisticsController < ApplicationController
           training = table.time_spending + ' ' + table.training_name
           @lessons[training] = [1]
           @lessons[training][1] = table.users.count
+          @lessons[training][2] = (table.users.count.to_f / table.place * 100).round
           @total[0] += 1
           @total[1] += table.users.count
+          @total[2] += 1
+          @total[3] += @lessons[training][2]
         end
       else
         @lessons[training] = [lesson_training.count]
-
+        @total[2] += 1
+        place = 0
         user_count = 0
         lesson_training.each do |table|
           user_count += table.users.count
+          place += table.place
         end
         @lessons[training][1] = user_count
+        @lessons[training][2] = (user_count.to_f/place*100).round
+
         @total[0] += lesson_training.count
         @total[1] += user_count
+        @total[3] += @lessons[training][2]
       end
     end
     puts @lessons

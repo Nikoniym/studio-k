@@ -19,4 +19,5 @@
 //= require filterrific/filterrific-jquery
 //= require jquery.jcrop
 //= require papercrop
+//= require ckeditor/init
 //= require_tree .

@@ -82,6 +82,7 @@ gem 'image_optim'
 gem 'image_optim_pack'
 gem 'paperclip-optimizer'
 gem 'yandex-metrica-rails'
+gem 'ckeditor'
 group :development do
   gem 'capistrano', require: false
   gem 'capistrano-bundler', require: false

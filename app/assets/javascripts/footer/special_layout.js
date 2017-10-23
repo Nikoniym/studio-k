@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require light-gallery
 //= require filterrific/filterrific-jquery
+//= require ckeditor/init
 //= require_tree .

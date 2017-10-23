@@ -310,6 +310,53 @@
     left:0;
   }
 }
+.teacher_show {
+  margin-top: -35px;
+  .teacher_inner {
+    @include my_animation(.3s);
+    color: $text_color;
+    font-size: 21px;
+    width: 84%;
+    margin: 0 auto;
+    padding-top: 44px;
+    position: relative;
+    .name {
+      font-weight: bold;
+      margin-bottom: 26px;
+      font-size: 26px;
+      text-align: center;
+    }
+    p {
+      margin-bottom: 0;
+      margin-top: 0;
+      padding: 0;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+    img {
+      float: left;
+      margin: 41px 35px 17px 29px;
+    }
+    .close_teacher {
+      position: absolute;
+      top: 20px;
+      left: 77px;
+      font-weight: bold;
+      cursor: pointer;
+      color: $link_content;
+      &:hover {
+        color: $text_color;
+      }
+    }
+    a {
+      color: $link_content !important;
+      margin-top: 45px;
+      &:hover {
+        color: $text_color !important;
+      }
+    }
+  }
+}
 .timetable {
   .content_wrapper {
 
@@ -817,6 +864,11 @@
     width: 90%;
     margin: 0 auto;
   }
+  .teacher_show {
+    .teacher_inner {
+      width: 88%;
+    }
+  }
 
 }
 @media screen and (min-width: 1031px) {
@@ -1151,6 +1203,18 @@
     }
   }
 }
+@media screen and (max-width: 765px) {
+  .teacher_show {
+    .teacher_inner {
+      img {
+        float: none;
+      }
+    }
+    .close_teacher {
+      position: static;
+    }
+  }
+}
 @media screen and (max-width: 660px) {
   .share_price {
     overflow-y: scroll;
@@ -1322,6 +1386,13 @@
     }
     h3 {
       font-size: 1.8em;
+    }
+  }
+  .teacher_show {
+    .teacher_inner {
+      p {
+        font-size: 18.5px;
+      }
     }
   }
 }

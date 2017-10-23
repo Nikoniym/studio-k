@@ -1,0 +1,7 @@
+.teacher_inner
+  .close_teacher обратно
+  = image_tag @user.avatar.url(:thumb)
+  .name  #{@user.first_name} #{@user.last_name}
+  .text_inner = @user.specialty.html_safe if @user.specialty.present?
+  - if @user.social_link.present?
+    a href="#{@user.social_link}" target="_blank" Перейти на страницу в социальной сети

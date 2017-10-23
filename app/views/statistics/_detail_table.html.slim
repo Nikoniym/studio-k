@@ -3,15 +3,21 @@ table
     th Название тренировки
     th Количество занятий
     th Количесво учеников
+    th Процент посещаемости
   - @lessons.each do |name, count|
     tr
       td = name
       td = count[0]
       td = count[1]
+      td #{count[2]}%
   tr
     td ИТОГО:
     td = @total[0]
     td = @total[1]
+    - unless (@total[3].to_f/@total[2]).nan?
+      td #{(@total[3].to_f/@total[2]).round}%
+    - else
+      td 0%
   tr
     td ИТОГО ПО ДЕНЬГАМ:
     td collspan='2' =@paid

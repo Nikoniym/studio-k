@@ -9,7 +9,8 @@
     = link_to "Отменить фильтры", detail_statistic_path(params[:id])
 
 .history_list
-  h2 = @user.class == User::ActiveRecord_Relation  ? 'Все преподаватели' : @user.full_name
+  - if @user.class == User::ActiveRecord_Relation || @user.has_role?(:statistician)
+    h2 = @user.class == User::ActiveRecord_Relation  ? 'Все преподаватели' : @user.full_name
   .teacher_lesson
     = render 'statistics/detail_table'
 
