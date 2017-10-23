@@ -5,15 +5,16 @@
       span
     p К нам на занятия можно приходить с детьми - у нас есть интересный детский уголок и Wi-Fi
     p А после занятий можно расслабиться в зоне отдыха, выпить свежевыжатого апельсинового сока или вкусного органического чая
-    h3 Наши преподаватели:
-    .teacher
-      .teacher_list
-        - @teachers.each do |user|
-          .teacher_item
-            = link_to select_teacher_path(user.id, 1), remote: true do
-              = image_tag user.avatar.url(:thumb)
-              span = user.first_name
-      .teacher_show
+    - if  @teachers.present?
+      h3 Наши преподаватели:
+      .teacher
+        .teacher_list
+          - @teachers.each do |user|
+            .teacher_item
+              = link_to select_teacher_path(user.id, 1), remote: true do
+                = image_tag user.avatar.url(:thumb)
+                span = user.first_name
+        .teacher_show
 
 
 - @contents.each do |content|
