@@ -73,8 +73,15 @@ class TeachersController < ApplicationController
           order.each do |order|
             cash_count = order.cash.cash_count
             if cash_count <= 0
-              order.update(order_destroy: false, date_start: Date.today, date_finish: Date.today + 29)
-              order.cash.update(cash_count: order.count + cash_count, date_finish: Date.today + 29)
+              if order.select_cash.long_time
+                date_finish = Date.today + 39
+              else
+                date_finish = Date.today + 29
+              end
+
+              order.update(order_destroy: false, date_start: Date.today, date_finish: date_finish)
+              order.cash.update(cash_count: order.count + cash_count, date_finish: date_finish)
+
               user.update(cash_sort: order.cash.cash_sort)
             end
           end

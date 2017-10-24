@@ -12,7 +12,7 @@
                         persons_remove_message GET        /persons/remove_message(.:format)                                                persons#remove_message
                           persons_terms_of_use GET        /persons/terms_of_use(.:format)                                                  persons#terms_of_use
                                  change_tariff PUT        /persons/:id(.:format)                                                           persons#change_tariff
-                                select_teacher GET        /:id/:content_id(.:format)                                                       home#select_teacher
+                                select_teacher GET        /teacher_show/:id/content/:content_id(.:format)                                  home#select_teacher
                                  history_index GET        /history/index(.:format)                                                         history#index
                                   album_images GET        /albums/:album_id/images(.:format)                                               images#index
                                                POST       /albums/:album_id/images(.:format)                                               images#create

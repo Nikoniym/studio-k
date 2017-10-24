@@ -2,7 +2,7 @@ ActiveAdmin.register SelectCash do
   menu priority: 3
   actions :all, :except => [:show]
   config.sort_order = 'cash_sort_id and price '
-  permit_params :name, :price, :count, :cash_sort_id, :subscription, :trial_lesson
+  permit_params :name, :price, :count, :cash_sort_id, :subscription, :trial_lesson, :long_time
 
   controller do
     def scoped_collection
@@ -17,6 +17,7 @@ ActiveAdmin.register SelectCash do
     column :cash_sort_id
     column :subscription
     column :trial_lesson
+    column :long_time
 
     actions
   end

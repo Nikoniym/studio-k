@@ -11,7 +11,7 @@
           span Дата начала действия абонемента будет установленна в момент активации.
       div Заказ оформил: #{subscription.user.first_name} #{subscription.user.last_name}
       - unless subscription.confirm
-        .validity Абонимент действует: с #{l subscription.date_start, format: :long} до #{l subscription.date_finish, format: :long} включительно
+        .validity Абонемент действует: с #{l subscription.date_start, format: :long} до #{l subscription.date_finish, format: :long} включительно
       .created_at Заказ сделан: #{l subscription.created_at, format: :standart}
       .status Статус: #{ subscription.paid ? 'оплачен' : 'не оплачен' }
       .tariff Тариф: #{subscription.tariff.downcase if subscription.tariff.present?}

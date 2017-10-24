@@ -64,6 +64,7 @@ class SubscriptionsController < ApplicationController
       # current_cash = @user.cashes.find_by(cash_sort_id: subscription_params[:select_cash_id])
       select_cash = SelectCash.find(subscription_params[:select_cash_id])
       cash_sort = select_cash.cash_sort.id
+      long_time = select_cash.long_time
       # проверка на детский
       if (cash_sort == 3 && ((user_params && user_params[:birth_date].present? && user_params[:birth_date].to_date.find_age < 14) || (@user.birth_date.present? && @user.birth_date.find_age < 14))) || cash_sort != 3
         cash = @user.cashes.find_by(cash_sort_id: cash_sort)
@@ -106,7 +107,7 @@ class SubscriptionsController < ApplicationController
             count: cash_count,
             price: select_cash.price,
             date_start: date_start,
-            date_finish:  date_start + 29,
+            date_finish:  (long_time ? date_start + 39 : date_start + 29),
             paid: (current_user.has_role? :teacher) ? true : false,
             select_cash_id: subscription_params[:select_cash_id],
             cash: cash,
