@@ -37,6 +37,8 @@ class FamiliesController < ApplicationController
     @cash = Cash.where(cash_sort: 2).where.not(id: User.joins(:cashes).select('cashes.id'))
     if @cash.blank?
       @cash = Cash.create!(cash_sort_id: 2, cash_count: 0)
+    else
+      @cash.update(cash_count: 0)
     end
   end
 
