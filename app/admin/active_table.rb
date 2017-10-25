@@ -23,7 +23,6 @@ ActiveAdmin.register ActiveTable do
     column :training_name
     column :place
     column :place_current
-    column :no_registration
     column :teacher
     column :teacher_id
 
@@ -35,15 +34,14 @@ ActiveAdmin.register ActiveTable do
   form do |f|
 
    f.inputs do
-     f.input :active
-     f.input :time_spending
-     f.input :time_start
-     f.input :training_name
-     f.input :date, :as => :datepicker
+     f.input :active, :label => 'Активно'
+     f.input :time_spending, :label => 'Интервал времени', :as => :select, :collection => TimeSpending.order(:time_start).map{|u| u.name}
+     f.input :time_start, :label => 'Время начала'
+     f.input :training_name, :label => 'Название занятия', :as => :select, :collection => TrainingName.all.map{|u| u.name}
+     f.input :date, :label => 'Дата', :as => :datepicker
      f.input :day_week, :label => 'День недели', :as => :select, :collection => DayWeek.all.map{|u| u.name }
-     f.input :place
-     f.input :place_current
-     f.input :no_registration
+     f.input :place, :label => 'Кол-во мест'
+     f.input :place_current, :label => 'Текущее кол-во мест'
      f.input :teacher, :label => 'Имя преподавателя', :as => :select, :collection => User.with_role(:teacher).map{|u| ["#{u.first_name} #{u.last_name}", u.first_name] }
      f.input :teacher_id,  :label => 'Id преподавателя', :as => :select, :collection => User.with_role(:teacher).map{|u| ["#{u.first_name} #{u.last_name}", u.id]}
    end
