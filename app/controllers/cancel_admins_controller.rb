@@ -15,7 +15,12 @@ class CancelAdminsController < ApplicationController
   def destroy_lesson
     @table = ActiveTable.find(params[:id])
     @table.update(active: false)
-    redirect_to edit_cancel_admin_path(@table)
+    if @table.users.blank?
+      @table.destroy
+      redirect_to admin_active_tables_path
+    else
+      redirect_to edit_cancel_admin_path(@table)
+    end
   end
 
   def active_lesson

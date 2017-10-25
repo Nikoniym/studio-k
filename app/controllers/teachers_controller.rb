@@ -108,26 +108,26 @@ class TeachersController < ApplicationController
     end
   end
 
-  def add_no_registration
-
-    @table = ActiveTable.find(params[:id])
-    @table.no_registration += 1
-    @table.place_current -= 1
-    if @table.save
-      @answer = true
-    end
-  end
-
-  def remove_no_registration
-    @table = ActiveTable.find(params[:id])
-    if @table.no_registration > 0
-      @table.no_registration -= 1
-      @table.place_current += 1
-      if @table.save
-        @answer = true
-      end
-    end
-  end
+  # def add_no_registration
+  #
+  #   @table = ActiveTable.find(params[:id])
+  #   @table.no_registration += 1
+  #   @table.place_current -= 1
+  #   if @table.save
+  #     @answer = true
+  #   end
+  # end
+  #
+  # def remove_no_registration
+  #   @table = ActiveTable.find(params[:id])
+  #   if @table.no_registration > 0
+  #     @table.no_registration -= 1
+  #     @table.place_current += 1
+  #     if @table.save
+  #       @answer = true
+  #     end
+  #   end
+  # end
 
   def paid
    user = current_user

@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ad60a62-ea4c-47e6-b7bc-79340dca0d90" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/missing_minimal.png" afterPath="$PROJECT_DIR$/app/assets/images/missing_minimal.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/images/missing_thumb.png" afterPath="$PROJECT_DIR$/app/assets/images/missing_thumb.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/person/global.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/person/global.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/cancel_admins_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/cancel_admins_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/teachers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/teachers_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/_user_list.html.slim" afterPath="$PROJECT_DIR$/app/views/teachers/_user_list.html.slim" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/add_edit_phone.js.erb" afterPath="$PROJECT_DIR$/app/views/teachers/add_edit_phone.js.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/edit_phone.js.erb" afterPath="$PROJECT_DIR$/app/views/teachers/edit_phone.js.erb" />
     </list>
     <list id="2cec054d-14d7-435b-ba7c-6278a51f7396" name="active_table kron" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -66,36 +68,38 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="favicon_ios.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/images/favicon_ios.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="lessons_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/lessons_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1541">
+              <caret line="127" column="3" lean-forward="false" selection-start-line="127" selection-start-column="3" selection-end-line="127" selection-end-column="3" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fon.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/images/fon.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="cancel_admins_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/cancel_admins_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fon2.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/images/fon2.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="_registration.html.slim" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/teachers/_registration.html.slim">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loading.gif" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/images/loading.gif">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="keys.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/images/keys.svg">
+      <file leaf-file-name="_write_user.html.slim" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/teachers/_write_user.html.slim">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -104,20 +108,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/person/global.scss">
+      <file leaf-file-name="_user_list.html.slim" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/teachers/_user_list.html.slim">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="1011" column="14" lean-forward="false" selection-start-line="1011" selection-start-column="14" selection-end-line="1011" selection-end-column="14" />
+            <state relative-caret-position="252">
+              <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logo1.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/images/logo1.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="add_edit_phone.js.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/teachers/add_edit_phone.js.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_user_subscription.html.slim" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/lessons/_user_subscription.html.slim">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lessons_admins_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/lessons_admins_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" column="7" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="26" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teachers_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/teachers_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2322">
+              <caret line="129" column="7" lean-forward="false" selection-start-line="110" selection-start-column="4" selection-end-line="129" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit_phone.js.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/teachers/edit_phone.js.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -202,15 +249,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/persons/change_tariff.js.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/persons_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/teachers/add_edit_avatar.js.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/person/main.js" />
         <option value="$PROJECT_DIR$/app/views/teachers/_edit_avatar.html.slim" />
         <option value="$PROJECT_DIR$/app/views/teachers/edit_avatar.js.erb" />
         <option value="$PROJECT_DIR$/app/views/teachers/_write_user.html.slim" />
         <option value="$PROJECT_DIR$/app/views/lessons/_add_user.html.slim" />
-        <option value="$PROJECT_DIR$/app/controllers/teachers_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/statistics/detail.html.slim" />
         <option value="$PROJECT_DIR$/app/views/statistics/_detail_table.html.slim" />
         <option value="$PROJECT_DIR$/Gemfile" />
@@ -240,7 +283,6 @@
         <option value="$PROJECT_DIR$/app/views/elements/_content.html.slim" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/component/_backgrounds_grid.scss" />
         <option value="$PROJECT_DIR$/config/schedule.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/cancel_admins_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/subscriptions/_order.html.slim" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.slim" />
         <option value="$PROJECT_DIR$/app/controllers/lessons_controller.rb" />
@@ -253,6 +295,11 @@
         <option value="$PROJECT_DIR$/app/views/layouts/special_layout.html.slim" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/person/_variables.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/person/global.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/teachers_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/cancel_admins_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/teachers/_user_list.html.slim" />
+        <option value="$PROJECT_DIR$/app/views/teachers/add_edit_phone.js.erb" />
+        <option value="$PROJECT_DIR$/app/views/teachers/edit_phone.js.erb" />
       </list>
     </option>
   </component>
@@ -358,6 +405,14 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="teachers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -373,7 +428,61 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="studio-k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="studio-k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lessons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="studio-k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="studio-k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="studio-k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="studio-k" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -392,76 +501,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studio-k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studio-k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="person" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studio-k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studio-k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studio-k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="studio-k" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -939,7 +978,7 @@
       <workItem from="1508849321508" duration="3955000" />
       <workItem from="1508860839668" duration="3184000" />
       <workItem from="1508877144835" duration="341000" />
-      <workItem from="1508913197402" duration="2675000" />
+      <workItem from="1508913197402" duration="5394000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1489798717004</created>
@@ -1155,7 +1194,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1276209000" />
+    <option name="totallyTimeSpent" value="1278928000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1173,12 +1212,12 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21337755" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32815966" sideWeight="0.49143174" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38494623" sideWeight="0.2885572" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19789939" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19789939" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.56163627" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Routes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36484244" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35698923" sideWeight="0.7031509" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35698923" sideWeight="0.7031509" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23978494" sideWeight="0.71144277" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23978494" sideWeight="0.71144277" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40537634" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1297,41 +1336,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/statistics_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="54" lean-forward="false" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/assets.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="68" lean-forward="false" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/ckeditor.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="51" column="2" lean-forward="false" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/component/_backgrounds_grid.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="2" selection-end-line="89" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environment.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/schedule.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1364,13 +1368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/cancel_admins_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1414,13 +1411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/lessons_admins_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/images_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1432,21 +1422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/teachers_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/lessons_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2286">
-          <caret line="127" column="3" lean-forward="false" selection-start-line="127" selection-start-column="3" selection-end-line="127" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1491,14 +1466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/teachers/_registration.html.slim">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1633,8 +1600,88 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/person/global.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="1011" column="14" lean-forward="false" selection-start-line="1011" selection-start-column="14" selection-end-line="1011" selection-end-column="14" />
+        <state relative-caret-position="224">
+          <caret line="247" column="31" lean-forward="false" selection-start-line="247" selection-start-column="31" selection-end-line="247" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/lessons_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1541">
+          <caret line="127" column="3" lean-forward="false" selection-start-line="127" selection-start-column="3" selection-end-line="127" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/lessons_admins_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="7" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="26" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/teachers_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2322">
+          <caret line="129" column="7" lean-forward="false" selection-start-line="110" selection-start-column="4" selection-end-line="129" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/cancel_admins_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/lessons/_user_subscription.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/teachers/_write_user.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/teachers/_registration.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/teachers/_user_list.html.slim">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/teachers/add_edit_phone.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/teachers/edit_phone.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
           <folding />
         </state>
       </provider>

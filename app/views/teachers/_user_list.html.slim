@@ -9,7 +9,10 @@ table.ready_user
         - else
           = user.cashes.find_by(cash_sort: user.cash_sort).cash_count
       td = user.cash_sort.name if user.cash_sort.present?
-      td = user.phone
+      - if user.phone == '11111111111'
+        td data-id="#{user[:id]}" = link_to 'Добавить', add_edit_phone_teacher_path(user), remote: true
+      - else
+        td = user.phone
       td = user.email
       td = link_to 'Добавить', add_user_teacher_lesson_path(@lesson, user), remote: true
 /.chardin_box
