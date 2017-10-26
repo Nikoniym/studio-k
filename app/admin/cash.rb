@@ -1,6 +1,7 @@
 ActiveAdmin.register Cash do
   actions :all, :except => [:show]
   permit_params :last_name, :cash_count, :date_finish
+  config.per_page = 100
 
   index do
     column :last_name

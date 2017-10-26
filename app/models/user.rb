@@ -25,7 +25,7 @@ class User < ApplicationRecord
   after_validation :assign_default_role
   after_create :create_cash
 
-  # self.per_page = 70
+  self.per_page = 350
 
   def assign_default_role
     self.add_role(:user) if self.roles.blank?
