@@ -3,7 +3,7 @@
 .table_name
   = render 'teachers/table_header'
 .paid_subscription
-  = render 'lessons/paid' if current_admin_user.blank?
+  = render 'lessons/paid'
 h2 Записанные
 .users_list
   span.place_current На занятие записаны: #{@lesson.users.count}

@@ -6,3 +6,5 @@ table.ready_user
       td = user.cashes.find_by(cash_sort: user.cash_sort).cash_count if user.cashes.find_by(cash_sort: user.cash_sort).present?
       td = user.cash_sort.name if user.cash_sort.present?
       td = link_to 'Добавить', add_user_family_family_cash_path(@cash, user), remote: true
+.chardin_box
+  = will_paginate @new_users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

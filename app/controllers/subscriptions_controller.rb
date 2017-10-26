@@ -46,108 +46,116 @@ class SubscriptionsController < ApplicationController
   def create
     @user = User.find params[:user_control]
 
-    flash[:answer] = false
-    flash[:notice] = false
-
-    # Обновление даты юзера
-    if  user_params && user_params[:birth_date].present?
-      @user.update(birth_date: user_params[:birth_date])
-      if @user.birth_date.find_age >= 18
-        flash[:answer] = true
-        @select_cash = SelectCash.where(cash_sort_id: 3).order(:price)
+    if user_signed_in?
+      unless @user == current_user || current_user.has_role?(:teacher)
+        redirect_to new_user_session_path
       end
-    end
 
+      flash[:answer] = false
+      flash[:notice] = false
 
-
-    if @user.subscriptions.find_by(paid: false).blank?
-      # current_cash = @user.cashes.find_by(cash_sort_id: subscription_params[:select_cash_id])
-      select_cash = SelectCash.find(subscription_params[:select_cash_id])
-      cash_sort = select_cash.cash_sort.id
-      long_time = select_cash.long_time
-      # проверка на детский
-      if (cash_sort == 3 && ((user_params && user_params[:birth_date].present? && user_params[:birth_date].to_date.find_age < 14) || (@user.birth_date.present? && @user.birth_date.find_age < 14))) || cash_sort != 3
-        cash = @user.cashes.find_by(cash_sort_id: cash_sort)
-        cash = @user.cashes.create!(cash_sort_id: cash_sort , cash_count: 0, last_name: @user.full_name)  if cash.nil?
-
-        if @user.cash_sort.blank? || @user.cashes.blank? || @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count ==0
-          @user.update(cash_sort_id: cash_sort)
+      # Обновление даты юзера
+      if  user_params && user_params[:birth_date].present?
+        @user.update(birth_date: user_params[:birth_date])
+        if @user.birth_date.find_age >= 18
+          flash[:answer] = true
+          @select_cash = SelectCash.where(cash_sort_id: 3).order(:price)
         end
-
-        if subscription_params[:date_start].present?
-          date_start = subscription_params[:date_start].to_date
-        else
-          date_start =  Date.today
-        end
+      end
 
 
-        if Date.today >  date_start
-          date_start =  Date.today
-        end
-        # Для поздней активации, чтобы не затереть текущий абонемент
-        if cash.cash_count > 0 && cash.date_finish >= date_start
-          confirm = true
-        else
-          confirm = false
-        end
 
-        #trial activation
-        if @user.trial_lesson
-          if select_cash.count > 1
-            cash_count = select_cash.count + 1
+      if @user.subscriptions.find_by(paid: false).blank?
+        # current_cash = @user.cashes.find_by(cash_sort_id: subscription_params[:select_cash_id])
+        select_cash = SelectCash.find(subscription_params[:select_cash_id])
+        cash_sort = select_cash.cash_sort.id
+        long_time = select_cash.long_time
+        # проверка на детский
+        if (cash_sort == 3 && ((user_params && user_params[:birth_date].present? && user_params[:birth_date].to_date.find_age < 14) || (@user.birth_date.present? && @user.birth_date.find_age < 14))) || cash_sort != 3
+          cash = @user.cashes.find_by(cash_sort_id: cash_sort)
+          cash = @user.cashes.create!(cash_sort_id: cash_sort , cash_count: 0, last_name: @user.full_name)  if cash.nil?
+
+          if @user.cash_sort.blank? || @user.cashes.blank? || @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count ==0
+            @user.update(cash_sort_id: cash_sort)
+          end
+
+          if subscription_params[:date_start].present?
+            date_start = subscription_params[:date_start].to_date
+          else
+            date_start =  Date.today
+          end
+
+
+          if Date.today >  date_start
+            date_start =  Date.today
+          end
+          # Для поздней активации, чтобы не затереть текущий абонемент
+          if cash.cash_count > 0 && cash.date_finish >= date_start
+            confirm = true
+          else
+            confirm = false
+          end
+
+          #trial activation
+          if @user.trial_lesson
+            if select_cash.count > 1
+              cash_count = select_cash.count + 1
+            else
+              cash_count = select_cash.count
+            end
           else
             cash_count = select_cash.count
           end
-        else
-          cash_count = select_cash.count
-        end
 
-        @subscription = Subscription.new(
-            active: false,
-            count: cash_count,
-            price: select_cash.price,
-            date_start: date_start,
-            date_finish:  (long_time ? date_start + 39 : date_start + 29),
-            paid: (current_user.has_role? :teacher) ? true : false,
-            select_cash_id: subscription_params[:select_cash_id],
-            cash: cash,
-            confirm: confirm,
-            tariff: select_cash.cash_sort.name,
-            user: @user,
-            order_destroy: true,
-            trial_lesson: @user.trial_lesson ? true : false
-        )
+          @subscription = Subscription.new(
+              active: false,
+              count: cash_count,
+              price: select_cash.price,
+              date_start: date_start,
+              date_finish:  (long_time ? date_start + 39 : date_start + 29),
+              paid: (current_user.has_role? :teacher) ? true : false,
+              select_cash_id: subscription_params[:select_cash_id],
+              cash: cash,
+              confirm: confirm,
+              tariff: select_cash.cash_sort.name,
+              user: @user,
+              order_destroy: true,
+              trial_lesson: @user.trial_lesson ? true : false
+          )
 
-        #teacher paid
-        if (current_user.has_role? :teacher)
-          @subscription.date_paid = Time.now
-          @subscription.teacher_id =  current_user.id
-          @subscription.teacher_name = "#{current_user.last_name} #{current_user.first_name}"
-        end
-
-        if (current_user.has_role? :teacher) && @user.subscriptions.where(order_destroy: true).present?
-          flash[:notice] = "Уже заказан"
-        else
-          if @subscription.save!
-            @orders = @user.subscriptions.where(order_destroy: true).order(created_at: :desc)
-            @user.update(trial_lesson: false) if @user.trial_lesson
-          else
-            render :index
+          #teacher paid
+          if (current_user.has_role? :teacher)
+            @subscription.date_paid = Time.now
+            @subscription.teacher_id =  current_user.id
+            @subscription.teacher_name = "#{current_user.last_name} #{current_user.first_name}"
           end
+
+          if (current_user.has_role? :teacher) && @user.subscriptions.where(order_destroy: true).present?
+            flash[:notice] = "Уже заказан"
+          else
+            if @subscription.save!
+              @orders = @user.subscriptions.where(order_destroy: true).order(created_at: :desc)
+              @user.update(trial_lesson: false) if @user.trial_lesson
+            else
+              render :index
+            end
+          end
+
+
+        else
+          flash[:notice] = "Заполните поле даты рождения."
         end
-
-
       else
-        flash[:notice] = "Заполните поле даты рождения."
+        flash[:notice] = "Невозможно заказать абонемет, так как уже есть неоплаченный."
+      end
+
+
+
+      respond_to do |format|
+        format.js
       end
     else
-      flash[:notice] = "Невозможно заказать абонемет, так как уже есть неоплаченный."
-    end
-
-
-
-    respond_to do |format|
-      format.js
+      redirect_to new_user_session_path
     end
   end
 

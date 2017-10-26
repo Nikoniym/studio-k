@@ -1,11 +1,12 @@
 - if @subscriptions.present?
-  span.title Не активированные абонементы:
+  span.title Оплаченные не активированные абонементы:
   table.write_user
     - @subscriptions.each_with_index do |sub, index|
       - @total += sub.price
       tr
         td = index + 1
         td = sub.user.full_name
+        td = l sub.created_at.to_date, format: :standard
         td
           - if sub.count > 1000
             span.symbol &#xe82a
@@ -13,7 +14,7 @@
             = sub.count
         td = sub.select_cash.cash_sort.name
         td = sub.price
-        td = link_to 'Удалить', destroy_subscription_teacher_lesson_path(sub, @table), remote: true
+        td = link_to 'Удалить', destroy_subscription_teacher_lesson_path(sub, @table), remote: true if sub.created_at.to_date == Date.today
     tr
       td Итого:
       td  #{@total} руб.

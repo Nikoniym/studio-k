@@ -32,5 +32,5 @@ h2.head_table Расписание
   = select "publication", "category", options_for_select(@time_table.pluck(:training_name).uniq.map{|t| t}), {prompt: 'Любой'},   onchange: "$('#filter').submit();"
 .time_teacher
   = render 'active_table'
-#notice_wrapper
-  #notice_inner
+/#notice_wrapper
+/  #notice_inner

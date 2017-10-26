@@ -1,6 +1,7 @@
 <% if @answer %>
   $(".write_user tbody").append("<%= escape_javascript(render('add_user')) %>");
-  $(".ready_user tr[data-id='<%=@user.id %>']").fadeOut();
+  $(".ready_user tr[data-id='<%=@user.id %>']").replaceWith("<%= escape_javascript(render('lessons/remove_user')) %>");
+  $(".ready_user tr[data-id='<%=@user.id %>'] td:nth-child(6) a").fadeOut();
   $('.table_name .place_current').text('<%= @lesson.place_current %>');
   $('.users_list .place_current:nth-child(1)').text( "На занятие записаны: <%= @lesson.users.count %>");
   $('.users_list .place_current:nth-child(2)').text( "Количество свободных мест: <%= @lesson.place_current %>");

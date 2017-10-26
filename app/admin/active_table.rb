@@ -48,5 +48,7 @@ ActiveAdmin.register ActiveTable do
    f.actions
   end
 
-
+  # action_item :only => :index do
+  #   link_to "Опубликовать", table_publishes_publish_path
+  # end
 end

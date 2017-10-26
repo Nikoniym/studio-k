@@ -14,6 +14,6 @@ table.ready_user
       - else
         td = user.phone
       td = user.email
-      td = link_to 'Добавить', add_user_teacher_lesson_path(@lesson, user), remote: true
+      td = link_to 'Добавить', add_user_teacher_lesson_path(@lesson, user), remote: true unless @lesson.users.find_by(id: user).present?
 .chardin_box
   = will_paginate @new_users, renderer: WillPaginate::ActionView::BootstrapLinkRenderer

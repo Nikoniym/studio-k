@@ -15,7 +15,10 @@ class LessonsController < ApplicationController
 
       user =  @lesson.users.with_role(:user).order(:last_name)
       @subscriptions = Subscription.where(user: user).where(paid: false)
+    else
+      @answer = false
     end
+
   end
 
   def remove_user
@@ -37,12 +40,12 @@ class LessonsController < ApplicationController
       user =  @lesson.users.with_role(:user).order(:last_name)
       @subscriptions = Subscription.where(user: user).where(paid: false)
 
-      @user_lesson =  @lesson.users.pluck(:id)
-      @filterrific = initialize_filterrific(
-          User.with_role(:user).where.not(id: @user_lesson).order(:last_name),
-          params[:filterrific]
-      ) or return
-      @new_users = @filterrific.find.page(params[:page])
+      # @user_lesson =  @lesson.users.pluck(:id)
+      # @filterrific = initialize_filterrific(
+      #     User.with_role(:user).where.not(id: @user_lesson).order(:last_name),
+      #     params[:filterrific]
+      # ) or return
+      # @new_users = @filterrific.find.page(params[:page])
     end
   end
 

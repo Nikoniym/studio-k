@@ -2,48 +2,60 @@ class StatisticsController < ApplicationController
   layout "person"
 
   def index
-    users = User.order(:last_name).with_role(:teacher)
-    @statistics = {}
-    @total = [{:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0},{:lesson_count=>0, :user_count=>0, :paid=>0}]
-    interval = [Date.today - 1.day, Date.today, Date.today.beginning_of_week, Date.today.beginning_of_month, Date.today.beginning_of_year]
+    if user_signed_in? and current_user.has_role? :teacher
+      users = User.order(:last_name).with_role(:teacher)
+      @statistics = {}
+      @total = [{:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0}, {:lesson_count=>0, :user_count=>0, :paid=>0},{:lesson_count=>0, :user_count=>0, :paid=>0}]
+      interval = [Date.today - 1.day, Date.today, Date.today.beginning_of_week, Date.today.beginning_of_month, Date.today.beginning_of_year]
 
-    users.each do |user|
-      tables = ActiveTable.where(teacher_id: user.id, active: false)
-      varibals_hash = []
+      users.each do |user|
+        tables = ActiveTable.where(teacher_id: user.id, active: false)
+        varibals_hash = []
 
-      interval.each_with_index do |int, index|
-        user_count = 0
-        paid = 0
+        interval.each_with_index do |int, index|
+          user_count = 0
+          paid = 0
 
-        tables.where(date: int..(index==0 ? Date.today : Date.today + 1.day)).each do |table|
-          user_count += table.users.count
+          tables.where(date: int..(index==0 ? Date.today : Date.today + 1.day)).each do |table|
+            user_count += table.users.count
+          end
+
+          subscriptions = Subscription.where(date_paid: int..(index==0 ? Date.today : Date.today + 1.day), teacher_id: user, paid: true)
+
+          subscriptions.each do |sub|
+            paid += sub.price
+          end
+
+          table_count = tables.where(date: int..(index==0 ? Date.today : Date.today + 1.day)).count
+          varibals_hash[index] = {lesson_count: table_count, user_count: user_count, paid: paid}
+
+          #итого
+          @total[index][:lesson_count] += table_count
+          @total[index][:user_count] += user_count
+          @total[index][:paid] += paid
         end
-
-        subscriptions = Subscription.where(date_paid: int..(index==0 ? Date.today : Date.today + 1.day), teacher_id: user, paid: true)
-
-        subscriptions.each do |sub|
-          paid += sub.price
-        end
-
-        table_count = tables.where(date: int..(index==0 ? Date.today : Date.today + 1.day)).count
-        varibals_hash[index] = {lesson_count: table_count, user_count: user_count, paid: paid}
-
-        #итого
-        @total[index][:lesson_count] += table_count
-        @total[index][:user_count] += user_count
-        @total[index][:paid] += paid
+        @statistics[user] = varibals_hash
       end
-      @statistics[user] = varibals_hash
+    else
+      redirect_to new_user_session_path
     end
   end
 
   def detail
-    generate_table(params[:id], Date.today.to_s)
+    if user_signed_in? and current_user.has_role? :teacher
+      generate_table(params[:id], Date.today.to_s)
+    else
+      redirect_to new_user_session_path
+    end
   end
 
 
   def date_picker
-    generate_table(params[:id], params[:date_start], params[:date_finish])
+    if user_signed_in? and current_user.has_role? :teacher
+      generate_table(params[:id], params[:date_start], params[:date_finish])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   private

@@ -89,7 +89,7 @@ class TeachersController < ApplicationController
       end
 
       @filterrific = initialize_filterrific(
-          User.with_role(:user).where.not(id: @user.pluck(:id)).order(:last_name),
+          User.with_role(:user).order(:last_name),
           params[:filterrific]
       ) or return
 
@@ -102,7 +102,7 @@ class TeachersController < ApplicationController
       # @new_users = User.with_role(:user).order(:last_name)
       @new_users = @filterrific.find.page(params[:page])
 
-      @subscriptions = Subscription.where(user: @user, paid: false)
+      @subscriptions = Subscription.where(user: @user).where(paid: false)
     else
       redirect_to new_user_session_path
     end
@@ -130,44 +130,57 @@ class TeachersController < ApplicationController
   # end
 
   def paid
-   user = current_user
-   @subscription = Subscription.find(params[:id])
-   @subscription.update(paid: true, date_paid: Time.now, teacher_id: user.id, teacher_name: "#{user.last_name} #{user.first_name}")
+    if user_signed_in? and current_user.has_role? :teacher
+      user = current_user
+      @subscription = Subscription.find(params[:id])
+      @subscription.update(paid: true, date_paid: Time.now, teacher_id: user.id, teacher_name: "#{user.last_name} #{user.first_name}")
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def delete_paid
-    @subscription = Subscription.find(params[:id])
-    @subscription.update(paid: false, date_paid: nil, teacher_id: nil, teacher_name: nil)
+    if user_signed_in? and current_user.has_role? :teacher
+      @subscription = Subscription.find(params[:id])
+      @subscription.update(paid: false, date_paid: nil, teacher_id: nil, teacher_name: nil)
+    else
+      redirect_to new_user_session_path
+    end
+
   end
 
   def registration_user
-    i = 0
-    loop do
-      random = Random.rand(100000...999999)
-      i += 1
-      @user = User.new first_name: user_params[:first_name],
-                       last_name: user_params[:last_name],
-                       phone: user_params[:phone].blank? ? 11111111111 : user_params[:phone],
-                       email: random.to_s + '@sport.ru',
-                       password: random,
-                       avatar: user_params[:avatar],
-                       confirm: true,
-                       auto_registration: params[:id]
+    if user_signed_in? and current_user.has_role? :teacher
+      i = 0
+      loop do
+        random = Random.rand(100000...999999)
+        i += 1
+        @user = User.new first_name: user_params[:first_name],
+                         last_name: user_params[:last_name],
+                         phone: user_params[:phone].blank? ? 11111111111 : user_params[:phone],
+                         email: random.to_s + '@sport.ru',
+                         password: random,
+                         avatar: user_params[:avatar],
+                         confirm: true,
+                         auto_registration: params[:id]
 
-      break if @user.valid? or i == 5
-    end
+        break if @user.valid? or i == 5
+      end
 
-    if @user.save
-      lesson = ActiveTable.find(params[:id])
-      cash = @user.cashes.find_by(cash_sort: @user.cash_sort)
-      place = lesson.place_current
-      count = cash.cash_count
-      @user.active_tables << lesson
-      cash.update(cash_count: count-1)
-      lesson.update(place_current: place-1)
-      @answer = true
+      if @user.save
+        lesson = ActiveTable.find(params[:id])
+        cash = @user.cashes.find_by(cash_sort: @user.cash_sort)
+        place = lesson.place_current
+        count = cash.cash_count
+        @user.active_tables << lesson
+        cash.update(cash_count: count-1)
+        lesson.update(place_current: place-1)
+        @answer = true
+      else
+        @answer = false
+      end
     else
-      @answer = false
+      redirect_to new_user_session_path
     end
   end
 

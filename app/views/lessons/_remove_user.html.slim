@@ -1,0 +1,15 @@
+tr data-id="#{@user[:id]}"
+  /td = image_tag user.avatar.url(:thumb)
+  td = @user.full_name
+  td
+    - if @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count  > 1000
+      span.symbol &#xe82a
+    - else
+      = @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count
+  td = @user.cash_sort.name if @user.cash_sort.present?
+  - if @user.phone == '11111111111'
+    td data-id="#{@user[:id]}" = link_to 'Добавить', add_edit_phone_teacher_path(@user), remote: true
+  - else
+    td = @user.phone
+  td = @user.email
+  td = link_to 'Добавить', add_user_teacher_lesson_path(@lesson, @user), remote: true

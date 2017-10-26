@@ -1,4 +1,13 @@
 <% if @answer %>
   $(".active_user tbody").append("<%= escape_javascript(render('add_user')) %>");
 
+  $('#notice_inner').removeClass().addClass('notice_blue');
+  $('#notice_wrapper').fadeIn(200);
+  $('#notice_inner').text('<%= flash[:message]%>');
+  setTimeout(function () {  $('#notice_wrapper').fadeOut()},1500);
+<% else %>
+  $('#notice_inner').removeClass().addClass('notice_red');
+  $('#notice_wrapper').fadeIn(200);
+  $('#notice_inner').text('<%= flash[:message]%>');
+  setTimeout(function () {  $('#notice_wrapper').fadeOut()},1500);
 <% end %>
