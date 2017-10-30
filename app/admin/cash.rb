@@ -1,6 +1,6 @@
 ActiveAdmin.register Cash do
   actions :all, :except => [:show]
-  permit_params :last_name, :cash_count, :date_finish
+  permit_params :last_name, :cash_count, :date_finish, :subscription_limit
   config.per_page = 100
 
   index do
@@ -9,6 +9,7 @@ ActiveAdmin.register Cash do
     column :cash_sort do |ad|
       ad.cash_sort.name
     end
+    column :subscription_limit
     column :date_finish
 
     actions
@@ -18,6 +19,7 @@ ActiveAdmin.register Cash do
     f.inputs do
       f.input  :last_name
       f.input  :cash_count
+      f.input :subscription_limit
       f.input  :date_finish, :as => :datepicker
     end
 

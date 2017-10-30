@@ -19,3 +19,11 @@ tdHeight();
   $(".entry_lesson h2").fadeOut();
   $(".entry_lesson").removeClass('divider')
 <%	end %>
+
+<% if @answer %>
+  $('#notice_inner').removeClass().addClass('notice_red');
+  $('#notice_wrapper').fadeIn(200);
+  $('#notice_inner').text('<%= flash[:message]%>');
+  setTimeout(function () {  $('#notice_wrapper').fadeOut()},1500);
+<% end %>
+

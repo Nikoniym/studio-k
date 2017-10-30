@@ -528,7 +528,15 @@ footer {
     }
   }
 }
-
+.flash_error{
+  text-align: center;
+  color: $error;
+}
+.back_admin {
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+}
 .subscription_wrapper {
   .no_border {
     border-bottom: none !important;

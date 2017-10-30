@@ -48,7 +48,8 @@ ActiveAdmin.register ActiveTable do
    f.actions
   end
 
-  # action_item :only => :index do
-  #   link_to "Опубликовать", table_publishes_publish_path
-  # end
+  action_item :only => :index do
+    link_to "Сгенерировать день", load_day_active_table_path('load_day')
+
+  end
 end

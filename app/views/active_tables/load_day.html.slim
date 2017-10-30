@@ -1,0 +1,9 @@
+= link_to 'обратно к динамической табвлице', admin_active_tables_path, class: 'back_admin'
+h2 Сгенерировать день целиком
+.flash_error = flash[:notice]
+= form_for @active_table, url: generate_day_active_tables_path,  html:{ class: 'training_name'}  do |f|
+  .filter_item
+    label дата:
+    = f.date_field :date
+    /.action
+    /  = f.submit 'Генерировать'

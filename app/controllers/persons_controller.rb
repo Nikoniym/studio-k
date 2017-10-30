@@ -5,6 +5,9 @@ class PersonsController < ApplicationController
     @user = User.find params[:id]
     @user.update(cash_sort_id: user_params[:cash_sort_id])
     @cash_current = @user.cashes.find_by(cash_sort: @user.cash_sort)
+    if @cash_current.cash_count > 0 && @cash_current.date_finish < Date.today
+      @cash_current.update(cash_count: 0)
+    end
     @cash_current_count = @cash_current.cash_count if @cash_current.present?
   end
 
@@ -57,9 +60,9 @@ class PersonsController < ApplicationController
       @cash_current = @user.cashes.find_by(cash_sort: @user.cash_sort)
       @cash_current_count = @cash_current.cash_count if @cash_current.present?
       @select = @user.cashes.joins(:cash_sort).select('cash_sorts.id, cash_sorts.name')
-      # if @cash_current_count > 0 && @cash_current.date_finish < Date.today
-      #   @cash_current.update(cash_count: 0)
-      # end
+      if @cash_current_count > 0 && @cash_current.date_finish < Date.today
+        @cash_current.update(cash_count: 0)
+      end
 
       if @cash_current_count == 0
         @user.cashes.each do |cash|
@@ -91,7 +94,7 @@ class PersonsController < ApplicationController
             end
 
             order.update(order_destroy: false, date_start: Date.today, date_finish: date_finish)
-            order.cash.update(cash_count: order.count + cash_count, date_finish: date_finish)
+            order.cash.update(cash_count: order.count + cash_count, date_finish: date_finish, subscription_limit: order.count + cash_count)
 
             @user.update(cash_sort: order.cash.cash_sort)
             @cash_current_count = @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count

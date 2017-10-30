@@ -92,6 +92,11 @@ class ActiveTable < ApplicationRecord
     end
     # активация абонемента
     User.with_role(:user).each do |user|
+      cash_current = user.cashes.find_by(cash_sort: user.cash_sort)
+      if cash_current.cash_count > 0 && cash_current.date_finish < Date.today
+        cash_current.update(cash_count: 0)
+      end
+
       subscription = user.subscriptions
       subscription.each do |order|
         if order.date_start <= Date.today
@@ -110,7 +115,7 @@ class ActiveTable < ApplicationRecord
             end
 
             order.update(order_destroy: false, date_start: Date.today, date_finish: date_finish)
-            order.cash.update(cash_count: order.count + cash_count, date_finish: date_finish)
+            order.cash.update(cash_count: order.count + cash_count, date_finish: date_finish, subscription_limit: order.count + cash_count)
 
             user.update(cash_sort: order.cash.cash_sort)
           end

@@ -33,9 +33,15 @@ class LessonsController < ApplicationController
 
       @lesson.users.delete(@user)
 
-      cash.update(cash_count: count+1)
+      if (count + 1) <= cash.subscription_limit
+        cash.update(cash_count: count+1)
+        @answer = false
+      else
+        @answer = true
+        flash[:message] = 'Не возможно привысить лимит абонемента'
+      end
+
       @lesson.update(place_current: place+1)
-      @answer = true
 
       user =  @lesson.users.with_role(:user).order(:last_name)
       @subscriptions = Subscription.where(user: user).where(paid: false)
@@ -103,6 +109,11 @@ class LessonsController < ApplicationController
         @user.update(cash_sort_id: cash_sort)
 
         cash = @user.cashes.find_by(cash_sort: cash_sort)
+
+        if cash.cash_count > 0 && cash.date_finish < Date.today
+          cash.update(cash_count: 0)
+        end
+
         count = cash.cash_count
         cash.update(cash_count: count-1)
 

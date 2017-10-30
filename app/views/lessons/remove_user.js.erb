@@ -1,8 +1,14 @@
+
+$(".write_user tr[data-id='<%=@user.id %>']").css('display','none');
+$(".ready_user tr[data-id='<%=@user.id %>']").replaceWith("<%= escape_javascript(render('lessons/remove_user')) %>");
+$('.table_name .place_current').text('<%= @lesson.place_current %>');
+$('.users_list .place_current:nth-child(1)').text( "На занятие записаны: <%= @lesson.users.count %>");
+$('.users_list .place_current:nth-child(2)').text( "Количество свободных мест: <%= @lesson.place_current %>");
+$(".paid_subscription").html("<%= escape_javascript(render ('lessons/paid')) %>");
+
 <% if @answer %>
-  $(".write_user tr[data-id='<%=@user.id %>']").css('display','none');
-  $(".ready_user tr[data-id='<%=@user.id %>']").replaceWith("<%= escape_javascript(render('lessons/remove_user')) %>");
-  $('.table_name .place_current').text('<%= @lesson.place_current %>');
-  $('.users_list .place_current:nth-child(1)').text( "На занятие записаны: <%= @lesson.users.count %>");
-  $('.users_list .place_current:nth-child(2)').text( "Количество свободных мест: <%= @lesson.place_current %>");
-  $(".paid_subscription").html("<%= escape_javascript(render ('lessons/paid')) %>");
+  $('#notice_inner').removeClass().addClass('notice_red');
+  $('#notice_wrapper').fadeIn(200);
+  $('#notice_inner').text('<%= flash[:message]%>');
+  setTimeout(function () {  $('#notice_wrapper').fadeOut()},1500);
 <% end %>

@@ -78,6 +78,9 @@ $(document).ready(function (){
     $('.reg_user_avatar').change(function () {
         $('#change_tariff').submit();
     });
+    $('#active_table_date').change(function () {
+        $('#new_active_table').submit();
+    });
 });
 
 $( window ).resize(function() {

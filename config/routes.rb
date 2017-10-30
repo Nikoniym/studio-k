@@ -37,9 +37,11 @@ Rails.application.routes.draw do
 
   resources :active_tables do
     get :load_table, on: :collection
+    get :load_day, on: :member
     get :entry_lesson, on: :member
     get :remove_lesson, on: :member
     get :destoy_table, on: :member
+    post :generate_day, on: :collection
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

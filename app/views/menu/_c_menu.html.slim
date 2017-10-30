@@ -12,7 +12,7 @@ header.clearfix
 .menu_nav.clearfix
   nav.cl-effect-14.main_menu
     ul
-      - if  controller_name != 'cancel_admins'
+      - if  controller_name != 'cancel_admins' 
         - if current_user.has_role? :teacher
           li = link_to 'Занятия', teachers_path
           li = link_to 'Семейный тариф', families_path

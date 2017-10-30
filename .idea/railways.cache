@@ -27,9 +27,11 @@
                                                PUT        /albums/:id(.:format)                                                            albums#update
                                                DELETE     /albums/:id(.:format)                                                            albums#destroy
                       load_table_active_tables GET        /active_tables/load_table(.:format)                                              active_tables#load_table
+                         load_day_active_table GET        /active_tables/:id/load_day(.:format)                                            active_tables#load_day
                      entry_lesson_active_table GET        /active_tables/:id/entry_lesson(.:format)                                        active_tables#entry_lesson
                     remove_lesson_active_table GET        /active_tables/:id/remove_lesson(.:format)                                       active_tables#remove_lesson
                      destoy_table_active_table GET        /active_tables/:id/destoy_table(.:format)                                        active_tables#destoy_table
+                    generate_day_active_tables POST       /active_tables/generate_day(.:format)                                            active_tables#generate_day
                                  active_tables GET        /active_tables(.:format)                                                         active_tables#index
                                                POST       /active_tables(.:format)                                                         active_tables#create
                               new_active_table GET        /active_tables/new(.:format)                                                     active_tables#new
