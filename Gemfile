@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use Puma as the app server
@@ -54,14 +54,15 @@ end
 gem 'yui-compressor', '~> 0.12.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'slim', '~> 3.0', '>= 3.0.7'
-gem 'paperclip'
+gem 'activesupport'
+gem 'paperclip', '~> 5.2', '>= 5.2.1'
 gem 'papercrop', '~> 0.3.0'
 gem 'devise'
 gem 'activeadmin', '~> 1.0.0.pre5'
 gem 'susy'
 gem 'compass-rails', '~> 3.0', '>= 3.0.2'
 gem 'light_gallery_rails'
-gem 'pg'
+gem 'pg', '~> 0.21.0'
 gem 'dropzonejs-rails'
 gem 'cancancan'
 gem 'rolify'
