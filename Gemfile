@@ -51,6 +51,7 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'nokogiri', '~> 1.8', '>= 1.8.2'
 gem 'yui-compressor', '~> 0.12.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'slim', '~> 3.0', '>= 3.0.7'

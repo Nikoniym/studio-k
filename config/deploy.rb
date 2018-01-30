@@ -84,7 +84,7 @@ namespace :git do
     run_locally do
       execute "git add -A"
       execute "git commit -m '#{fetch(:message)}'"
-      execute "git push https://github.com/Nikoniym/studio-k.git"
+      execute "git push git@github.com:Nikoniym/studio-k.git"
     end
   end
 end
