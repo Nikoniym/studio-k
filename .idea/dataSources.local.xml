@@ -11,7 +11,7 @@
       <resolve-scope>krylia:nik,public</resolve-scope>
     </data-source>
     <data-source name="Rails krylia: production" uuid="d8f34ae5-d3f0-49cb-b582-484a23da885e">
-      <database-info product="PostgreSQL" version="9.5.10" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
+      <database-info product="PostgreSQL" version="9.5.11" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
@@ -19,7 +19,7 @@
       <user-password>dfdbdfdddfcfdfd8dfcfdfd0df92df92</user-password>
     </data-source>
     <data-source name="Rails krylia: test" uuid="ccd1e5d9-85bb-42f1-a057-bfa60e1c4b27">
-      <database-info product="PostgreSQL" version="9.5.10" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
+      <database-info product="PostgreSQL" version="9.5.11" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
@@ -27,7 +27,7 @@
       <user-password>dfdbdfdddfcfdfd8dfcfdfd0df92df92</user-password>
     </data-source>
     <data-source name="Rails krylia: development" uuid="91c71b25-19e2-403f-ad19-629b9f25e4b7">
-      <database-info product="PostgreSQL" version="9.5.10" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
+      <database-info product="PostgreSQL" version="9.5.11" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />

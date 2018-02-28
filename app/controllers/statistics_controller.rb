@@ -70,7 +70,7 @@ class StatisticsController < ApplicationController
     if id == 'total'
       @user = User.with_role(:teacher).where(show_teacher: true)
     else
-      @user = User.find id
+      @user = User.where id: id
     end
 
     if date_start.present? && date_finish.blank?
