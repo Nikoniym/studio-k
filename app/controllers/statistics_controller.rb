@@ -68,7 +68,7 @@ class StatisticsController < ApplicationController
 
     @total = [0,0,0,0]
     if id == 'total'
-      @user = User.with_role(:teacher).where(show_teacher: true)
+      @user = User.with_role(:teacher)
     else
       @user = User.where id: id
     end
