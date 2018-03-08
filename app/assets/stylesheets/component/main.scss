@@ -291,6 +291,7 @@
   max-width: 505px;
   left: 4%;
   top: 72%;
+  color: $title_color;
   -webkit-transform: translate3d(0,-50%,0);
   transform: translate3d(0,-50%,0);
 }
@@ -1602,7 +1603,7 @@
     z-index: 10040;
     width: 100%;
     height: 100%;
-    background: $link_content;
+    background: $title_color;
     .rotate_inner {
       font-size: 30px;
       font-family: 'Comfortaa', cursive;
