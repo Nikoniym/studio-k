@@ -1,17 +1,18 @@
 h2 Профиль
-.avatar_wrapper.teacher_avatar
-  .img_box.img_teacher
-    = image_tag @user.avatar.url(:thumb), class: 'avatar'
-.info_wrapper
-  p #{@user.first_name} #{@user.last_name}
-  - if @user.has_role?(:statistician)
-    = link_to 'Админка', admin_users_path
+.profile_wrapper.clearfix
+  .avatar_wrapper.teacher_avatar
+    .img_box.img_teacher
+      = image_tag @user.avatar.url(:thumb), class: 'avatar'
+  .info_wrapper
+    p #{@user.first_name} #{@user.last_name}
+    - if @user.has_role?(:statistician)
+      = link_to 'Админка', admin_users_path
+      br
+    = link_to (@user.avatar.exists? ? 'Изменить фото' : 'Добавить фото' ), persons_edit_avatar_path, remote: true
     br
-  = link_to (@user.avatar.exists? ? 'Изменить фото' : 'Добавить фото' ), persons_edit_avatar_path, remote: true
-  br
-  = link_to 'Редактировть профиль', persons_edit_user_path
-  br
-  = link_to 'Выйти', destroy_user_session_path, :method => :delete
+    = link_to 'Редактировть профиль', persons_edit_user_path
+    br
+    = link_to 'Выйти', destroy_user_session_path, :method => :delete
 
 h2.clear_both Расписание
 = form_tag timetable_options_teachers_path, method: "get", id: "filter", class: "filter_box", remote: true do

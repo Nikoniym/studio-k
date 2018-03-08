@@ -63,7 +63,7 @@ input  {
   }
   &.strong{
     .register_wrapper {
-      margin-top: 9%;
+      margin-top: 12%;
     }
   }
   &.edit{
@@ -106,7 +106,7 @@ input  {
   padding: 52px;
   border-radius: 3px;
   min-height: 100%;
-  border: 5px solid;
+  border: 5px solid $divider;
   box-shadow: 0 0 99px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 99px rgba(0, 0, 0, 0.5);
   .error {
