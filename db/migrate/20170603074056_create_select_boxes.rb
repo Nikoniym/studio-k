@@ -1,4 +1,4 @@
-class CreateSelectBoxes < ActiveRecord::Migration[5.0]
+class CreateSelectBoxes < ActiveRecord::Migration[5.1]
   def change
     create_table :select_boxes do |t|
       t.string :name

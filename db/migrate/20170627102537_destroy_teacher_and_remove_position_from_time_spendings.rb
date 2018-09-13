@@ -1,4 +1,4 @@
-class DestroyTeacherAndRemovePositionFromTimeSpendings < ActiveRecord::Migration[5.0]
+class DestroyTeacherAndRemovePositionFromTimeSpendings < ActiveRecord::Migration[5.1]
   def change
     drop_table :teachers
     remove_column :time_spendings, :position, :integer

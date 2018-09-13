@@ -1,4 +1,4 @@
-class AddReferenceUserToSubscriptions < ActiveRecord::Migration[5.0]
+class AddReferenceUserToSubscriptions < ActiveRecord::Migration[5.1]
   def change
     add_reference :subscriptions, :user, index: true, foreign_key: true
     add_column :subscriptions, :price, :integer

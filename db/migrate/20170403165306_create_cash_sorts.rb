@@ -1,4 +1,4 @@
-class CreateCashSorts < ActiveRecord::Migration[5.0]
+class CreateCashSorts < ActiveRecord::Migration[5.1]
   def change
     create_table :cash_sorts do |t|
       t.string :name

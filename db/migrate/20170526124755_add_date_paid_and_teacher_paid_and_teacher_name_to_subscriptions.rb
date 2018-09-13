@@ -1,4 +1,4 @@
-class AddDatePaidAndTeacherPaidAndTeacherNameToSubscriptions < ActiveRecord::Migration[5.0]
+class AddDatePaidAndTeacherPaidAndTeacherNameToSubscriptions < ActiveRecord::Migration[5.1]
   def change
     add_column :subscriptions, :date_paid, :datetime
     add_column :subscriptions, :teacher_id, :integer

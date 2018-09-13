@@ -1,4 +1,4 @@
-class CreateActiveTablesUsers < ActiveRecord::Migration[5.0]
+class CreateActiveTablesUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :active_tables_users, id: false do |t|
       t.belongs_to :user, index: true

@@ -1,4 +1,4 @@
-class CreateActiveTables < ActiveRecord::Migration[5.0]
+class CreateActiveTables < ActiveRecord::Migration[5.1]
   def change
     create_table :active_tables do |t|
       t.date :date

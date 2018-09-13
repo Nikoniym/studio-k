@@ -1,4 +1,4 @@
-class CreateContents < ActiveRecord::Migration[5.0]
+class CreateContents < ActiveRecord::Migration[5.1]
   def change
     create_table :contents do |t|
       t.belongs_to :slide_image, index: true

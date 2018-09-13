@@ -1,4 +1,4 @@
-class CreateTablePublishes < ActiveRecord::Migration[5.0]
+class CreateTablePublishes < ActiveRecord::Migration[5.1]
   def change
     create_table :table_publishes do |t|
       t.string :day_week

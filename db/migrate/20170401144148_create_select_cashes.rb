@@ -1,4 +1,4 @@
-class CreateSelectCashes < ActiveRecord::Migration[5.0]
+class CreateSelectCashes < ActiveRecord::Migration[5.1]
   def change
     create_table :select_cashes do |t|
       t.integer :count

@@ -10,7 +10,7 @@ role :db, %w{nik@89.223.95.96}
 
 set :rails_env, :production
 
-server "188.226.139.181", user: "nik", roles: %w(app db web), primary: true
+server "89.223.95.96", user: "nik", roles: %w(app db web), primary: true
 
 set :ssh_options, {
    keys: %w(~/.ssh/id_rsa),
