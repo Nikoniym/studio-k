@@ -3,10 +3,10 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-role :app, %w{nik@188.226.139.181}
-role :web, %w{nik@188.226.139.181}
-role :db, %w{nik@188.226.139.181}
-# role :db, %w{nik@188.226.139.181}
+role :app, %w{nik@89.223.95.96}
+role :web, %w{nik@89.223.95.96}
+role :db, %w{nik@89.223.95.96}
+# role :db, %w{nik@89.223.95.96}
 
 set :rails_env, :production
 
