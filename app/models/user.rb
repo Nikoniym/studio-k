@@ -50,7 +50,7 @@ class User < ApplicationRecord
               ]
 
 
-  scope :sorted_by, -> {with_role(:user).order(:last_name)}
+  scope :sorted_by, ->(time) { with_role(:user).order(:last_name) }
   scope :search_query, lambda { |query|
     return nil  if query.blank?
     # condition query, parse into individual keywords
