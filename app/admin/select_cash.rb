@@ -1,5 +1,6 @@
 ActiveAdmin.register SelectCash do
   menu priority: 3
+  config.clear_sidebar_sections!
   actions :all, :except => [:show]
   config.sort_order = 'cash_sort_id and price '
   permit_params :name, :price, :count, :cash_sort_id, :subscription, :trial_lesson, :long_time

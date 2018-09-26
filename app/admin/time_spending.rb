@@ -1,4 +1,5 @@
 ActiveAdmin.register TimeSpending do
+  config.clear_sidebar_sections!
   menu parent: 'Расписание'
   config.sort_order = 'time_start_asc'
   actions :all, :except => [:show]

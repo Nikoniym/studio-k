@@ -1,4 +1,5 @@
 ActiveAdmin.register Meet do
+  config.clear_sidebar_sections!
   menu parent: 'Оформление, наполнение'
   actions :all, :except => [:show]
   permit_params :image, :description,  :time_start, :date

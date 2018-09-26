@@ -1,4 +1,5 @@
 ActiveAdmin.register Album do
+  config.clear_sidebar_sections!
   menu parent: 'Оформление, наполнение'
   actions :all, :except => [:show]
   permit_params :avatar, :name, :position, :publish
