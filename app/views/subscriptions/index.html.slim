@@ -4,8 +4,8 @@
       = render 'order'
   h2 Выберете абонемент
   .select-tariff
-    - @cash_sort.each_with_index do |cash, index|
-      = link_to cash.name, select_tariff_subscription_select_subscription_path(cash, @user), remote: true, class: ('active' if index == 0)
+    - CashSort.all.each.with_index(1) do |cash, index|
+      = link_to cash.name, select_tariff_subscription_select_subscription_path(cash, @user), remote: true, class: ('active' if index.to_s == @sort_id)
   .price.no_border
     = render 'price'
   - if  @subscriptions.present?

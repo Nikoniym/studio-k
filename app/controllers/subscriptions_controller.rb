@@ -2,178 +2,152 @@ class SubscriptionsController < ApplicationController
   layout "person"
   require 'adroit-age'
 
-  # def select_tariff
-  #   @user = current_user
-  #   @sort_id = params[:id]
-  #   @select_cash = SelectCash.where(cash_sort_id: @sort_id, subscription: true).order(:price)
-  #   @family = User.where('last_name ~* ?', @user.last_name.chop.chop).where.not(id: @user)
-  #   @subscription = Subscription.new
-  #   @birth_date = @user.birth_date.present? ? @user.birth_date.find_age : nil
-  # end
+  before_action :authenticate_user!
 
-  # def confirm
-  #   @subscription = Subscription.find(params[:id])
-  #   @subscription.update(confirm: false)
-  # end
+  # @sort_id
+  # cash_sort
+
+  # 1 - Личный
+  # 2 - Семейный
+  # 3 - Детский
 
   def index
-    if user_signed_in?
-      @user = current_user
-      # @family = User.where(last_name: @user.last_name)
-      @subscription = Subscription.new
-      @orders = @user.subscriptions.where(order_destroy: true)
-      @subscriptions = @user.subscriptions.page(params[:page]).where(order_destroy: false).order(created_at: :desc)
-      @cash_sort = CashSort.all
-      if @user.trial_lesson
-        @select_cash = SelectCash.where(cash_sort_id: 1,  trial_lesson: true).order(:price)
-      else
-        @select_cash = SelectCash.where(cash_sort_id: 1, subscription: true).order(:price)
-      end
+    # Необходима так как форма используется не только у пользователя но и у преподавателя.
+    @user = current_user
 
-      @sort_id = '1'
-      @users_cash = @user.cashes.where(cash_sort_id: 2)
-      @birth_date = @user.birth_date.present? ? @user.birth_date.find_age : nil
-    else
-      redirect_to new_user_session_path
-    end
+    @subscription = Subscription.new
+
+    # Созданные и не актевированные подписки
+    @orders = @user.subscriptions.where(order_destroy: true)
+    # Список активированных подписок (история)
+    @subscriptions = @user.subscriptions.where(order_destroy: false).order(created_at: :desc).page(params[:page])
+    # Список возможных абонементов с учетом пробного занятия и вид по умолчанию личный
+    @select_cash = SelectCash.list_subscriptions(@user, @user.cash_sort_id)
+    # Вид абонемента используемый пользователем
+    @sort_id = @user.cash_sort_id.to_s
   end
 
-  def show
-    @subscription = Subscription.find(params[:id])
-
-  end
 
   def create
     @user = User.find params[:user_control]
 
-    if user_signed_in?
-      unless @user == current_user || current_user.has_role?(:teacher)
-        redirect_to new_user_session_path
-      end
+    #Устанавливаю флаги для корректного отображения собщений через ajax в create.js.erb
+    flash[:answer] = false
+    flash[:notice] = false
 
-      flash[:answer] = false
-      flash[:notice] = false
+    update_birth_date
 
-      # Обновление даты юзера
-      if  user_params && user_params[:birth_date].present?
-        @user.update(birth_date: user_params[:birth_date])
-        if @user.birth_date.find_age >= 18
-          flash[:answer] = true
-          @select_cash = SelectCash.where(cash_sort_id: 3).order(:price)
-        end
-      end
+    # Проверяем наличие не оплаченного абонемента
+    if @user.paid_subscriptions?
+      #Находим вариант абонемента и устанавливаем вид абонемента и длительность
+      select_cash = SelectCash.find(subscription_params[:select_cash_id])
+      cash_sort = select_cash.cash_sort.id
+      long_time = select_cash.long_time
 
+      # проверка на детский
+      if (cash_sort == 3 && @user.child_age? ) || cash_sort != 3
+        #Кошелек пользователя и если кошелька данного вида нет то создаю новый
+        cash = @user.cashes.find_by(cash_sort_id: cash_sort)
+        cash = @user.cashes.create!(cash_sort_id: cash_sort , cash_count: 0, last_name: @user.full_name)  if cash.nil?
 
+        set_date_start
 
-      if @user.subscriptions.find_by(paid: false).blank?
-        # current_cash = @user.cashes.find_by(cash_sort_id: subscription_params[:select_cash_id])
-        select_cash = SelectCash.find(subscription_params[:select_cash_id])
-        cash_sort = select_cash.cash_sort.id
-        long_time = select_cash.long_time
-        # проверка на детский
-        if (cash_sort == 3 && ((user_params && user_params[:birth_date].present? && user_params[:birth_date].to_date.find_age < 14) || (@user.birth_date.present? && @user.birth_date.find_age < 14))) || cash_sort != 3
-          cash = @user.cashes.find_by(cash_sort_id: cash_sort)
-          cash = @user.cashes.create!(cash_sort_id: cash_sort , cash_count: 0, last_name: @user.full_name)  if cash.nil?
+        # Для поздней активации, чтобы не затереть текущий абонемент
+        confirm = cash.confirm?(@date_start)
 
-          if @user.cash_sort.blank? || @user.cashes.blank? || @user.cashes.find_by(cash_sort: @user.cash_sort).cash_count ==0
-            @user.update(cash_sort_id: cash_sort)
-          end
+        #При наличии пробного занятия, прибавление его к абонементу
+        cash_count = @user.trial_lesson ? select_cash.add_trial_lesson : select_cash.count
 
-          if subscription_params[:date_start].present?
-            date_start = subscription_params[:date_start].to_date
-          else
-            date_start =  Date.today
-          end
+        @subscription = Subscription.new(
+            active: false,
+            count: cash_count,
+            price: select_cash.price,
+            date_start: @date_start,
+            date_finish:  (long_time ? @date_start + 39 : @date_start + 29),
+            paid: false,
+            select_cash_id: subscription_params[:select_cash_id],
+            cash: cash,
+            confirm: confirm,
+            tariff: select_cash.cash_sort.name,
+            user: @user,
+            order_destroy: true,
+            trial_lesson: @user.trial_lesson ? true : false
+        )
 
-
-          if Date.today >  date_start
-            date_start =  Date.today
-          end
-          # Для поздней активации, чтобы не затереть текущий абонемент
-          if cash.cash_count > 0 && cash.date_finish >= date_start
-            confirm = true
-          else
-            confirm = false
-          end
-
-          #trial activation
-          if @user.trial_lesson
-            if select_cash.count > 1
-              cash_count = select_cash.count + 1
-            else
-              cash_count = select_cash.count
-            end
-          else
-            cash_count = select_cash.count
-          end
-
-          @subscription = Subscription.new(
-              active: false,
-              count: cash_count,
-              price: select_cash.price,
-              date_start: date_start,
-              date_finish:  (long_time ? date_start + 39 : date_start + 29),
-              paid: (current_user.has_role? :teacher) ? true : false,
-              select_cash_id: subscription_params[:select_cash_id],
-              cash: cash,
-              confirm: confirm,
-              tariff: select_cash.cash_sort.name,
-              user: @user,
-              order_destroy: true,
-              trial_lesson: @user.trial_lesson ? true : false
-          )
-
-          #teacher paid
-          if (current_user.has_role? :teacher)
-            @subscription.date_paid = Time.now
-            @subscription.teacher_id =  current_user.id
-            @subscription.teacher_name = "#{current_user.last_name} #{current_user.first_name}"
-          end
-
-          if (current_user.has_role? :teacher) && @user.subscriptions.where(order_destroy: true).present?
-            flash[:notice] = "Уже заказан"
-          else
-            if @subscription.save!
-              @orders = @user.subscriptions.where(order_destroy: true).order(created_at: :desc)
-              @user.update(trial_lesson: false) if @user.trial_lesson
-            else
-              render :index
-            end
-          end
-
-
-        else
-          flash[:notice] = "Заполните поле даты рождения."
-        end
+        teacher_create
+        subscription_save
       else
-        flash[:notice] = "Невозможно заказать абонемет, так как уже есть неоплаченный."
-      end
-
-
-
-      respond_to do |format|
-        format.js
+        flash[:notice] = "Заполните поле даты рождения."
       end
     else
-      redirect_to new_user_session_path
+      flash[:notice] = "Невозможно заказать абонемет, так как уже есть неоплаченный."
     end
   end
 
   def destroy
     @order = Subscription.find(params[:id])
+
+    #Востановление пробного занятия
     user = User.find @order.user_id
     user.update(trial_lesson: true) if @order.trial_lesson
+
     @order.destroy
-    # redirect_to subscriptions_path
   end
 
   private
 
+  def set_date_start
+    #Установка дату начала, и что делать если она не указана, либо указана неверно.
+    if subscription_params[:date_start].present?
+      @date_start = subscription_params[:date_start].to_date
+    else
+      @date_start =  Date.today
+    end
+
+    if Date.today >  @date_start
+      @date_start =  Date.today
+    end
+  end
+
+  def subscription_save
+    #Сохранение подписки c учетом использования как пользователем так и учителем
+    if (current_user.has_role? :teacher) && @user.subscriptions.where(order_destroy: true).present?
+      flash[:notice] = "Уже заказан"
+    else
+      if @subscription.save!
+        @orders = @user.subscriptions.where(order_destroy: true).order(created_at: :desc)
+        @user.update(trial_lesson: false) if @user.trial_lesson
+      end
+    end
+  end
+
+  def teacher_create
+    #Если абонемент заказывает преподаватель для ученика на занятии.
+    if (current_user.has_role? :teacher)
+      @subscription.paid = true
+      @subscription.date_paid = Time.now
+      @subscription.teacher_id =  current_user.id
+      @subscription.teacher_name = current_user.full_name
+    end
+  end
+
+  def update_birth_date
+    # Обновление даты юзера и формат вывода детсякого тарифа (форма или список)
+    if  user_params && user_params[:birth_date].present?
+      @user.update(birth_date: user_params[:birth_date])
+      if @user.adult_age?
+        flash[:answer] = true
+        @select_cash = SelectCash.list_subscriptions(@user, 3)
+      end
+    end
+  end
+
   def subscription_params
-    params.require(:subscription).permit(:select_cash_id, :date_start, :user => [])
+    params.require(:subscription).permit(:select_cash_id, :date_start)
   end
 
   def user_params
+    #Так как поле присутствует в общей форме только в детском тарифе, выполняется проверка
     if params[:user].present?
       params.require(:user).permit(:birth_date)
     else
