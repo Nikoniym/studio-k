@@ -6,7 +6,7 @@ class SubscriptionsController < ApplicationController
 
   # @sort_id
   # cash_sort
-
+  # Тарифы:
   # 1 - Личный
   # 2 - Семейный
   # 3 - Детский
@@ -18,15 +18,14 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new
 
     # Созданные и не актевированные подписки
-    @orders = @user.subscriptions.where(order_destroy: true)
+    @order = @user.subscriptions.find_by(order_destroy: true)
     # Список активированных подписок (история)
     @subscriptions = @user.subscriptions.where(order_destroy: false).order(created_at: :desc).page(params[:page])
-    # Список возможных абонементов с учетом пробного занятия и вид по умолчанию личный
+    # Список возможных абонементов с учетом пробного занятия и активного тарифа
     @select_cash = SelectCash.list_subscriptions(@user, @user.cash_sort_id)
     # Вид абонемента используемый пользователем
     @sort_id = @user.cash_sort_id.to_s
   end
-
 
   def create
     @user = User.find params[:user_control]
@@ -44,7 +43,7 @@ class SubscriptionsController < ApplicationController
       cash_sort = select_cash.cash_sort.id
       long_time = select_cash.long_time
 
-      # проверка на детский
+      # проверка на детский и создаем новую подписку для всех тарифов
       if (cash_sort == 3 && @user.child_age? ) || cash_sort != 3
         #Кошелек пользователя и если кошелька данного вида нет то создаю новый
         cash = @user.cashes.find_by(cash_sort_id: cash_sort)
@@ -101,12 +100,10 @@ class SubscriptionsController < ApplicationController
     if subscription_params[:date_start].present?
       @date_start = subscription_params[:date_start].to_date
     else
-      @date_start =  Date.today
+      @date_start = Date.today
     end
 
-    if Date.today >  @date_start
-      @date_start =  Date.today
-    end
+    @date_start = Date.today if Date.today > @date_start
   end
 
   def subscription_save
@@ -115,7 +112,7 @@ class SubscriptionsController < ApplicationController
       flash[:notice] = "Уже заказан"
     else
       if @subscription.save!
-        @orders = @user.subscriptions.where(order_destroy: true).order(created_at: :desc)
+        @order = @user.subscriptions.find_by(order_destroy: true)
         @user.update(trial_lesson: false) if @user.trial_lesson
       end
     end
@@ -148,11 +145,7 @@ class SubscriptionsController < ApplicationController
 
   def user_params
     #Так как поле присутствует в общей форме только в детском тарифе, выполняется проверка
-    if params[:user].present?
-      params.require(:user).permit(:birth_date)
-    else
-      false
-    end
+    params[:user].present? ? params.require(:user).permit(:birth_date) : false
   end
 end
 

@@ -1,22 +1,21 @@
 .history_subscription
   h2 Заказ
-  - @orders.each do |subscription|
-    .order_item data-id="#{subscription.id}"
-      - if subscription.confirm
-        .warning
-          span Данный абонемет будет ативирован c #{l subscription.cash.date_finish, format: :long}.
-          br
-          span Либо когда у текущего абонемента закончаться занятия.
-          br
-          span Дата начала действия абонемента будет установленна в момент активации.
-      div Заказ оформил: #{subscription.user.first_name} #{subscription.user.last_name}
-      - unless subscription.confirm
-        .validity Абонемент действует: с #{l subscription.date_start, format: :long} до #{l subscription.date_finish, format: :long} включительно
-      .created_at Заказ сделан: #{l subscription.created_at, format: :standart}
-      .status Статус: #{ subscription.paid ? 'оплачен' : 'не оплачен' }
-      .tariff Тариф: #{subscription.tariff.downcase if subscription.tariff.present?}
-      .sub_info
-        span Количество занятий: #{subscription.count > 1000 ? 'безлимитно' : subscription.count}
-        span Стоимость: #{subscription.price} руб.
-        - if  !subscription.paid or current_user.has_role? :teacher
-          = link_to 'Отменить', subscription,  method: :delete, remote: true
+  .order_item data-id="#{@order.id}"
+    - if @order.confirm
+      .warning
+        span Данный абонемет будет ативирован c #{l @order.cash.date_finish, format: :long}.
+        br
+        span Либо когда у текущего абонемента закончаться занятия.
+        br
+        span Дата начала действия абонемента будет установленна в момент активации.
+    div Заказ оформил: #{@order.user.first_name} #{@order.user.last_name}
+    - unless @order.confirm
+      .validity Абонемент действует: с #{l @order.date_start, format: :long} до #{l @order.date_finish, format: :long} включительно
+    .created_at Заказ сделан: #{l @order.created_at, format: :standart}
+    .status Статус: #{ @order.paid ? 'оплачен' : 'не оплачен' }
+    .tariff Тариф: #{@order.tariff.downcase if @order.tariff.present?}
+    .sub_info
+      span Количество занятий: #{@order.count > 1000 ? 'безлимитно' : @order.count}
+      span Стоимость: #{@order.price} руб.
+      - if  !@order.paid or current_user.has_role? :teacher
+        = link_to 'Отменить', @order,  method: :delete, remote: true

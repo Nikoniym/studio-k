@@ -1,6 +1,6 @@
 .subscription_wrapper
   .order
-    - if @orders.present?
+    - if @order.present?
       = render 'subscriptions/order'
   h2 Выберете абонемент
   span.user_name Клиет: #{@user.full_name}
