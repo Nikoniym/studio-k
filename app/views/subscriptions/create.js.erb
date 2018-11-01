@@ -1,11 +1,10 @@
-
-<% if flash[:notice] %>
-  $('form .answer').text('<%= flash[:notice] %>');
-<% else %>
+<% if	 @subscription.persisted? %>
   $(".order").html("<%= escape_javascript(render('order')) %>");
   $('form .answer').text('Заказ оформлен.');
+<% else %>
+  $('form .answer').html('<%= j render 'shared/short_errors', resource: @subscription%>');
 <% end %>
 
-<% if flash[:answer] %>
+<% if @list_of_subscribers %>
   $(".wrapper_form").html("<%= escape_javascript(render('message')) %>");
 <% end %>

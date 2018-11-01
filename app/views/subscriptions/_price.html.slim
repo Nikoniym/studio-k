@@ -3,7 +3,7 @@
   - if @user.trial_lesson
     h4 Вы можете заказать пробное занятие или к любому абонементу будет добавлнено одно занятие.
   .wrapper_form
-    - if @sort_id == '2' && @user.cashes.find_by(cash_sort: '2').blank?
+    - if @sort_id == '2' && !@user.family_wallet?
       .message
         |Обратитесь к админисратору для активации тарифа.
         br
@@ -12,13 +12,13 @@
           - @select_cash.each do |price|
             li #{price.name} - #{price.price} руб.
     - else
-      - if @sort_id == '2' && @user.cashes.find_by(cash_sort: '2').present?
+      - if @sort_id == '2' && @user.family_wallet?
         .family
           | Члены семь:
           br
-           = @user.cashes.find_by(cash_sort: '2').users.select(:last_name, :first_name).map {|c| "#{c.last_name} #{c.first_name}" }.join(', ')
+           = @user.cashes.find_by(cash_sort: '2').users.map{ |c| c.full_name }.join(', ')
           br
-      - if  @sort_id == '3' && (@birth_date.nil? ? false : @birth_date >= 18)
+      - if  @sort_id == '3' && @user.adult_age?
         = render 'subscriptions/message'
       - else
         = form_for @subscription, remote: true do |f|
@@ -35,8 +35,6 @@
               li
                 = f.radio_button :select_cash_id, price.id, :checked => index == 0 ? true : false, class: 'option-input radio'
                 = f.label "select_cash_id_#{price.id}",  " #{price.name} - #{price.price} руб. "
-
-
           .datepicker_field
             = f.label :date_start, 'Дата начала:'
             = f.date_field :date_start, class: 'date_picker'

@@ -77,7 +77,7 @@ class LessonsController < ApplicationController
     @user = User.find params[:teacher_id]
     # @family = User.where(last_name: @user.last_name)
     @subscription = Subscription.new
-    @orders = @user.subscriptions.where(order_destroy: true)
+    @order = @user.subscriptions.find_by(order_destroy: true)
     @subscriptions = @user.subscriptions.page(params[:page]).where(order_destroy: false).order(created_at: :desc)
     @cash_sort = CashSort.all
     if @user.trial_lesson
